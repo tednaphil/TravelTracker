@@ -32,7 +32,7 @@ main {
 #plan-trip-container {
   max-width: 416px;
   background: var(--main-bg-color);
-  padding-right: 10px;
+  padding-right: 30px;
   & h2 {
     background: var(--sec-bg-color);
     color: var(--sec-text-color);
@@ -99,6 +99,18 @@ input {
       position: relative;
     }
   }
+}
+
+.trips {
+  display: flex;
+  flex-direction: row;
+}
+
+.trip-card {
+  text-align: center;
+  /* width: 40%; */
+  /* width: 250px; */
+  padding: 0 10px;
 }
 
 
