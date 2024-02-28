@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
@@ -12,18 +13,64 @@
   --main-text-color: #1B1B1E;
   --sec-text-color: #FBFFFF;
   /* decide on whether to use outline or border later */
-  --rounded-border: 16px;
+  --rounded-border: 12px;
   --border-style: #1B1B1E solid 1px;
   --drop-shadow: drop-shadow(0px 2px 10px #404040);
 }
 
 body {
-  background: var(--main-acc-color);
+  background: var(--main-bg-color);
 }
 
-img {
+#plan-trip-container {
+  position: absolute;
+  max-width: 416px;
+  background: var(--main-bg-color);
+  & h2 {
+    background: var(--sec-bg-color);
+    color: var(--sec-text-color);
+    height: 130px;
+    margin: 0;
+    padding-top: 50px;
+    text-align: center;
+  }
+}
+
+label, input {
+  display: block;
+}
+
+label:not(:first-of-type) {
+  padding-top: 10px;
+}
+
+input {
+  background: var(--main-bg-color);
   border-radius: var(--rounded-border);
   border: var(--border-style);
-  background: var(--main-bg-color);
-  filter: var(--drop-shadow);
+  min-width: 320px;
+  min-height: 40px;
+  padding: 0 20px;
 }
+
+#trip-search-button {
+  margin-top: 20px;
+  background: var(--sec-acc-color);
+  color: var(--sec-text-color);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#trip-stats-container {
+  background: var(--sec-bg-color);
+  color: var(--sec-text-color);
+  width: 900px;
+  min-height: 500px;
+  margin-left: 400px;
+  & h2 {
+    padding: 50px 50px;
+  }
+}
+
+
