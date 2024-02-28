@@ -1,0 +1,7 @@
+function filterTrips() {
+
+}
+
+export {
+    filterTrips
+}
