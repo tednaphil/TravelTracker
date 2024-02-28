@@ -88,9 +88,15 @@ input {
   background: var(--sec-bg-color);
   color: var(--sec-text-color);
   width: 80%;
-  max-height: 500px;
+  min-height: 500px;
   & h2 {
     padding: 30px 50px;
+  }
+  & div{
+    padding-left: 50px;
+  }
+  & div:last-of-type {
+    font-size: 2rem;
   }
 }
 

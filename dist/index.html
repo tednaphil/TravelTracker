@@ -20,9 +20,25 @@
         <input class="buttons" id="trip-search-button" type="submit" value="Search">
       </form>
     </div>
-    <div id="trip-stats-container">
+    <aside id="trip-stats-container">
       <h2>Trip Stats</h2>
-    </div>
+      <div id="trip-stats-text">
+        <h3>Total Lodging</h3>
+        <p id="lodging-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Total Airfare</h3>
+        <p id="airfare-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Total Agent Fees</h3>
+        <p id="agent-fee-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Grand Total</h3>
+        <p id="grand-total">$</p>
+      </div>
+    </aside>
   </main>
   <div id="trip-details-container">
     <section id="upcoming-trips-section">
@@ -51,7 +67,7 @@
       </div>
     </section>
   </div>
-  <section id="search-results">
+  <section class="hidden" id="search-results">
     <h2>Results</h2>
     <div id="results-container">
       <div class="result-card">
