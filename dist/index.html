@@ -7,8 +7,20 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
+  <div id="plan-trip-container">
+    <h2 id="plan-trip-header">Plan Your Next Trip</h2>
+    <form id="plan-trip-form">
+      <label for="date">Date</label>
+      <input id="date-input" name="date" type="date"/>
+      <label for="duration">Duration</label>
+      <input id="duration-input" name="duration" type="number"/>
+      <label for="travelers">Travelers</label>
+      <input id="num-travelers-input" name="travelers" type="number"/>
+      <input class="buttons" id="trip-search-button" type="submit" value="Search">
+    </form>
+  </div>
   
+  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>
