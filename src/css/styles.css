@@ -22,10 +22,17 @@ body {
   background: var(--main-bg-color);
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
 #plan-trip-container {
-  position: absolute;
   max-width: 416px;
   background: var(--main-bg-color);
+  padding-right: 10px;
   & h2 {
     background: var(--sec-bg-color);
     color: var(--sec-text-color);
@@ -65,12 +72,34 @@ input {
 #trip-stats-container {
   background: var(--sec-bg-color);
   color: var(--sec-text-color);
-  width: 900px;
-  min-height: 500px;
-  margin-left: 400px;
+  width: 80%;
+  max-height: 500px;
   & h2 {
-    padding: 50px 50px;
+    padding: 30px 50px;
   }
 }
+
+#trip-details-container {
+  background: var(--sec-bg-color);
+  min-height: 1340px;
+  padding: 10px 0;
+  & section {
+    background: var(--main-bg-color);
+    margin: 40px 20px;
+    min-height: 400px;
+    &  h2 {
+      position: relative;
+      left: -10px;
+      top: -25px;
+      background: var(--main-acc-color);
+      filter: var(--drop-shadow);
+      width: 250px;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+    }
+  }
+}
+
 
 
