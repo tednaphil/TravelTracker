@@ -130,18 +130,11 @@ input {
 
 #search-results {
   background: var(--sec-bg-color);
-}
-
-#results-container {
-  background: var(--main-bg-color);
-  width: 90%;
-  padding: 10px 0;
-  margin-left: auto;
-  margin-right: auto;
+  padding-bottom: 30px;
   & h2 {
     position: relative;
-    left: -20px;
-    top: -75px;
+    left: 20px;
+    top: 60px;
     background: var(--main-acc-color);
     font-size: 2.5rem;
     filter: var(--drop-shadow);
@@ -150,6 +143,14 @@ input {
     padding: 10px 0;
     position: relative;
   }
+}
+
+#results-container {
+  background: var(--main-bg-color);
+  width: 90%;
+  padding: 30px 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .result-card {
