@@ -5,14 +5,6 @@ import { setTraveler } from '../src/traveler';
 
 
 describe('Traveler', function() {
-  // let traveler1, traveler2, traveler3, invalidTraveler;
-  // this.beforeEach(() => {
-  //   traveler1 = setTraveler(1, testTravelers);
-  //   traveler2 = setTraveler(2, testTravelers);
-  //   traveler3 = setTraveler(3, testTravelers);
-  //   invalidTraveler = setTraveler(99);
-  // })
-
   describe('Set Traveler', function() {
     it('should return one traveler based on ID', function() {
       const traveler1 = setTraveler(1, testTravelers);
