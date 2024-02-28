@@ -28,9 +28,12 @@ describe('Traveler', function() {
       expect(traveler2.name).to.equal('Kai Miller');
       expect(traveler2.travelerType).to.equal('thrill-seeker');
     });
-    it.skip('should return false if passed an ID of a non-existent traveler', function() {
+    it('should return "false" if passed an ID of a non-existent traveler', function() {
+      const invalidTraveler1 = setTraveler(0, testTravelers);
+      const invalidTraveler2 = setTraveler(11, testTravelers);
 
-      expect(invalidTraveler).to.be.false
+      expect(invalidTraveler1).to.be.false;
+      expect(invalidTraveler2).to.be.false;
     });
   });
 });
