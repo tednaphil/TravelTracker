@@ -1,10 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTravelers } from './sample-data/sample-traveler';
-import { setTraveler } from '../src/traveler';
+import { setTraveler, checkLogin } from '../src/traveler';
 
 
 describe('Traveler', function() {
+
   describe('Set Traveler', function() {
     it('should return one traveler based on ID', function() {
       const traveler1 = setTraveler(1, testTravelers);
@@ -28,4 +29,8 @@ describe('Traveler', function() {
       expect(invalidTraveler2).to.be.false;
     });
   });
+
+  describe('Check Login', function() {
+    
+  })
 });
