@@ -1,11 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, calculateStats, createTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, calculateStats, getTripDisplayInfo, createTrip } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination } from '../src/destinations';
+import { findDestination, getDestDisplayInfo } from '../src/destinations';
 
 describe('Trips', function() {
   let traveler1, traveler2, traveler3, trips1, trips2, trips3, traveler1Trips;
@@ -159,6 +159,18 @@ describe('Trips', function() {
         grandTotal: 0,
         tripsTaken: 0
       });
+    });
+  });
+
+  describe('Get Trip Display Info', function() {
+    it.skip('should return an object with past and pending properties', function() {
+
+    });
+    it.skip('should include display info for all a traveler\'s past and pending trips', function() {
+
+    });
+    it.skip('should return feedback if no trips to display', function() {
+      
     });
   })
 
