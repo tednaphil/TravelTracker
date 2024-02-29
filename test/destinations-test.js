@@ -24,7 +24,6 @@ describe('Destinations', function() {
 
   describe('Find Destination', function() {
     it('should return one destination object based on ID', function() {
-      // const dest1 = findDestination(1, testDestinations);
 
       expect(dest1).to.deep.equal({
         id: 1,
@@ -47,11 +46,6 @@ describe('Destinations', function() {
     it('should return an object with one destination\'s details to display', function() {
       const destInfo = getDestDisplayInfo(dest1);
 
-      // expect(destInfo).to.deep.equal({
-      //   name: "Lima, Peru",
-      //   image: "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
-      //   alt: "city with buildings during the day"
-      // });
       expect(destInfo).to.be.an('object');
       expect(destInfo.name).to.equal("Lima, Peru");
       expect(destInfo.image).to.equal("https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80");

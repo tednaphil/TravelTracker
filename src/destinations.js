@@ -15,7 +15,6 @@ function findDestination(locationID, destinationsArray) {
 // }
 
 function getDestDisplayInfo(destination) {
-    // return an object with image src, alt tag, and destination name
     const displayInfo = {
         name: destination.destination,
         image: destination.image,
