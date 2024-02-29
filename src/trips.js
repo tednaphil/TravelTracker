@@ -3,6 +3,11 @@ function filterTrips(id, tripsArray) {
     return trips
 }
 
+function organizeTrips(userTrips) {
+    
+}
+
 export {
-    filterTrips
+    filterTrips,
+    organizeTrips
 }
