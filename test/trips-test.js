@@ -13,9 +13,9 @@ describe('Trips', function() {
     traveler1 = setTraveler(1, testTravelers);
     traveler2 = setTraveler(2, testTravelers);
     traveler3 = setTraveler(3, testTravelers);
-    trips1 = filterTrips(traveler1.id, testTrips);
-    trips2 = filterTrips(traveler2.id, testTrips);
-    trips3 = filterTrips(traveler3.id, testTrips);
+    trips1 = filterTrips(traveler1, testTrips);
+    trips2 = filterTrips(traveler2, testTrips);
+    trips3 = filterTrips(traveler3, testTrips);
   });
   
   describe('Filter Trips', function() {

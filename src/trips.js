@@ -1,4 +1,4 @@
-function filterTrips(id, tripsArray) {
+function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
     return trips
 }
@@ -19,6 +19,7 @@ function organizeTrips(userTrips) {
 }
 
 function calculateTripCost(tripID, tripsArray, destinationsArray) {
+
 
 }
 
