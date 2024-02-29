@@ -8,15 +8,19 @@ import { testDestinations } from './sample-data/sample-destinations';
 import { findDestination, getDestDisplayInfo } from '../src/destinations';
 
 describe('Trips', function() {
-  let traveler1, traveler2, traveler3, trips1, trips2, trips3, traveler1Trips;
+  let traveler1, traveler2, traveler3, traveler4, trips1, trips2, trips3, trips4, traveler1Trips, traveler4Trips, trav1DisplayInfo;
   beforeEach(() => {
     traveler1 = setTraveler(1, testTravelers);
     traveler2 = setTraveler(2, testTravelers);
     traveler3 = setTraveler(3, testTravelers);
+    traveler4 = setTraveler(4, testTravelers);
     trips1 = filterTrips(traveler1, testTrips);
     trips2 = filterTrips(traveler2, testTrips);
     trips3 = filterTrips(traveler3, testTrips);
+    trips4 = filterTrips(traveler4, testTrips);
     traveler1Trips = organizeTrips(trips1);
+    traveler4Trips = organizeTrips(trips4);
+    trav1DisplayInfo = getTripDisplayInfo(traveler1Trips, testDestinations);
   });
   
   describe('Filter Trips', function() {
@@ -145,9 +149,6 @@ describe('Trips', function() {
       });
     });
     it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {
-      const traveler4 = setTraveler(4, testTravelers);
-      const trips4 = filterTrips(traveler4, testTrips);
-      const traveler4Trips = organizeTrips(trips4);
       const trav4Stats = calculateStats(traveler4Trips, testTrips, testDestinations);
 
       expect(trips4.length).to.equal(0);
@@ -163,16 +164,39 @@ describe('Trips', function() {
   });
 
   describe('Get Trip Display Info', function() {
-    it.skip('should return an object with past and pending properties', function() {
+    it('should return an object with past and pending properties', function() {
 
+      expect(trav1DisplayInfo.past).to.be.an('array');
+      expect(trav1DisplayInfo.pending).to.be.an('array');
     });
-    it.skip('should include display info for all a traveler\'s past and pending trips', function() {
+    it('should include display info for all a traveler\'s past and pending trips', function() {
 
+      expect(trav1DisplayInfo).to.deep.equal({
+        past: [{
+            name: "Lima, Peru",
+            image: "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+            alt: "city with buildings during the day"
+          },
+          {
+            name: "Dubai, UAE",
+            image: "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+            alt: "city with tall buildings and a fountain in the foreground"
+          }
+        ],
+        pending: [{
+          name: "Paris, France",
+          image: "https://images.unsplash.com/photo-1508818619205-0a3a90aadc5d?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+          alt: "city during the day with eiffel tower"
+          }
+        ]
+      });
     });
-    it.skip('should return feedback if no trips to display', function() {
-      
+    it('should provide feedback if no trips to display', function() {
+      const trav4DisplayInfo = getTripDisplayInfo(traveler4Trips, testDestinations);
+
+      expect(trav4DisplayInfo.pending).to.equal('No Trips 🌍')
     });
-  })
+  });
 
   describe('Create Trip', function() {
 
