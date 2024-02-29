@@ -1,3 +1,5 @@
+// import { getDestDisplayInfo } from "./destinations";
+
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
     return trips
@@ -42,12 +44,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
 }
 
 function calculateStats({approved}, tripsArray, destinationsArray) {
-    //map through approved trips array invoking calculateTripCost on each trip
-    //reduce that new array to one object that adds up each category in each object
-    // console.log(approved)
-    // console.log(arguments)
     const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
-    // console.log('trip costs', tripCosts)
     const travStats = tripCosts.reduce((obj, trip) => {
         obj.lodging += trip.totalLodging;
         obj.airfare += trip.totalAirfare;
@@ -69,6 +66,13 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
 
 }
 
+function getTripDisplayInfo({approved, pending}) {
+    // argument is the destructured organizedTrips return object)
+    // map through a traveler's organized trips to invoke findDestinations
+    // map through destinations to invoke getDestDisplayInfo
+    // return object with display info to display in past and pending sections on DOM
+}
+
 // function createTrip() {
 
 // }
@@ -78,5 +82,6 @@ export {
     organizeTrips,
     calculateTripCost,
     calculateStats,
+    getTripDisplayInfo,
     // createTrip
 }
