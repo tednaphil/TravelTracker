@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips } from '../src/trips';
+import { filterTrips, organizeTrips, getDestinationInfo } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 

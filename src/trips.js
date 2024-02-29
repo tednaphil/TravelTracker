@@ -18,7 +18,12 @@ function organizeTrips(userTrips) {
     return tripsObject
 }
 
+// function getDestinationInfo() {
+
+// }
+
 export {
     filterTrips,
-    organizeTrips
+    organizeTrips,
+    // getDestinationInfo
 }
