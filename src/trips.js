@@ -1,4 +1,4 @@
-// import { getDestDisplayInfo } from "./destinations";
+import { findDestination, getDestDisplayInfo } from "./destinations";
 
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
@@ -66,11 +66,19 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
 
 }
 
-function getTripDisplayInfo({approved, pending}) {
+function getTripDisplayInfo({approved, pending}, destinationsArray) {
     // argument is the destructured organizedTrips return object)
     // map through a traveler's organized trips to invoke findDestinations
     // map through destinations to invoke getDestDisplayInfo
     // return object with display info to display in past and pending sections on DOM
+    const pastDestinations = approved.map(trip => findDestination(trip.id, destinationsArray));
+    // console.log('pastDestinations:', pastDestinations)
+    const pendingDestinations = pending.map(trip => findDestination(trip.id, destinationsArray));
+    const allDisplayInfo = {
+        past: pastDestinations.map(dest => getDestDisplayInfo(dest)),
+        pending: pendingDestinations.map(dest => getDestDisplayInfo(dest))
+    }
+    return allDisplayInfo
 }
 
 // function createTrip() {
