@@ -1,9 +1,53 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testDestinations } from './sample-data/sample-destinations';
+import { findDestination, calculateDestinationCosts } from '../src/destinations';
+import { testTrips } from './sample-data/sample-trips';
+import { filterTrips, organizeTrips } from '../src/trips';
+import { testTravelers } from './sample-data/sample-traveler';
+import { setTraveler } from '../src/traveler';
 
-describe('See if destinations tests are running', function() {
-  it('should return true', function() {
-    expect(true).to.equal(true);
+
+
+describe('Destinations', function() {
+  // it('should return true', function() {
+  //   expect(true).to.equal(true);
+  // });
+  let traveler1, traveler2, traveler3, trips1, trips2, trips3, traveler1Trips;
+  beforeEach(() => {
+    traveler1 = setTraveler(1, testTravelers);
+    traveler2 = setTraveler(2, testTravelers);
+    traveler3 = setTraveler(3, testTravelers);
+    trips1 = filterTrips(traveler1.id, testTrips);
+    trips2 = filterTrips(traveler2.id, testTrips);
+    trips3 = filterTrips(traveler3.id, testTrips);
+    traveler1Trips= organizeTrips(trips1);
+  });
+
+  describe('Find Destination', function() {
+    it.skip('should return one destination object based on ID', function() {
+      const dest1 = findDestination(1, testDestinations);
+
+      expect(dest1).to.deep.equal({
+        id: 1,
+        destination: "Lima, Peru",
+        estimatedLodgingCostPerDay: 70,
+        estimatedFlightCostPerPerson: 400,
+        image:
+          "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+        alt: "city with buildings during the day",
+      });
+    });
+    it.skip('should return "false" if passed an ID of a non-existent destination', function() {
+      const invalidDest = findDestination(10, testDestinations);
+
+      expect(invalidDest).to.be.false;
+    });
+
+
+  });
+
+  describe('Add Destination Info', function() {
+
   });
 });
