@@ -7,6 +7,11 @@ function setTraveler(id, travelerArray) {
     }
 }
 
+function checkLogin() {
+
+}
+
 export {
-    setTraveler
+    setTraveler,
+    // checkLogin
 }
