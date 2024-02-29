@@ -54,7 +54,7 @@ const testTrips = [
         destinationID: 6, 
         duration: 5, 
         id: 6, 
-        status: "pending", 
+        status: "approved", 
         suggestedActivities: [], 
         travelers: 1, 
         userID: 3 

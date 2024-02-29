@@ -29,7 +29,7 @@ const testDestinations = [
   {
     id: 4,
     destination: "Paris, France",
-    estimatedLodgingCostPerDay: 100,
+    estimatedLodgingCostPerDay: 103,
     estimatedFlightCostPerPerson: 395,
     image:
       "https://images.unsplash.com/photo-1508818619205-0a3a90aadc5d?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
