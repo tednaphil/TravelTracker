@@ -53,4 +53,10 @@ describe('Destinations', function() {
     });
     // sad path(s)
   });
+
+  describe('Filter Destinations', function() {
+    it('should have happy and sad paths', function() {
+
+    });
+  });
 });

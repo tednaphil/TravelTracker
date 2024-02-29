@@ -77,9 +77,9 @@ function getTripDisplayInfo({approved, pending}, destinationsArray) {
     return allDisplayInfo
 }
 
-// function createTrip() {
+function createTrip() {
 
-// }
+}
 
 export {
     filterTrips,
@@ -87,5 +87,5 @@ export {
     calculateTripCost,
     calculateStats,
     getTripDisplayInfo,
-    // createTrip
+    createTrip
 }

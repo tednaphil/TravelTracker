@@ -13,5 +13,5 @@ function checkLogin() {
 
 export {
     setTraveler,
-    // checkLogin
+    checkLogin
 }

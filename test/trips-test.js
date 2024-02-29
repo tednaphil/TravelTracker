@@ -199,6 +199,9 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
+    it('should happy and sad paths', function() {
+      
+    })
 
   });
 });
