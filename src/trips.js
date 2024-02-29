@@ -18,12 +18,17 @@ function organizeTrips(userTrips) {
     return tripsObject
 }
 
-// function getDestinationInfo() {
+function calculateTripCost(tripID, tripsArray, destinationsArray) {
+
+}
+
+// function createTrip() {
 
 // }
 
 export {
     filterTrips,
     organizeTrips,
-    // getDestinationInfo
+    calculateTripCost,
+    // createTrip
 }
