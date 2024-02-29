@@ -98,7 +98,7 @@ describe('Trips', function() {
   });
 
   describe('Calculate Trip Cost', function() {
-    it.skip('should return an object with cost breakdown for one trip', function() {
+    it('should return an object with cost breakdown for one trip', function() {
       const cost1 = calculateTripCost(1, testTrips, testDestinations);
 
       expect(cost1).to.deep.equal({
@@ -109,7 +109,7 @@ describe('Trips', function() {
         grandTotal: 902 
       })
     });
-    it.skip('should calculate costs for trips with multiple travelers', function() {
+    it('should calculate costs for trips with multiple travelers', function() {
       const cost2 = calculateTripCost(2, testTrips, testDestinations);
 
       expect(cost2).to.deep.equal({
@@ -120,12 +120,12 @@ describe('Trips', function() {
         grandTotal: 1931 
       })
     })
-    it.skip('should return "false" if passed an ID of a non-existent trip', function() {
+    it('should return "false" if passed an ID of a non-existent trip', function() {
       const invalidCost = calculateTripCost(10, testTrips, testDestinations);
 
       expect(invalidCost).to.be.false;
     });
-    it.skip('should have rounded up integers as property values', function() {
+    it('should have rounded up integers as property values', function() {
       const roundedCost = calculateTripCost(4, testTrips, testDestinations);
 
       expect(roundedCost.grandTotal).to.equal(1322);
