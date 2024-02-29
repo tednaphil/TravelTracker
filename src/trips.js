@@ -68,15 +68,11 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
 
 function getTripDisplayInfo({approved, pending}, destinationsArray) {
     // argument is the destructured organizedTrips return object)
-    // map through a traveler's organized trips to invoke findDestinations
-    // map through destinations to invoke getDestDisplayInfo
-    // return object with display info to display in past and pending sections on DOM
     const pastDestinations = approved.map(trip => findDestination(trip.id, destinationsArray));
-    // console.log('pastDestinations:', pastDestinations)
     const pendingDestinations = pending.map(trip => findDestination(trip.id, destinationsArray));
     const allDisplayInfo = {
-        past: pastDestinations.map(dest => getDestDisplayInfo(dest)),
-        pending: pendingDestinations.map(dest => getDestDisplayInfo(dest))
+        past: pastDestinations.length ? pastDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍',
+        pending: pendingDestinations.length ? pendingDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍'
     }
     return allDisplayInfo
 }
