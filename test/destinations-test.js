@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination, calculateDestinationCosts } from '../src/destinations';
+import { findDestination, getDestinationCosts, filterDestinations, addDestinationInfo } from '../src/destinations';
 import { testTrips } from './sample-data/sample-trips';
 import { filterTrips, organizeTrips } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
@@ -10,9 +10,6 @@ import { setTraveler } from '../src/traveler';
 
 
 describe('Destinations', function() {
-  // it('should return true', function() {
-  //   expect(true).to.equal(true);
-  // });
   let traveler1, traveler2, traveler3, trips1, trips2, trips3, traveler1Trips;
   beforeEach(() => {
     traveler1 = setTraveler(1, testTravelers);
@@ -43,11 +40,5 @@ describe('Destinations', function() {
 
       expect(invalidDest).to.be.false;
     });
-
-
-  });
-
-  describe('Add Destination Info', function() {
-
   });
 });
