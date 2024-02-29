@@ -51,7 +51,7 @@ describe('Trips', function() {
   })
 
   describe('Organize Trips', function() {
-    it.skip('should create an object of a traveler\'s pending and approved trips', function() {
+    it('should create an object of a traveler\'s pending and approved trips', function() {
       const traveler1Trips = organizeTrips(trips1)
 
       expect(traveler1Trips).to.deep.equal({
@@ -88,7 +88,7 @@ describe('Trips', function() {
         }]
       });
     });
-    it.skip('should present an empty array if no trips match the respective status', function() {
+    it('should present an empty array if no trips match the respective status', function() {
       const traveler3Trips = organizeTrips(trips3);
 
       expect(traveler3Trips.pending).to.deep.equal([])
