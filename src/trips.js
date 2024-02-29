@@ -41,6 +41,34 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
     }
 }
 
+function calculateStats({approved}, tripsArray, destinationsArray) {
+    //map through approved trips array invoking calculateTripCost on each trip
+    //reduce that new array to one object that adds up each category in each object
+    // console.log(approved)
+    // console.log(arguments)
+    const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
+    // console.log('trip costs', tripCosts)
+    const travStats = tripCosts.reduce((obj, trip) => {
+        obj.lodging += trip.totalLodging;
+        obj.airfare += trip.totalAirfare;
+        obj.subtotal += trip.subtotal;
+        obj.agentFee += trip.agentFee;
+        obj.grandTotal += trip.grandTotal;
+        obj.tripsTaken ++;
+
+        return obj
+    }, {
+        lodging: 0,
+        airfare: 0,
+        subtotal: 0,
+        agentFee: 0,
+        grandTotal: 0,
+        tripsTaken: 0
+    })
+    return travStats
+
+}
+
 // function createTrip() {
 
 // }
@@ -49,5 +77,6 @@ export {
     filterTrips,
     organizeTrips,
     calculateTripCost,
+    calculateStats,
     // createTrip
 }
