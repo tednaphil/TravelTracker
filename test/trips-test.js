@@ -1,14 +1,14 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, createTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, calculateStats, createTrip } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
 import { findDestination } from '../src/destinations';
 
 describe('Trips', function() {
-  let traveler1, traveler2, traveler3, trips1, trips2, trips3;
+  let traveler1, traveler2, traveler3, trips1, trips2, trips3, traveler1Trips;
   beforeEach(() => {
     traveler1 = setTraveler(1, testTravelers);
     traveler2 = setTraveler(2, testTravelers);
@@ -16,6 +16,7 @@ describe('Trips', function() {
     trips1 = filterTrips(traveler1, testTrips);
     trips2 = filterTrips(traveler2, testTrips);
     trips3 = filterTrips(traveler3, testTrips);
+    traveler1Trips = organizeTrips(trips1);
   });
   
   describe('Filter Trips', function() {
@@ -54,7 +55,6 @@ describe('Trips', function() {
 
   describe('Organize Trips', function() {
     it('should create an object of a traveler\'s pending and approved trips', function() {
-      const traveler1Trips = organizeTrips(trips1)
 
       expect(traveler1Trips).to.deep.equal({
         approved: [{ 
@@ -131,6 +131,36 @@ describe('Trips', function() {
       expect(roundedCost.grandTotal).to.equal(1322);
     });
   });
+
+  describe('Calculate Trip Stats', function() {
+    it('should return an object with totals spent for a traveler\'s past trips', function() {
+      const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations);
+      expect(trav1Stats).to.deep.equal({
+        lodging: 1220,
+        airfare: 2200,
+        subtotal: 3420,
+        agentFee: 342,
+        grandTotal: 3762,
+        tripsTaken: 2
+      });
+    });
+    it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {
+      const traveler4 = setTraveler(4, testTravelers);
+      const trips4 = filterTrips(traveler4, testTrips);
+      const traveler4Trips = organizeTrips(trips4);
+      const trav4Stats = calculateStats(traveler4Trips, testTrips, testDestinations);
+
+      expect(trips4.length).to.equal(0);
+      expect(trav4Stats).to.deep.equal({
+        lodging: 0,
+        airfare: 0,
+        subtotal: 0,
+        agentFee: 0,
+        grandTotal: 0,
+        tripsTaken: 0
+      });
+    });
+  })
 
   describe('Create Trip', function() {
 
