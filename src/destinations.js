@@ -14,9 +14,15 @@ function findDestination(locationID, destinationsArray) {
         //MIGHT BE UNNECCESARY
 // }
 
-// function getDestinationDisplayInfo(destination) {
+function getDestDisplayInfo(destination) {
     // return an object with image src, alt tag, and destination name
-// }
+    const displayInfo = {
+        name: destination.destination,
+        image: destination.image,
+        alt: destination.alt
+    }
+    return displayInfo
+}
 
 // function filterDestinations() {
     // return array of destinations that meet search criteria submitted by user
@@ -25,6 +31,6 @@ function findDestination(locationID, destinationsArray) {
 export {
     findDestination,
     // getDestinationCosts,
-    // addDestinationDisplayInfo,
+    getDestDisplayInfo,
     // filterDestinations
 }
