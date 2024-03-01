@@ -10,6 +10,10 @@ const agentFeesTotal = document.querySelector('#agent-fee-total');
 const grandTotal = document.querySelector('#grand-total');
 const pendingTrips = document.querySelector('#pending-trips');
 const pastTrips = document.querySelector('#past-trips');
+const pendingPlaceholder = document.querySelector('#no-pending');
+const pastPlaceholder = document.querySelector('#no-past');
+
+
 
 // EVENT LISTENERS
 window.addEventListener('load', fetchData()
@@ -36,7 +40,7 @@ let currentTraveler;
 
 function renderDom() {
     //add paramater to accept traveler id to pass to setTraveler
-    currentTraveler = setTraveler(1, travelersData);
+    currentTraveler = setTraveler(3, travelersData);
     console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
     console.log('trips', trips);
@@ -52,14 +56,27 @@ function renderDom() {
 }
 
 function displayTrips({past, pending}) {
-    past.forEach(trip => {
-        pastTrips.innerHTML += `
-        <div class="trip-card">
-            <img alt="${trip.alt}" src="${trip.image}">
-            <p>${trip.name}</p>
-        </div>`
-    })
-}
+    if (typeof past === 'object') {
+        pastPlaceholder.classList.add('hidden');
+        past.forEach(trip => {
+            pastTrips.innerHTML += `
+            <div class="trip-card">
+                <img alt="${trip.alt}" src="${trip.image}">
+                <p>${trip.name}</p>
+            </div>`
+        })
+    };
+    if (typeof pending === 'object') {
+        pendingPlaceholder.classList.add('hidden');
+        pending.forEach(trip => {
+            pendingTrips.innerHTML += `
+            <div class="trip-card">
+                <img alt="${trip.alt}" src="${trip.image}">
+                <p>${trip.name}</p>
+            </div>`
+        })
+    }; 
+};
 
 function displayStats(statsObj) {
     lodgingTotal.innerText = `$ ${statsObj.lodging}`;
@@ -67,8 +84,7 @@ function displayStats(statsObj) {
     agentFeesTotal.innerText = `$ ${statsObj.agentFee}`;
     grandTotal.innerText = `$ ${statsObj.grandTotal}`;
 
-
-}
+};
 
 
 
