@@ -102,7 +102,8 @@ input {
 
 #trip-details-container {
   background: var(--sec-bg-color);
-  min-height: 1340px;
+  /* min-height: 1340px; */
+  min-height: 940px;
   padding: 10px 0;
   & section {
     background: var(--main-bg-color);
@@ -125,6 +126,16 @@ input {
 .trips {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  & img {
+    width: 280px;
+    height: 180px;
+  }
+  & h3 {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 3rem;
+  }
 }
 
 .trip-card {
@@ -149,6 +160,10 @@ input {
     padding: 10px 0;
     position: relative;
   }
+}
+
+.close-button {
+  float: right;
 }
 
 #results-container {

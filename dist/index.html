@@ -21,7 +21,7 @@
       </form>
     </div>
     <aside id="trip-stats-container">
-      <h2>Trip Stats</h2>
+      <h2>Past Trip Stats</h2>
       <div id="trip-stats-text">
         <h3>Total Lodging</h3>
         <p id="lodging-total">$</p>
@@ -35,13 +35,13 @@
         <p id="agent-fee-total">$</p>
       </div>
       <div id="trip-stats-text">
-        <h3>Grand Total</h3>
+        <h3>Total Spent</h3>
         <p id="grand-total">$</p>
       </div>
     </aside>
   </main>
   <div id="trip-details-container">
-    <section id="upcoming-trips-section">
+    <section class="hidden" id="upcoming-trips-section">
       <h2>Upcoming Trips</h2>
       <div class="trips" id="upcoming-trips">
         <div class="trip-card">
@@ -57,17 +57,20 @@
     <section id="pending-trips-section">
       <h2>Pending Trips</h2>
       <div class="trips" id="pending-trips">
+        <h3 id="no-pending">No pending trips 🌍</h3>
 
       </div>
     </section>
     <section id="past-trips-section">
       <h2>Past Trips</h2>
       <div class="trips" id="past-trips">
+        <h3 id="no-past">No trips taken 🌍</h3>
 
       </div>
     </section>
   </div>
   <section class="hidden" id="search-results">
+    <button id="close-button" class="close-button buttons" onclick="this.parentNode.classList.add('hidden')">Close</button>
     <h2>Results</h2>
     <div id="results-container">
       <div class="result-card">

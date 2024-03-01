@@ -23,13 +23,13 @@ function getDestDisplayInfo(destination) {
     return displayInfo
 }
 
-// function filterDestinations() {
+function filterDestinations() {
     // return array of destinations that meet search criteria submitted by user
-// }
+}
 
 export {
     findDestination,
     // getDestinationCosts,
     getDestDisplayInfo,
-    // filterDestinations
+    filterDestinations
 }

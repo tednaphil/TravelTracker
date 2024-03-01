@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, calculateStats, getTripDisplayInfo, createTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
@@ -53,8 +53,11 @@ describe('Trips', function() {
         travelers: 2, 
         userID: 2 
       });
-      // sad path(s)
-    })
+      // sad path(s) - if an invalid id is passed
+    });
+    // it.skip('should sort trips from most recent to earliest', function() {
+    //   expect(trips3[0].date).to.equal('2026/06/25')
+    // })
   });
 
   describe('Organize Trips', function() {
@@ -101,6 +104,15 @@ describe('Trips', function() {
     })
   });
 
+  describe('Find Current Year', function() {
+    it('should return the year of a traveler\'s most recent trip', function() {
+      const currentYear = findCurrentYear(trips3);
+
+      expect(currentYear).to.equal('2026')
+
+    });
+  });
+
   describe('Calculate Trip Cost', function() {
     it('should return an object with cost breakdown for one trip', function() {
       const cost1 = calculateTripCost(1, testTrips, testDestinations);
@@ -120,7 +132,7 @@ describe('Trips', function() {
         totalLodging: 225,
         totalAirfare: 1530,
         subtotal: 1755,
-        agentFee: 175.5,
+        agentFee: 176,
         grandTotal: 1931 
       })
     })
@@ -137,15 +149,28 @@ describe('Trips', function() {
   });
 
   describe('Calculate Trip Stats', function() {
-    it('should return an object with totals spent for a traveler\'s past trips', function() {
-      const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations);
+    it('should return an object with totals spent for a traveler\'s past trips that year', function() {
+      const currentYear = findCurrentYear(trips1);
+      const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations, currentYear);
+
+
+      // expect(trav1Stats).to.deep.equal({
+      //   lodging: 1220,
+      //   airfare: 2200,
+      //   subtotal: 3420,
+      //   agentFee: 342,
+      //   grandTotal: 3762,
+      //   tripsTaken: 2
+      // });
+      expect(currentYear).to.equal('2026')
       expect(trav1Stats).to.deep.equal({
-        lodging: 1220,
-        airfare: 2200,
-        subtotal: 3420,
-        agentFee: 342,
-        grandTotal: 3762,
-        tripsTaken: 2
+        lodging: 0,
+        airfare: 0,
+        subtotal: 0,
+        agentFee: 0,
+        grandTotal: 0,
+        tripsTaken: 1,
+        year: ''
       });
     });
     it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {
@@ -158,7 +183,8 @@ describe('Trips', function() {
         subtotal: 0,
         agentFee: 0,
         grandTotal: 0,
-        tripsTaken: 0
+        tripsTaken: 0,
+        year: ''
       });
     });
   });
@@ -194,11 +220,14 @@ describe('Trips', function() {
     it('should provide feedback if no trips to display', function() {
       const trav4DisplayInfo = getTripDisplayInfo(traveler4Trips, testDestinations);
 
-      expect(trav4DisplayInfo.pending).to.equal('No Trips 🌍')
+      expect(trav4DisplayInfo.pending).to.equal('No Pending Trips 🌍')
     });
   });
 
   describe('Create Trip', function() {
+    it('should happy and sad paths', function() {
+      
+    })
 
   });
 });

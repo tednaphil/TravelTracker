@@ -2,6 +2,7 @@ import { findDestination, getDestDisplayInfo } from "./destinations";
 
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
+    // const sortedTrips = trips.sort((a, b) => a.date - b.date)
     return trips
 }
 
@@ -30,7 +31,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
         const totalLodging = tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
         const totalAirfare = tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
         const subtotal = totalLodging + totalAirfare;
-        const agentFee = subtotal * .1;
+        const agentFee = Math.round(subtotal * .1);
         const grandTotal = Math.round(subtotal + agentFee)
         const tripCost = {
             totalLodging,
@@ -43,7 +44,21 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
     }
 }
 
-function calculateStats({approved}, tripsArray, destinationsArray) {
+function findCurrentYear(userTrips) {
+    const dates = userTrips.map(trip => trip.date)
+    const years = [];
+    dates.forEach(date => {
+        years.push((date.split('/')[0]))
+    })
+    const sortedYears = years.sort((a, b) => b - a)
+    return sortedYears[0]
+
+}
+
+function calculateStats({approved}, tripsArray, destinationsArray, year) {
+    //pass current year as an argument and calculate costs for that year only
+    //if trip.date.includes current year, add it to accumulator properties
+    //add year property to obj for access to display
     const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
     const travStats = tripCosts.reduce((obj, trip) => {
         obj.lodging += trip.totalLodging;
@@ -52,6 +67,7 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
         obj.agentFee += trip.agentFee;
         obj.grandTotal += trip.grandTotal;
         obj.tripsTaken ++;
+        // obj.year = year;
 
         return obj
     }, {
@@ -60,7 +76,8 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
         subtotal: 0,
         agentFee: 0,
         grandTotal: 0,
-        tripsTaken: 0
+        tripsTaken: 0,
+        year: ''
     })
     return travStats
 
@@ -68,24 +85,25 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
 
 function getTripDisplayInfo({approved, pending}, destinationsArray) {
     // argument is the destructured organizedTrips return object)
-    const pastDestinations = approved.map(trip => findDestination(trip.id, destinationsArray));
-    const pendingDestinations = pending.map(trip => findDestination(trip.id, destinationsArray));
+    const pastDestinations = approved.map(trip => findDestination(trip.destinationID, destinationsArray));
+    const pendingDestinations = pending.map(trip => findDestination(trip.destinationID, destinationsArray));
     const allDisplayInfo = {
         past: pastDestinations.length ? pastDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍',
-        pending: pendingDestinations.length ? pendingDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍'
+        pending: pendingDestinations.length ? pendingDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Pending Trips 🌍'
     }
     return allDisplayInfo
 }
 
-// function createTrip() {
+function createTrip() {
 
-// }
+}
 
 export {
     filterTrips,
     organizeTrips,
     calculateTripCost,
+    findCurrentYear,
     calculateStats,
     getTripDisplayInfo,
-    // createTrip
+    createTrip
 }
