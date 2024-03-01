@@ -261,6 +261,12 @@ describe('Trips', function() {
     });
   });
 
+  describe('Calculate New Estimate', function() {
+    it.skip('should return an object with cost details for a new trip', function() {
+      
+    })
+  })
+
   // describe('Make Tentative Trips', function() {
   //   it.skip('should return an array of trip objects', function() {
 

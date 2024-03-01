@@ -1,5 +1,5 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo } from "./trips";
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo, calculateEstimate } from "./trips";
 import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinations } from "./destinations";
 import { fetchData, postData } from "./apiCalls";
 
@@ -28,6 +28,7 @@ const resultsContainer = document.querySelector('#results-container');
 
 const tripConfirmation = document.querySelector('#trip-confirmation');
 const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
+const tripCosts = document.querySelector('#trip-costs')
 const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
 
 
@@ -179,7 +180,7 @@ function planTrip(inputObj, destinationID) {
             const newTrip = data.newTrip
             console.log('new trip', newTrip)
             // const costs = calculateTripCost(newTrip.id)
-            // setData()
+            // setData() says json stream already read????
             displayNewTrip(newTrip)
         })
     // console.log('posted Trip', postedTrip)
@@ -194,8 +195,16 @@ function planTrip(inputObj, destinationID) {
 function displayNewTrip(tripObj) {
     const dest = findDestination(tripObj.destinationID, destinationsData)
     console.log('display new trip dest', dest)
-    const costs = calculateTripCost(tripObj.id, tripsData, destinationsData)
-    tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`
+    const costs = calculateEstimate(tripObj, destinationsData)
+    console.log('costs for displayNewTrip', costs)
+    tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`;
+    tripCosts.innerHTML = `
+    Lodging: $${costs.totalLodging}<br>
+    Airfare: $${costs.totalAirfare}<br>
+    Subtotal: $${costs.subtotal}<br>
+    10% Agent Fee: $${costs.agentFee}<br>
+    Total Estimate: $${costs.grandTotal}`
+
 
 
 }
