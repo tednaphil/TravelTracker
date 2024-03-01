@@ -3,16 +3,11 @@ import { filterTrips, organizeTrips, calculateTripCost, calculateStats, getTripD
 import { findDestination, getDestDisplayInfo, filterDestinations } from "./destinations";
 import { fetchData, postData } from "./apiCalls";
 
+// QUERY SELECTORS
 
-// console.log(fetchData())
-
-let travelersData;
-let tripsData;
-let destinationsData;
-// let userID;
-let currentTraveler;
-
+// EVENT LISTENERS
 window.addEventListener('load', fetchData()
+//refactor to take in traveler id to pass into renderDom
 .then(({travelers, destinations, trips}) => {
     travelersData =travelers;
     tripsData = trips;
@@ -24,9 +19,17 @@ window.addEventListener('load', fetchData()
     return error
 }))
 
+// GLOBAL VARIABLES
+let travelersData;
+let tripsData;
+let destinationsData;
+// let userID;
+let currentTraveler;
+
 
 
 function renderDom() {
+    //add paramater to accept traveler id to pass to setTraveler
     currentTraveler = setTraveler(1, travelersData);
     console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
@@ -35,7 +38,18 @@ function renderDom() {
     console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
     console.log('Trip Display Info', tripDisplayDetails)
-    //get totals next
+    let stats = calculateStats(organizedTrips, tripsData, destinationsData);
+    console.log('stats', stats)
+    displayTrips();
+    displayStats();
+
+}
+
+function displayTrips() {
+
+}
+
+function displayStats() {
 
 }
 
