@@ -1,5 +1,5 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips } from "./trips";
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip } from "./trips";
 import { findDestination, getDestDisplayInfo, filterDestinations } from "./destinations";
 import { fetchData, postData } from "./apiCalls";
 
@@ -53,6 +53,7 @@ let currentTraveler;
 
 function renderDom() {
     //add paramater to accept traveler id to pass to setTraveler
+    // console.log('trips data', tripsData)
     currentTraveler = setTraveler(3, travelersData);
     console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
@@ -100,6 +101,7 @@ function displayStats(statsObj) {
 };
 
 function handleSearch(e) {
+    // console.log('tripsData at time of search', tripsData)
     const input = captureInput();
     // const tentativeTrips = makeTentativeTrips(input);
     // renderResults(tentativeTrips);
