@@ -34,18 +34,20 @@ const tripConfirmationButton = document.querySelector('#trip-confirmation-button
 
 
 // EVENT LISTENERS
-window.addEventListener('load', fetchData()
-//refactor to take in traveler id to pass into renderDom
-.then(({travelers, destinations, trips}) => {
-    travelersData =travelers;
-    tripsData = trips;
-    destinationsData = destinations;
-    renderDom()
-})
-.catch(error => {
-    console.log(error)
-    return error
-}));
+// window.addEventListener('load', fetchData()
+// //refactor to take in traveler id to pass into renderDom
+// .then(({travelers, destinations, trips}) => {
+//     travelersData =travelers;
+//     tripsData = trips;
+//     destinationsData = destinations;
+//     renderDom()
+// })
+// .catch(error => {
+//     console.log(error)
+//     return error
+// }));
+
+window.addEventListener('load', setData)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 searchResultsSection.addEventListener('click', function(e) {
@@ -60,7 +62,20 @@ let destinationsData;
 let currentTraveler;
 let tripInput;
 
-
+function setData() {
+    fetchData()
+//refactor to take in traveler id to pass into renderDom
+    .then(({travelers, destinations, trips}) => {
+        travelersData =travelers;
+        tripsData = trips;
+        destinationsData = destinations;
+        renderDom()
+    })
+    .catch(error => {
+        console.log(error)
+        return error
+    })
+}
 
 function renderDom() {
     //add paramater to accept traveler id to pass to setTraveler
@@ -73,7 +88,7 @@ function renderDom() {
     console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
     console.log('Trip Display Info', tripDisplayDetails)
-    let currentYear = findCurrentYear(trips);
+    let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
     console.log('stats', stats)
     displayTrips(tripDisplayDetails);
@@ -155,14 +170,34 @@ function planTrip(inputObj, destinationID) {
     const destID = Number(destinationID)
     console.log('destination id is a', typeof destID)
     const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
-    const newTrip = createTrip(inputObj, dest, currentTraveler)
-    console.log(newTrip)
-    // postTrip(newTrip)
+    const tripObj = createTrip(inputObj, dest, currentTraveler)
+    
+    console.log('trip obj', tripObj)
+    postData(tripObj)
+        .then(data => {
+            // console.log(data.newTrip)
+            const newTrip = data.newTrip
+            console.log('new trip', newTrip)
+            // const costs = calculateTripCost(newTrip.id)
+            // setData()
+            displayNewTrip(newTrip)
+        })
+    // console.log('posted Trip', postedTrip)
     //create new trip and store in variable
+    // postTrip(newTrip)
     //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
     //calculateTripCost(newtrip.id) and store in variable
     //display confirmation window
     //display total trip cost, and confirm posting(then re-fetch, renderDom, and return to home)
+}
+
+function displayNewTrip(tripObj) {
+    const dest = findDestination(tripObj.destinationID, destinationsData)
+    console.log('display new trip dest', dest)
+    const costs = calculateTripCost(tripObj.id, tripsData, destinationsData)
+    tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`
+
+
 }
 
 function clearForm() {
