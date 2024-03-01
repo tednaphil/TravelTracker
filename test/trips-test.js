@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
@@ -215,9 +215,14 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
-    it('should happy and sad paths', function() {
+    it('should return an object that includes all trip properties', function() {
       
     })
+  });
 
+  describe('Make Tentative Trips', function() {
+    it('should return an array of trip objects', function() {
+
+    })
   });
 });

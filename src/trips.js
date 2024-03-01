@@ -93,8 +93,17 @@ function getTripDisplayInfo({approved, pending}, destinationsArray) {
     return allDisplayInfo
 }
 
-function createTrip() {
+function createTrip(inputObj) {
+    //take in input obj
+    //return an object that includes all trip properties
 
+}
+
+function makeTentativeTrips(inputObj) {
+    //return an array of trip objects based on search results
+    //iterate through destinations in search results (filter destinations)
+    // invoke createTrip on each object
+    //sort trips from lowest cost to highest price
 }
 
 export {
@@ -104,5 +113,6 @@ export {
     findCurrentYear,
     calculateStats,
     getTripDisplayInfo,
-    createTrip
+    createTrip,
+    makeTentativeTrips,
 }
