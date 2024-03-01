@@ -4,6 +4,10 @@ import { findDestination, getDestDisplayInfo, filterDestinations } from "./desti
 import { fetchData, postData } from "./apiCalls";
 
 // QUERY SELECTORS
+const lodgingTotal = document.querySelector('#lodging-total');
+const airfareTotal = document.querySelector('#airfare-total');
+const agentFeesTotal = document.querySelector('#agent-fee-total');
+const grandTotal = document.querySelector('#grand-total');
 
 // EVENT LISTENERS
 window.addEventListener('load', fetchData()
@@ -41,7 +45,7 @@ function renderDom() {
     let stats = calculateStats(organizedTrips, tripsData, destinationsData);
     console.log('stats', stats)
     displayTrips();
-    displayStats();
+    displayStats(stats);
 
 }
 
@@ -49,7 +53,9 @@ function displayTrips() {
 
 }
 
-function displayStats() {
+function displayStats(statsObject) {
+    lodgingTotal.innerText = `$ ${statsObject.lodging}`;
+
 
 }
 
