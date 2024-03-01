@@ -4,6 +4,7 @@ import { findDestination, getDestDisplayInfo, filterDestinations } from "./desti
 import { fetchData, postData } from "./apiCalls";
 
 // QUERY SELECTORS
+const main = document.querySelector('main');
 const lodgingTotal = document.querySelector('#lodging-total');
 const airfareTotal = document.querySelector('#airfare-total');
 const agentFeesTotal = document.querySelector('#agent-fee-total');
@@ -12,6 +13,9 @@ const pendingTrips = document.querySelector('#pending-trips');
 const pastTrips = document.querySelector('#past-trips');
 const pendingPlaceholder = document.querySelector('#no-pending');
 const pastPlaceholder = document.querySelector('#no-past');
+
+const searchResultsSection = document.querySelector('#search-results')
+const searchCloseButton = document.querySelector('#close-button');
 
 
 
@@ -83,6 +87,17 @@ function displayStats(statsObj) {
     airfareTotal.innerText = `$ ${statsObj.airfare}`;
     agentFeesTotal.innerText = `$ ${statsObj.agentFee}`;
     grandTotal.innerText = `$ ${statsObj.grandTotal}`;
+
+};
+
+function displayResults() {
+    main.classList.add('hidden');
+    searchResultsSection.classList.remove('hidden');
+};
+
+function backToLanding() {
+    main.classList.remove('hidden')
+
 
 };
 
