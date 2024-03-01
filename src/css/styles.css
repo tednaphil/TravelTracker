@@ -184,6 +184,10 @@ input {
   justify-content: space-around;
 }
 
+#trip-confirmation {
+  text-align: center;
+}
+
 
 .hidden {
   display: none;
