@@ -10,15 +10,17 @@ function findDestination(locationID, destinationsArray) {
 //refactor to destructure locationID parameter to {destinationID} and pass trip object instead?
 
 
-// function getDestinationCosts(locationID, destinationsArray) {
-        //calculate cost estimate of a tentative trip
+// function getDestCostDisplay(locationID, destinationsArray) {
+//         // calculate cost estimate of a tentative trip
 // }
 
 function getDestDisplayInfo(destination) {
     const displayInfo = {
         name: destination.destination,
         image: destination.image,
-        alt: destination.alt
+        alt: destination.alt,
+        // lodging: destination.estimatedLodgingCostPerDay,
+        // airfare: destination.estimatedFlightCostPerPerson,
     }
     return displayInfo
 }
@@ -29,7 +31,6 @@ function getDestDisplayInfo(destination) {
 
 export {
     findDestination,
-    // getDestinationCosts,
+    // getDestCostDisplay,
     getDestDisplayInfo,
-    // filterDestinations
 }

@@ -1,6 +1,6 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip } from "./trips";
-import { findDestination, getDestDisplayInfo, filterDestinations } from "./destinations";
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo } from "./trips";
+import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinations } from "./destinations";
 import { fetchData, postData } from "./apiCalls";
 
 // QUERY SELECTORS
@@ -21,8 +21,9 @@ const pastTrips = document.querySelector('#past-trips');
 const pendingPlaceholder = document.querySelector('#no-pending');
 const pastPlaceholder = document.querySelector('#no-past');
 
-const searchResultsSection = document.querySelector('#search-results')
+const searchResultsSection = document.querySelector('#search-results');
 const searchCloseButton = document.querySelector('#close-button');
+const resultsContainer = document.querySelector('#results-container');
 
 
 
@@ -40,7 +41,10 @@ window.addEventListener('load', fetchData()
     return error
 }));
 searchButton.addEventListener('click', handleSearch);
-searchCloseButton.addEventListener('click', backToLanding);
+searchCloseButton.addEventListener('click', backToHome);
+searchResultsSection.addEventListener('click', function(e) {
+    console.log('event log', e.target.value)
+})
 
 // GLOBAL VARIABLES
 let travelersData;
@@ -72,6 +76,7 @@ function renderDom() {
 function displayTrips({past, pending}) {
     if (typeof past === 'object') {
         pastPlaceholder.classList.add('hidden');
+        // pastTrips.innerHTML = ''
         past.forEach(trip => {
             pastTrips.innerHTML += `
             <div class="trip-card">
@@ -82,6 +87,7 @@ function displayTrips({past, pending}) {
     };
     if (typeof pending === 'object') {
         pendingPlaceholder.classList.add('hidden');
+        // pendingTrips.innerHTML = ''
         pending.forEach(trip => {
             pendingTrips.innerHTML += `
             <div class="trip-card">
@@ -102,9 +108,9 @@ function displayStats(statsObj) {
 
 function handleSearch(e) {
     // console.log('tripsData at time of search', tripsData)
-    const input = captureInput();
+    const input = captureInput(); //do i need to store this globaly?
     // const tentativeTrips = makeTentativeTrips(input, destinationsData);
-    // renderResults(tentativeTrips);
+    renderResults(destinationsData);
     displayResults(e);
     
 }
@@ -123,17 +129,22 @@ function captureInput() {
     return input
 }
 
-function renderResults(tripsArray) {
+function renderResults(destinationsArray) {
+    resultsContainer.innerHTML = ''
+    
     //add trip display card elements to search results section
-    //should include location name, airfare and lodging costs per day
-    //iterate through array += innerHTML of results container - make selector for this
+    //should include destination  name, airfare and lodging costs per day
+    //make selector for results container
+    //iterate through destinationsarray += inner HTML of results container dest cost, lodging, name, etc
     //see result card html placeholer template
 }
 
-function planTrip() {
-    //confirm trip invokation
-    //post new trip
-    //calculate total cost, display, and confirm selected trip
+function planTrip(inputObj, destinationObj, traveler) {
+    //create new trip and store in variable
+    //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
+    //calculateTripCost(newtrip.id) and store in variable
+    //display confirmation window
+    //display total trip cost, and confirm posting(then re-fetch, renderDom, and return to home)
 }
 
 function displayResults(e) {
@@ -144,9 +155,10 @@ function displayResults(e) {
 };
 
 
-function backToLanding() {
+function backToHome() {
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
+    // searchResultsSection.classList.add('hidden');
 };
 
 

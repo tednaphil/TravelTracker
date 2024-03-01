@@ -114,10 +114,15 @@ function makeTentativeTrips(inputObj, destinationsArray) {
     // invoke createTrip on each object
 }
 
-function confirmTrip(tripsArray) {
-    //update id of trip for it to be POSTed
-    //return object
+function getResultsDisplayInfo(tentativeTripsArray, destinationsArray) {
+    // destinationsArray.map(invoke get dest display info)
+
 }
+
+// function confirmTrip(tripsArray) {
+//     //update id of trip with generated id for it to be POSTed
+//     //return object
+// }
 
 export {
     filterTrips,
@@ -128,5 +133,6 @@ export {
     getTripDisplayInfo,
     createTrip,
     makeTentativeTrips,
-    confirmTrip
+    getResultsDisplayInfo
+    // confirmTrip
 }

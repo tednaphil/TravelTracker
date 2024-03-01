@@ -257,18 +257,23 @@ describe('Trips', function() {
         travelers: 3,
         userID: 1
       });
-    })
+    });
   });
 
-  describe('Make Tentative Trips', function() {
-    it.skip('should return an array of trip objects', function() {
+  // describe('Make Tentative Trips', function() {
+  //   it.skip('should return an array of trip objects', function() {
 
-    })
-  });
+  //   })
+  // });
 
-  describe('Confirm Trip', function() {
-    it.skip('should return a trip object with an updated id property', function() {
+  // describe('Get Results Display Info', function() {
+  //   it.skip('should return an array of ')
 
-    })
-  });
+  // });
+
+  // describe('Confirm Trip', function() {
+  //   it.skip('should return a trip object with an updated id property', function() {
+
+  //   })
+  // });
 });

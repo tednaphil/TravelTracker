@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination, getDestinationCosts, filterDestinations, getDestDisplayInfo } from '../src/destinations';
+import { findDestination, getDestCostDisplay, getDestDisplayInfo } from '../src/destinations';
 import { testTrips } from './sample-data/sample-trips';
 import { filterTrips, organizeTrips } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
@@ -42,9 +42,9 @@ describe('Destinations', function() {
     });
   });
 
-  describe('Get Destination Costs', function() {
-    it.skip('should')
-  });
+  // describe('Get Destination Cost Display Info', function() {
+  //   it.skip('should return an object with one destination\'s Cost')
+  // });
 
   describe('Get Destination Display Info', function() {
     it('should return an object with one destination\'s details to display', function() {
