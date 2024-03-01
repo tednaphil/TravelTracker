@@ -5,6 +5,10 @@ import { fetchData, postData } from "./apiCalls";
 
 // QUERY SELECTORS
 const main = document.querySelector('main');
+const tripDetailsSection = document.querySelector('#trip-details-container');
+
+const searchButton = document.querySelector('#trip-search-button');
+
 const lodgingTotal = document.querySelector('#lodging-total');
 const airfareTotal = document.querySelector('#airfare-total');
 const agentFeesTotal = document.querySelector('#agent-fee-total');
@@ -31,7 +35,9 @@ window.addEventListener('load', fetchData()
 .catch(error => {
     console.log(error)
     return error
-}))
+}));
+searchButton.addEventListener('click', displayResults);
+searchCloseButton.addEventListener('click', backToLanding);
 
 // GLOBAL VARIABLES
 let travelersData;
@@ -91,13 +97,16 @@ function displayStats(statsObj) {
 
 };
 
-function displayResults() {
+function displayResults(e) {
+    e.preventDefault();
     main.classList.add('hidden');
+    tripDetailsSection.classList.add('hidden');
     searchResultsSection.classList.remove('hidden');
 };
 
 function backToLanding() {
-    main.classList.remove('hidden')
+    main.classList.remove('hidden');
+    tripDetailsSection.classList.remove('hidden');
 
 
 };
