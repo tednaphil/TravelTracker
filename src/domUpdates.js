@@ -1,7 +1,7 @@
 import { setTraveler, checkLogin } from "./traveler";
 import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo, calculateEstimate } from "./trips";
 import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinations } from "./destinations";
-import { fetchData, postData } from "./apiCalls";
+import { fetchData, postData, fetchTrips } from "./apiCalls";
 
 // QUERY SELECTORS
 const main = document.querySelector('main');
@@ -35,25 +35,13 @@ const tripConfirmationButton = document.querySelector('#trip-confirmation-button
 
 
 // EVENT LISTENERS
-// window.addEventListener('load', fetchData()
-// //refactor to take in traveler id to pass into renderDom
-// .then(({travelers, destinations, trips}) => {
-//     travelersData =travelers;
-//     tripsData = trips;
-//     destinationsData = destinations;
-//     renderDom()
-// })
-// .catch(error => {
-//     console.log(error)
-//     return error
-// }));
-
 window.addEventListener('load', setData)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 searchResultsSection.addEventListener('click', function(e) {
     planTrip(tripInput, e.target.value)
 })
+tripConfirmationButton.addEventListener('click', handleConfirmation)
 
 // GLOBAL VARIABLES
 let travelersData;
@@ -77,6 +65,8 @@ function setData() {
         return error
     })
 }
+
+
 
 function renderDom() {
     //add paramater to accept traveler id to pass to setTraveler
@@ -168,6 +158,9 @@ function renderResults(destinationsArray) {
 }
 
 function planTrip(inputObj, destinationID) {
+    tripConfirmation.classList.remove('hidden');
+    searchResultsSection.classList.add('hidden');
+    //look into making the result a "floating" element
     const destID = Number(destinationID)
     console.log('destination id is a', typeof destID)
     const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
@@ -189,7 +182,7 @@ function planTrip(inputObj, destinationID) {
     //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
     //calculateTripCost(newtrip.id) and store in variable
     //display confirmation window
-    //display total trip cost, and confirm posting(then re-fetch, renderDom, and return to home)
+    //display total trip cost, and confirm posting(then re-set data, and return to home)
 }
 
 function displayNewTrip(tripObj) {
@@ -204,9 +197,6 @@ function displayNewTrip(tripObj) {
     Subtotal: $${costs.subtotal}<br>
     10% Agent Fee: $${costs.agentFee}<br>
     Total Estimate: $${costs.grandTotal}`
-
-
-
 }
 
 function clearForm() {
@@ -226,7 +216,18 @@ function backToHome() {
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
     // searchResultsSection.classList.add('hidden');
+    // tripConfirmation.classList.add('hidden');
 };
+
+function handleConfirmation() {
+    fetchTrips()
+    .then(({trips}) => {
+        tripsData = trips;
+        renderDom();
+    })
+    .catch(error => console.log(error))
+    backToHome()
+}
 
 
 

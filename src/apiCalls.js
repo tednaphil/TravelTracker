@@ -59,11 +59,28 @@ function postData(tripObj) {
         }
     })
     .then(res => res.json())
+    .catch(error => console.log(error))
     // .then(data => console.log(data))
-
 };
+
+function fetchTrips() {
+    return fetch('http://localhost:3001/api/v1/trips')
+    .then(response => {
+        if (response.ok) {
+            return response
+        } else {
+            let responseText = response.statusText
+            let responseCode = response.status
+            console.log('API GET Trips error')
+            throw new Error(`${responseCode} : ${responseText}`)
+        }
+    })
+    .then(res => res.json())
+    .catch(error => console.log(error))
+}
 
 export {
     fetchData,
-    postData
+    postData,
+    fetchTrips
 }
