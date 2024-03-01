@@ -83,7 +83,6 @@ function calculateStats({approved}, tripsArray, destinationsArray, year) {
 }
 
 function getTripDisplayInfo({approved, pending}, destinationsArray) {
-    // argument is the destructured organizedTrips return object)
     const pastDestinations = approved.map(trip => findDestination(trip.destinationID, destinationsArray));
     const pendingDestinations = pending.map(trip => findDestination(trip.destinationID, destinationsArray));
     const allDisplayInfo = {
