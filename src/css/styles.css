@@ -162,6 +162,10 @@ input {
   }
 }
 
+.close-button {
+  float: right;
+}
+
 #results-container {
   background: var(--main-bg-color);
   width: 90%;
