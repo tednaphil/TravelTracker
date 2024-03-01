@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
@@ -216,12 +216,39 @@ describe('Trips', function() {
 
   describe('Create Trip', function() {
     it('should return an object that includes all trip properties', function() {
-      
-    })
+      const input = {
+        date: '2024-03-08',
+        duration: '2',
+        travelers: '2'
+      };
+      const currentTraveler = traveler1;
+      const dest = testDestinations[0]
+      const newTrip = createTrip(input, dest, testTrips, currentTraveler);
+
+      expect(newTrip).to.deep.equal({
+        date: '2024/03/08',
+        destinationID: 1,
+        duration: 2,
+        id: 10,
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: 2,
+        userID: 1
+      });
+      it('should create a trip for a different destination', function() {
+
+      })
+    });
   });
 
   describe('Make Tentative Trips', function() {
-    it('should return an array of trip objects', function() {
+    it.skip('should return an array of trip objects', function() {
+
+    })
+  });
+
+  describe('Confirm Trip', function() {
+    it.skip('should return a trip object with an updated id property', function() {
 
     })
   });
