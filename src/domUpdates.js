@@ -7,6 +7,7 @@ import { fetchData, postData } from "./apiCalls";
 const main = document.querySelector('main');
 const tripDetailsSection = document.querySelector('#trip-details-container');
 
+const planTripForm = document.querySelector('#plan-trip-form');
 const dateInput = document.querySelector('#date-input');
 const durationInput = document.querySelector('#duration-input');
 const numTravelersInput = document.querySelector('#num-travelers-input');
@@ -108,6 +109,7 @@ function displayStats(statsObj) {
 
 function handleSearch(e) {
     // console.log('tripsData at time of search', tripsData)
+    clearForm()
     const input = captureInput(); //do i need to store this globaly?
     // const tentativeTrips = makeTentativeTrips(input, destinationsData);
     renderResults(destinationsData);
@@ -140,12 +142,6 @@ function renderResults(destinationsArray) {
             <button class="buttons" id="select-destination-button" value="${dest.id}">Select</button>
         </div>`
     })
-    
-    //add trip display card elements to search results section
-    //should include destination  name, airfare and lodging costs per day
-    //make selector for results container
-    //iterate through destinationsarray += inner HTML of results container dest cost, lodging, name, etc
-    //see result card html placeholer template
 }
 
 function planTrip(inputObj, destinationObj, traveler) {
@@ -154,6 +150,11 @@ function planTrip(inputObj, destinationObj, traveler) {
     //calculateTripCost(newtrip.id) and store in variable
     //display confirmation window
     //display total trip cost, and confirm posting(then re-fetch, renderDom, and return to home)
+}
+
+function clearForm() {
+    // document.getElementById('plan-trip-form').reset();
+    planTripForm.reset()
 }
 
 function displayResults(e) {
