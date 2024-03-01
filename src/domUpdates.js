@@ -131,6 +131,15 @@ function captureInput() {
 
 function renderResults(destinationsArray) {
     resultsContainer.innerHTML = ''
+    destinationsArray.forEach(dest => {
+        resultsContainer.innerHTML += `
+        <div class="result-card">
+            <h3>${dest.destination}</h3>
+            <p>Lodging: $${dest.estimatedLodgingCostPerDay} per day</p>
+            <p>Airfare: $${dest.estimatedFlightCostPerPerson} per person</p>
+            <button class="buttons" id="select-destination-button" value="${dest.id}">Select</button>
+        </div>`
+    })
     
     //add trip display card elements to search results section
     //should include destination  name, airfare and lodging costs per day
