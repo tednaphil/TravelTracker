@@ -45,8 +45,8 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
     }
 }
 
-function findCurrentYear(userTrips) {
-    const dates = userTrips.map(trip => trip.date)
+function findCurrentYear({approved}) {
+    const dates = approved.map(trip => trip.date)
     const years = [];
     dates.forEach(date => {
         years.push((date.split('/')[0]))

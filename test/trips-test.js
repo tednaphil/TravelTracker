@@ -102,8 +102,9 @@ describe('Trips', function() {
   });
 
   describe('Find Current Year', function() {
-    it('should return the year of a traveler\'s most recent trip', function() {
-      const currentYear = findCurrentYear(trips3);
+    it('should return the year of a traveler\'s most recent past trip', function() {
+      const traveler3Trips = organizeTrips(trips3);
+      const currentYear = findCurrentYear(traveler3Trips);
 
       expect(currentYear).to.equal('2026')
 
@@ -149,7 +150,7 @@ describe('Trips', function() {
 
   describe('Calculate Trip Stats', function() {
     it('should return an object with totals spent for a traveler\'s past trips that year', function() {
-      const currentYear = findCurrentYear(trips1);
+      const currentYear = findCurrentYear(traveler1Trips);
       const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations, currentYear);
 
       expect(currentYear).to.equal('2026')
