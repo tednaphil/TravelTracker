@@ -215,30 +215,49 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
+    let currentTraveler, dest;
+    beforeEach(() => {
+      currentTraveler = traveler1;
+      dest = testDestinations[0]
+    })
     it('should return an object that includes all trip properties', function() {
       const input = {
         date: '2024-03-08',
         duration: '2',
         travelers: '2'
       };
-      const currentTraveler = traveler1;
-      const dest = testDestinations[0]
-      const newTrip = createTrip(input, dest, testTrips, currentTraveler);
+      const newTrip = createTrip(input, dest, currentTraveler);
 
       expect(newTrip).to.deep.equal({
         date: '2024/03/08',
         destinationID: 1,
         duration: 2,
-        id: 10,
+        id: null,
         status: 'pending',
         suggestedActivities: [],
         travelers: 2,
         userID: 1
       });
-      it('should create a trip for a different destination', function() {
-
-      })
     });
+    it('should create a trip for a different destination', function() {
+      const input = {
+        date: '2024-07-23',
+        duration: '7',
+        travelers: '3'
+      };
+      const newTrip = createTrip(input, dest, currentTraveler);
+
+      expect(newTrip).to.deep.equal({
+        date: '2024/07/23',
+        destinationID: 1,
+        duration: 7,
+        id: null,
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: 3,
+        userID: 1
+      });
+    })
   });
 
   describe('Make Tentative Trips', function() {

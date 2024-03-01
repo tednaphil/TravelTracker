@@ -42,6 +42,10 @@ describe('Destinations', function() {
     });
   });
 
+  describe('Get Destination Costs', function() {
+    it.skip('should')
+  });
+
   describe('Get Destination Display Info', function() {
     it('should return an object with one destination\'s details to display', function() {
       const destInfo = getDestDisplayInfo(dest1);

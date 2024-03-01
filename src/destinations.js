@@ -11,7 +11,7 @@ function findDestination(locationID, destinationsArray) {
 
 
 // function getDestinationCosts(locationID, destinationsArray) {
-        //MIGHT BE UNNECCESARY
+        //calculate cost estimate of a tentative trip
 // }
 
 function getDestDisplayInfo(destination) {

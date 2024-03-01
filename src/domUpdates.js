@@ -103,7 +103,7 @@ function displayStats(statsObj) {
 function handleSearch(e) {
     // console.log('tripsData at time of search', tripsData)
     const input = captureInput();
-    // const tentativeTrips = makeTentativeTrips(input);
+    // const tentativeTrips = makeTentativeTrips(input, destinationsData);
     // renderResults(tentativeTrips);
     displayResults(e);
     
@@ -125,8 +125,15 @@ function captureInput() {
 
 function renderResults(tripsArray) {
     //add trip display card elements to search results section
+    //should include location name, airfare and lodging costs per day
     //iterate through array += innerHTML of results container - make selector for this
     //see result card html placeholer template
+}
+
+function planTrip() {
+    //confirm trip invokation
+    //post new trip
+    //calculate total cost, display, and confirm selected trip
 }
 
 function displayResults(e) {
