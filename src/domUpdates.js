@@ -1,5 +1,5 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, calculateStats, getTripDisplayInfo, createTrip } from "./trips";
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip } from "./trips";
 import { findDestination, getDestDisplayInfo, filterDestinations } from "./destinations";
 import { fetchData, postData } from "./apiCalls";
 
@@ -52,6 +52,7 @@ function renderDom() {
     console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
     console.log('Trip Display Info', tripDisplayDetails)
+    //find current year to pass to calculateStats
     let stats = calculateStats(organizedTrips, tripsData, destinationsData);
     console.log('stats', stats)
     displayTrips(tripDisplayDetails);

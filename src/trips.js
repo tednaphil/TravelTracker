@@ -55,7 +55,7 @@ function findCurrentYear(userTrips) {
 
 }
 
-function calculateStats({approved}, tripsArray, destinationsArray) {
+function calculateStats({approved}, tripsArray, destinationsArray, year) {
     //pass current year as an argument and calculate costs for that year only
     //if trip.date.includes current year, add it to accumulator properties
     //add year property to obj for access to display
@@ -67,6 +67,7 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
         obj.agentFee += trip.agentFee;
         obj.grandTotal += trip.grandTotal;
         obj.tripsTaken ++;
+        // obj.year = year;
 
         return obj
     }, {
@@ -75,7 +76,8 @@ function calculateStats({approved}, tripsArray, destinationsArray) {
         subtotal: 0,
         agentFee: 0,
         grandTotal: 0,
-        tripsTaken: 0
+        tripsTaken: 0,
+        year: ''
     })
     return travStats
 

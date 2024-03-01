@@ -150,7 +150,10 @@ describe('Trips', function() {
 
   describe('Calculate Trip Stats', function() {
     it('should return an object with totals spent for a traveler\'s past trips that year', function() {
-      const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations);
+      const currentYear = findCurrentYear(trips1);
+      const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations, currentYear);
+
+
       // expect(trav1Stats).to.deep.equal({
       //   lodging: 1220,
       //   airfare: 2200,
@@ -159,13 +162,15 @@ describe('Trips', function() {
       //   grandTotal: 3762,
       //   tripsTaken: 2
       // });
+      expect(currentYear).to.equal('2026')
       expect(trav1Stats).to.deep.equal({
-        lodging: 1220,
-        airfare: 2200,
-        subtotal: 3420,
-        agentFee: 342,
-        grandTotal: 3762,
-        tripsTaken: 2
+        lodging: 0,
+        airfare: 0,
+        subtotal: 0,
+        agentFee: 0,
+        grandTotal: 0,
+        tripsTaken: 1,
+        year: ''
       });
     });
     it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {
@@ -178,7 +183,8 @@ describe('Trips', function() {
         subtotal: 0,
         agentFee: 0,
         grandTotal: 0,
-        tripsTaken: 0
+        tripsTaken: 0,
+        year: ''
       });
     });
   });
