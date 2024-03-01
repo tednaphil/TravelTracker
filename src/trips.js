@@ -93,17 +93,36 @@ function getTripDisplayInfo({approved, pending}, destinationsArray) {
     return allDisplayInfo
 }
 
-function createTrip(inputObj) {
+function createTrip({date, duration, travelers}, {id}, tripsArray, traveler) {
     //take in input obj
+    //should I destructure to just take the destination id property
     //return an object that includes all trip properties
 
+    const formattedDate = date.split('-').join('/');
+    // console.log(formattedDate)
+    const newTrip = {
+        date: formattedDate,
+        destinationID: id,
+        duration: Number(duration),
+        id: (tripsArray.length + 1),
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: Number(travelers),
+        userID: traveler.id
+    }
+    console.log(newTrip)
+    return newTrip
 }
 
 function makeTentativeTrips(inputObj) {
     //return an array of trip objects based on search results
-    //iterate through destinations in search results (filter destinations)
+    //iterate through destinations
     // invoke createTrip on each object
     //sort trips from lowest cost to highest price
+}
+
+function confirmTrip() {
+    //update id of trip for it to be POSTed
 }
 
 export {
@@ -115,4 +134,5 @@ export {
     getTripDisplayInfo,
     createTrip,
     makeTentativeTrips,
+    confirmTrip
 }
