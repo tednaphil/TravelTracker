@@ -194,7 +194,7 @@ describe('Trips', function() {
     it('should provide feedback if no trips to display', function() {
       const trav4DisplayInfo = getTripDisplayInfo(traveler4Trips, testDestinations);
 
-      expect(trav4DisplayInfo.pending).to.equal('No Trips 🌍')
+      expect(trav4DisplayInfo.pending).to.equal('No Pending Trips 🌍')
     });
   });
 

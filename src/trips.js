@@ -72,7 +72,7 @@ function getTripDisplayInfo({approved, pending}, destinationsArray) {
     const pendingDestinations = pending.map(trip => findDestination(trip.destinationID, destinationsArray));
     const allDisplayInfo = {
         past: pastDestinations.length ? pastDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍',
-        pending: pendingDestinations.length ? pendingDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Trips 🌍'
+        pending: pendingDestinations.length ? pendingDestinations.map(dest => getDestDisplayInfo(dest)) : 'No Pending Trips 🌍'
     }
     return allDisplayInfo
 }
