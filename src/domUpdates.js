@@ -55,6 +55,9 @@ function displayTrips() {
 
 function displayStats(statsObject) {
     lodgingTotal.innerText = `$ ${statsObject.lodging}`;
+    airfareTotal.innerText = `$ ${statsObject.airfare}`;
+    agentFeesTotal.innerText = `$ ${statsObject.agentFee}`;
+    grandTotal.innerText = `$ ${statsObject.grandTotal}`;
 
 
 }
