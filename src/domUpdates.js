@@ -26,6 +26,11 @@ const searchResultsSection = document.querySelector('#search-results');
 const searchCloseButton = document.querySelector('#close-button');
 const resultsContainer = document.querySelector('#results-container');
 
+const tripConfirmation = document.querySelector('#trip-confirmation');
+const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
+const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
+
+
 
 
 // EVENT LISTENERS
@@ -44,7 +49,7 @@ window.addEventListener('load', fetchData()
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 searchResultsSection.addEventListener('click', function(e) {
-    console.log('event log', e.target.value)
+    planTrip(tripInput, e.target.value)
 })
 
 // GLOBAL VARIABLES
@@ -53,6 +58,7 @@ let tripsData;
 let destinationsData;
 // let userID;
 let currentTraveler;
+let tripInput;
 
 
 
@@ -109,8 +115,8 @@ function displayStats(statsObj) {
 
 function handleSearch(e) {
     // console.log('tripsData at time of search', tripsData)
-    clearForm()
     const input = captureInput(); //do i need to store this globaly?
+    clearForm()
     // const tentativeTrips = makeTentativeTrips(input, destinationsData);
     renderResults(destinationsData);
     displayResults(e);
@@ -128,6 +134,7 @@ function captureInput() {
         travelers: numTravelersInput.value
     }
     console.log('input object', input)
+    tripInput = input
     return input
 }
 
@@ -144,7 +151,13 @@ function renderResults(destinationsArray) {
     })
 }
 
-function planTrip(inputObj, destinationObj, traveler) {
+function planTrip(inputObj, destinationID) {
+    const destID = Number(destinationID)
+    console.log('destination id is a', typeof destID)
+    const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
+    const newTrip = createTrip(inputObj, dest, currentTraveler)
+    console.log(newTrip)
+    // postTrip(newTrip)
     //create new trip and store in variable
     //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
     //calculateTripCost(newtrip.id) and store in variable
