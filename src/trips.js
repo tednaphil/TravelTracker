@@ -30,7 +30,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
         const totalLodging = tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
         const totalAirfare = tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
         const subtotal = totalLodging + totalAirfare;
-        const agentFee = subtotal * .1;
+        const agentFee = Math.round(subtotal * .1);
         const grandTotal = Math.round(subtotal + agentFee)
         const tripCost = {
             totalLodging,

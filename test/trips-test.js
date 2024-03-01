@@ -120,7 +120,7 @@ describe('Trips', function() {
         totalLodging: 225,
         totalAirfare: 1530,
         subtotal: 1755,
-        agentFee: 175.5,
+        agentFee: 176,
         grandTotal: 1931 
       })
     })
