@@ -53,11 +53,8 @@ describe('Trips', function() {
         travelers: 2, 
         userID: 2 
       });
-      // sad path(s) - if an invalid id is passed
     });
-    // it.skip('should sort trips from most recent to earliest', function() {
-    //   expect(trips3[0].date).to.equal('2026/06/25')
-    // })
+    // sad path(s) - if an invalid id is passed
   });
 
   describe('Organize Trips', function() {
@@ -122,7 +119,8 @@ describe('Trips', function() {
         totalAirfare: 400,
         subtotal: 820,
         agentFee: 82,
-        grandTotal: 902 
+        grandTotal: 902,
+        year: '2023' 
       })
     });
     it('should calculate costs for trips with multiple travelers', function() {
@@ -133,7 +131,8 @@ describe('Trips', function() {
         totalAirfare: 1530,
         subtotal: 1755,
         agentFee: 176,
-        grandTotal: 1931 
+        grandTotal: 1931,
+        year: '2023' 
       })
     })
     it('should return "false" if passed an ID of a non-existent trip', function() {
@@ -153,24 +152,15 @@ describe('Trips', function() {
       const currentYear = findCurrentYear(trips1);
       const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations, currentYear);
 
-
-      // expect(trav1Stats).to.deep.equal({
-      //   lodging: 1220,
-      //   airfare: 2200,
-      //   subtotal: 3420,
-      //   agentFee: 342,
-      //   grandTotal: 3762,
-      //   tripsTaken: 2
-      // });
       expect(currentYear).to.equal('2026')
       expect(trav1Stats).to.deep.equal({
-        lodging: 0,
-        airfare: 0,
-        subtotal: 0,
-        agentFee: 0,
-        grandTotal: 0,
+        lodging: 800,
+        airfare: 1800,
+        subtotal: 2600,
+        agentFee: 260,
+        grandTotal: 2860,
         tripsTaken: 1,
-        year: ''
+        year: '2026'
       });
     });
     it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {

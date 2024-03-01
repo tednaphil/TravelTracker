@@ -2,7 +2,6 @@ import { findDestination, getDestDisplayInfo } from "./destinations";
 
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
-    // const sortedTrips = trips.sort((a, b) => a.date - b.date)
     return trips
 }
 
@@ -27,6 +26,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
         return false
     } else {
         const foundTrip = tripsArray.find(trip => trip.id === tripID);
+        const year = foundTrip.date.split('/')[0];
         const tripDest = destinationsArray.find(dest => foundTrip.destinationID === dest.id);
         const totalLodging = tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
         const totalAirfare = tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
@@ -34,6 +34,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
         const agentFee = Math.round(subtotal * .1);
         const grandTotal = Math.round(subtotal + agentFee)
         const tripCost = {
+            year,
             totalLodging,
             totalAirfare,
             subtotal,
@@ -56,19 +57,17 @@ function findCurrentYear(userTrips) {
 }
 
 function calculateStats({approved}, tripsArray, destinationsArray, year) {
-    //pass current year as an argument and calculate costs for that year only
-    //if trip.date.includes current year, add it to accumulator properties
-    //add year property to obj for access to display
     const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
     const travStats = tripCosts.reduce((obj, trip) => {
-        obj.lodging += trip.totalLodging;
-        obj.airfare += trip.totalAirfare;
-        obj.subtotal += trip.subtotal;
-        obj.agentFee += trip.agentFee;
-        obj.grandTotal += trip.grandTotal;
-        obj.tripsTaken ++;
-        // obj.year = year;
-
+        if (trip.year === year) {
+            obj.lodging += trip.totalLodging;
+            obj.airfare += trip.totalAirfare;
+            obj.subtotal += trip.subtotal;
+            obj.agentFee += trip.agentFee;
+            obj.grandTotal += trip.grandTotal;
+            obj.tripsTaken ++;
+            obj.year = year;
+        }
         return obj
     }, {
         lodging: 0,

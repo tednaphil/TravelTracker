@@ -52,8 +52,8 @@ function renderDom() {
     console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
     console.log('Trip Display Info', tripDisplayDetails)
-    //find current year to pass to calculateStats
-    let stats = calculateStats(organizedTrips, tripsData, destinationsData);
+    let currentYear = findCurrentYear(trips);
+    let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
     console.log('stats', stats)
     displayTrips(tripDisplayDetails);
     displayStats(stats);
