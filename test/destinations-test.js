@@ -54,9 +54,9 @@ describe('Destinations', function() {
     // sad path(s)
   });
 
-  describe('Filter Destinations', function() {
-    it('should have happy and sad paths', function() {
+  // describe('Filter Destinations', function() {
+  //   it('should return an array of destination objects based on submitted input', function() {
 
-    });
-  });
+  //   });
+  // });
 });
