@@ -8,6 +8,8 @@ const lodgingTotal = document.querySelector('#lodging-total');
 const airfareTotal = document.querySelector('#airfare-total');
 const agentFeesTotal = document.querySelector('#agent-fee-total');
 const grandTotal = document.querySelector('#grand-total');
+const pendingTrips = document.querySelector('#pending-trips');
+const pastTrips = document.querySelector('#past-trips');
 
 // EVENT LISTENERS
 window.addEventListener('load', fetchData()
@@ -44,20 +46,26 @@ function renderDom() {
     console.log('Trip Display Info', tripDisplayDetails)
     let stats = calculateStats(organizedTrips, tripsData, destinationsData);
     console.log('stats', stats)
-    displayTrips();
+    displayTrips(tripDisplayDetails);
     displayStats(stats);
 
 }
 
-function displayTrips() {
-
+function displayTrips({past, pending}) {
+    past.forEach(trip => {
+        pastTrips.innerHTML += `
+        <div class="trip-card">
+            <img alt="${trip.alt}" src="${trip.image}">
+            <p>${trip.name}</p>
+        </div>`
+    })
 }
 
-function displayStats(statsObject) {
-    lodgingTotal.innerText = `$ ${statsObject.lodging}`;
-    airfareTotal.innerText = `$ ${statsObject.airfare}`;
-    agentFeesTotal.innerText = `$ ${statsObject.agentFee}`;
-    grandTotal.innerText = `$ ${statsObject.grandTotal}`;
+function displayStats(statsObj) {
+    lodgingTotal.innerText = `$ ${statsObj.lodging}`;
+    airfareTotal.innerText = `$ ${statsObj.airfare}`;
+    agentFeesTotal.innerText = `$ ${statsObj.agentFee}`;
+    grandTotal.innerText = `$ ${statsObj.grandTotal}`;
 
 
 }
