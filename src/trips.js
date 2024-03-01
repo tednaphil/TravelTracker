@@ -2,6 +2,7 @@ import { findDestination, getDestDisplayInfo } from "./destinations";
 
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
+    // const sortedTrips = trips.sort((a, b) => a.date - b.date)
     return trips
 }
 
@@ -43,7 +44,21 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
     }
 }
 
+function findCurrentYear(userTrips) {
+    const dates = userTrips.map(trip => trip.date)
+    const years = [];
+    dates.forEach(date => {
+        years.push((date.split('/')[0]))
+    })
+    const sortedYears = years.sort((a, b) => b - a)
+    return sortedYears[0]
+
+}
+
 function calculateStats({approved}, tripsArray, destinationsArray) {
+    //pass current year as an argument and calculate costs for that year only
+    //if trip.date.includes current year, add it to accumulator properties
+    //add year property to obj for access to display
     const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
     const travStats = tripCosts.reduce((obj, trip) => {
         obj.lodging += trip.totalLodging;
@@ -85,6 +100,7 @@ export {
     filterTrips,
     organizeTrips,
     calculateTripCost,
+    findCurrentYear,
     calculateStats,
     getTripDisplayInfo,
     createTrip
