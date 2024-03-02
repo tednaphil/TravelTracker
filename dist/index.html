@@ -9,15 +9,15 @@
 <body>
   <section id="login-page">
     <form id="login-form">
-      <label for="username">Username</label>
-      <input id="username-input" name="username" type="text" required placeholder="e.g. traveler5"/>
-      <label for="password">Password</label>
-      <input id="password-input" name="password" type="password" required/>
+      <label for="username-input">Username</label>
+      <input id="username-input" type="text" required placeholder="e.g. traveler5"/>
+      <label for="password-input">Password</label>
+      <input id="password-input"  type="password" required/>
       <input class="buttons" id="login-button" type="submit" value="Login">
     </form>
   </section>
   <main class="hidden">
-    <div id="plan-trip-container">
+    <section id="plan-trip-container">
       <h2 id="plan-trip-header">Plan Your Next Trip</h2>
       <form id="plan-trip-form">
         <label for="date">Date</label>
@@ -28,7 +28,7 @@
         <input id="num-travelers-input" name="travelers" type="number" placeholder="number of travelers"/>
         <input class="buttons" id="trip-search-button" type="submit" value="Search">
       </form>
-    </div>
+    </section>
     <aside id="trip-stats-container">
       <h2>This Year's Trip Stats</h2>
       <div id="trip-stats-text">
