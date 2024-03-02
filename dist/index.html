@@ -85,16 +85,21 @@
       </div>
     </div>
   </section>
-  <section class="hidden" id="trip-confirmation">
+  <!-- <section class="hidden" id="trip-confirmation">
     <h2 id="trip-confirmation-message">You're going on a trip!</h2>
-    <p id="trip-costs"></p>
+    <p id="trip-costs"></p> -->
     <!-- <p id="lodging-estimate">lodging cost:</p>
     <p id="airfare-estimate">airfare cost:</p>
     <p id="subtotal">subtotal:</p>
     <p id="agent-fee">10% agent fee:</p>
     <p id="trip-estimate">Total estimate:</p> -->
-    <button class="buttons" id="trip-confirmation-button" onclick="this.parentNode.classList.add('hidden')">Home</button>
-  </section>
+    <!-- <button class="buttons" id="trip-confirmation-button" onclick="this.parentNode.classList.add('hidden')">Home</button>
+  </section> -->
+  <dialog id="trip-confirmation">
+    <h2 id="trip-confirmation-message">You're going on a trip!</h2>
+    <p id="trip-costs"></p>
+    <button class="buttons" id="trip-confirmation-button">Home</button>
+  </dialog>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>

@@ -89,7 +89,7 @@ function renderDom() {
 function displayTrips({past, pending}) {
     if (typeof past === 'object') {
         pastPlaceholder.classList.add('hidden');
-        // pastTrips.innerHTML = ''
+        pastTrips.innerHTML = ''
         past.forEach(trip => {
             pastTrips.innerHTML += `
             <div class="trip-card">
@@ -100,7 +100,7 @@ function displayTrips({past, pending}) {
     };
     if (typeof pending === 'object') {
         pendingPlaceholder.classList.add('hidden');
-        // pendingTrips.innerHTML = ''
+        pendingTrips.innerHTML = ''
         pending.forEach(trip => {
             pendingTrips.innerHTML += `
             <div class="trip-card">
@@ -158,9 +158,10 @@ function renderResults(destinationsArray) {
 }
 
 function planTrip(inputObj, destinationID) {
-    tripConfirmation.classList.remove('hidden');
-    searchResultsSection.classList.add('hidden');
-    //look into making the result a "floating" element
+    // tripConfirmation.classList.remove('hidden');
+    // searchResultsSection.classList.add('hidden');
+
+    tripConfirmation.showModal()
     const destID = Number(destinationID)
     console.log('destination id is a', typeof destID)
     const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
@@ -215,8 +216,10 @@ function displayResults(e) {
 function backToHome() {
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
-    // searchResultsSection.classList.add('hidden');
+
+    searchResultsSection.classList.add('hidden');
     // tripConfirmation.classList.add('hidden');
+    tripConfirmation.close();
 };
 
 function handleConfirmation() {
