@@ -31,10 +31,21 @@ describe('Traveler', function() {
   });
 
   describe('Check Login', function() {
-    it.skip('should return "true" if valid credentials are submitted', function() {
+    it('should return "true" if valid credentials are submitted', function() {
+      const validInput = {
+        username: 'traveler12',
+        password: 'travel'
+      };
 
+      expect(checkLogin(validInput)).to.be.true;
     });
-    it.skip('should return "false" if invalid credentials are submitted', function(){
+    it('should return "false" if invalid credentials are submitted', function(){
+      const invalidInput = {
+        username: 'travel99',
+        password: 'letsgo'
+      };
+
+      expect(checkLogin(invalidInput)).to.be.false;
 
     });
   });
