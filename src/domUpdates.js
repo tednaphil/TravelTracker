@@ -43,6 +43,7 @@ const tripConfirmationButton = document.querySelector('#trip-confirmation-button
 loginButton.addEventListener('click', function(e) {
     handleLogin(e)
 });
+loginPage.addEventListener('input', checkFields)
 // window.addEventListener('load', setData);
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
@@ -58,6 +59,15 @@ let destinationsData;
 // let userID;
 let currentTraveler;
 let tripInput;
+
+function checkFields() {
+    if (usernameInput.value && passwordInput) {
+        loginButton.disabled = false
+    } else {
+        loginButton.disabled = true
+    }
+
+}
 
 function handleLogin(e) {
     e.preventDefault();
@@ -75,7 +85,7 @@ function handleLogin(e) {
         tripDetailsSection.classList.remove('hidden');
     } else {
         //display error text
-        throw new Error('bad credentials')
+        // throw new Error('bad credentials')
     }
 }
 
