@@ -45,6 +45,7 @@ loginButton.addEventListener('click', function(e) {
 });
 loginPage.addEventListener('input', checkFields)
 // window.addEventListener('load', setData);
+planTripForm.addEventListener('input', checkFields)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 resultsContainer.addEventListener('click', function(e) {
@@ -67,6 +68,11 @@ function checkFields() {
         loginButton.disabled = true
     }
 
+    if (dateInput.value && durationInput.value && numTravelersInput.value) {
+        searchButton.disabled = false
+    } else {
+        searchButton.disabled = true
+    }
 }
 
 function handleLogin(e) {
