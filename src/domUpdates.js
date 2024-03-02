@@ -46,7 +46,7 @@ loginButton.addEventListener('click', function(e) {
 // window.addEventListener('load', setData);
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
-searchResultsSection.addEventListener('click', function(e) {
+resultsContainer.addEventListener('click', function(e) {
     planTrip(tripInput, e.target.value)
 })
 tripConfirmationButton.addEventListener('click', handleConfirmation)
