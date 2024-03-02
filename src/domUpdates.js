@@ -8,7 +8,7 @@ const loginPage = document.querySelector('#login-page');
 const loginButton = document.querySelector('#login-button');
 const usernameInput = document.querySelector('#username-input');
 const passwordInput = document.querySelector('#password-input');
-
+const header = document.querySelector('header')
 const main = document.querySelector('main');
 const travelerName = document.querySelector('#traveler-name')
 const tripDetailsSection = document.querySelector('#trip-details-container');
@@ -275,6 +275,7 @@ function clearForm() {
 
 function displayResults(e) {
     e.preventDefault();
+    header.classList.add('hidden');
     main.classList.add('hidden');
     tripDetailsSection.classList.add('hidden');
     searchResultsSection.classList.remove('hidden');
@@ -282,6 +283,7 @@ function displayResults(e) {
 
 
 function backToHome() {
+    header.classList.remove('hidden');
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
 
