@@ -61,25 +61,32 @@ let tripInput;
 
 function handleLogin(e) {
     e.preventDefault();
-    // const loginSuccessful = checkLogin();
-    // if (loginSuccessful) {
-        console.log('password', passwordInput);
-        console.log('username', usernameInput);
-        setData();
+    let credentials = {
+        username: usernameInput.value,
+        password: passwordInput.value
+    }
+    const loginSuccessful = checkLogin(credentials);
+    if (loginSuccessful) {
+        console.log('credentials', credentials);
+        const userID = Number(credentials.username.replace('traveler', ''))
+        setData(userID);
         loginPage.classList.add('hidden');
         main.classList.remove('hidden');
         tripDetailsSection.classList.remove('hidden');
-    // }
+    } else {
+        //display error text
+        throw new Error('bad credentials')
+    }
 }
 
-function setData() {
+function setData(userID) {
     fetchData()
 //refactor to take in traveler id to pass into renderDom
     .then(({travelers, destinations, trips}) => {
         travelersData =travelers;
         tripsData = trips;
         destinationsData = destinations;
-        renderDom()
+        renderDom(userID)
     })
     .catch(error => {
         console.log(error)
@@ -89,10 +96,10 @@ function setData() {
 
 
 
-function renderDom() {
+function renderDom(userID) {
     //add paramater to accept traveler id to pass to setTraveler
     // console.log('trips data', tripsData)
-    currentTraveler = setTraveler(3, travelersData);
+    currentTraveler = setTraveler(userID, travelersData);
     console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
     console.log('trips', trips);
@@ -247,7 +254,7 @@ function handleConfirmation() {
     fetchTrips()
     .then(({trips}) => {
         tripsData = trips;
-        renderDom();
+        renderDom(currentTraveler.id);
     })
     .catch(error => console.log(error))
     backToHome()
