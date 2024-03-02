@@ -31,6 +31,11 @@ describe('Traveler', function() {
   });
 
   describe('Check Login', function() {
-    
-  })
+    it.skip('should return "true" if valid credentials are submitted', function() {
+
+    });
+    it.skip('should return "false" if invalid credentials are submitted', function(){
+
+    });
+  });
 });
