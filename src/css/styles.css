@@ -30,6 +30,15 @@ body {
   }
 }
 
+header {
+  background: var(--main-acc-color);
+  filter: var(--drop-shadow);
+  & h1 {
+    text-align: right;
+    padding-right: 10px;
+  }
+}
+
 main {
   display: flex;
   flex-direction: row;
