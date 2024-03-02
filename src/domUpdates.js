@@ -10,6 +10,7 @@ const usernameInput = document.querySelector('#username-input');
 const passwordInput = document.querySelector('#password-input');
 
 const main = document.querySelector('main');
+const travelerName = document.querySelector('#traveler-name')
 const tripDetailsSection = document.querySelector('#trip-details-container');
 
 const planTripForm = document.querySelector('#plan-trip-form');
@@ -125,10 +126,17 @@ function renderDom(userID) {
     console.log('Trip Display Info', tripDisplayDetails)
     let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
-    console.log('stats', stats)
+    console.log('stats', stats);
+    travelerName.innerText = `Hi there, ${currentTraveler.name}`
+    // displayCurrentTraveler();
     displayTrips(tripDisplayDetails);
     displayStats(stats);
 }
+
+// function displayCurrentTraveler() {
+//     travelerName.innerText = `Hi there, ${currentTraveler.name}`
+    
+// }
 
 function displayTrips({past, pending}) {
     if (typeof past === 'object') {
