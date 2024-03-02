@@ -2,7 +2,6 @@ import { findDestination, getDestDisplayInfo } from "./destinations";
 
 function filterTrips({id}, tripsArray) {
     const trips = tripsArray.filter(trip => trip.userID === id)
-    // const sortedTrips = trips.sort((a, b) => a.date - b.date)
     return trips
 }
 
@@ -22,11 +21,13 @@ function organizeTrips(userTrips) {
 }
 
 function calculateTripCost(tripID, tripsArray, destinationsArray) {
+    console.log('calculate cost arguments', arguments)
     const tripIDs = tripsArray.map(trip => trip.id);
     if (!tripIDs.includes(tripID)) {
         return false
     } else {
         const foundTrip = tripsArray.find(trip => trip.id === tripID);
+        const year = foundTrip.date.split('/')[0];
         const tripDest = destinationsArray.find(dest => foundTrip.destinationID === dest.id);
         const totalLodging = tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
         const totalAirfare = tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
@@ -34,6 +35,7 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
         const agentFee = Math.round(subtotal * .1);
         const grandTotal = Math.round(subtotal + agentFee)
         const tripCost = {
+            year,
             totalLodging,
             totalAirfare,
             subtotal,
@@ -44,8 +46,8 @@ function calculateTripCost(tripID, tripsArray, destinationsArray) {
     }
 }
 
-function findCurrentYear(userTrips) {
-    const dates = userTrips.map(trip => trip.date)
+function findCurrentYear({approved}) {
+    const dates = approved.map(trip => trip.date)
     const years = [];
     dates.forEach(date => {
         years.push((date.split('/')[0]))
@@ -56,19 +58,17 @@ function findCurrentYear(userTrips) {
 }
 
 function calculateStats({approved}, tripsArray, destinationsArray, year) {
-    //pass current year as an argument and calculate costs for that year only
-    //if trip.date.includes current year, add it to accumulator properties
-    //add year property to obj for access to display
     const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
     const travStats = tripCosts.reduce((obj, trip) => {
-        obj.lodging += trip.totalLodging;
-        obj.airfare += trip.totalAirfare;
-        obj.subtotal += trip.subtotal;
-        obj.agentFee += trip.agentFee;
-        obj.grandTotal += trip.grandTotal;
-        obj.tripsTaken ++;
-        // obj.year = year;
-
+        if (trip.year === year) {
+            obj.lodging += trip.totalLodging;
+            obj.airfare += trip.totalAirfare;
+            obj.subtotal += trip.subtotal;
+            obj.agentFee += trip.agentFee;
+            obj.grandTotal += trip.grandTotal;
+            obj.tripsTaken ++;
+            obj.year = year;
+        }
         return obj
     }, {
         lodging: 0,
@@ -84,7 +84,6 @@ function calculateStats({approved}, tripsArray, destinationsArray, year) {
 }
 
 function getTripDisplayInfo({approved, pending}, destinationsArray) {
-    // argument is the destructured organizedTrips return object)
     const pastDestinations = approved.map(trip => findDestination(trip.destinationID, destinationsArray));
     const pendingDestinations = pending.map(trip => findDestination(trip.destinationID, destinationsArray));
     const allDisplayInfo = {
@@ -94,8 +93,52 @@ function getTripDisplayInfo({approved, pending}, destinationsArray) {
     return allDisplayInfo
 }
 
-function createTrip() {
+function createTrip({date, duration, travelers}, {id}, traveler) {
+    const formattedDate = date.split('-').join('/');
+    const newTrip = {
+        date: formattedDate,
+        destinationID: id,
+        duration: Number(duration),
+        id: null,
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: Number(travelers),
+        userID: traveler.id
+    }
+    return newTrip
+}
 
+function makeTentativeTrips(inputObj, destinationsArray) {
+    //return an array of trip objects
+    //iterate through destinations
+    // invoke createTrip on each object
+}
+
+function getResultsDisplayInfo(tentativeTripsArray, destinationsArray) {
+    // destinationsArray.map(invoke get dest display info)
+
+}
+
+// function confirmTrip(tripsArray) {
+//     //update id of trip with generated id for it to be POSTed
+//     //return object
+// }
+
+function calculateEstimate(newTripObj, destinationsArray) {
+    const tripDest = destinationsArray.find(dest => newTripObj.destinationID === dest.id);
+    const totalLodging = tripDest.estimatedLodgingCostPerDay * newTripObj.duration;
+    const totalAirfare = tripDest.estimatedFlightCostPerPerson * newTripObj.travelers;
+    const subtotal = totalLodging + totalAirfare;
+    const agentFee = Math.round(subtotal * .1);
+    const grandTotal = Math.round(subtotal + agentFee)
+    const tripEstimate = {
+        totalLodging,
+        totalAirfare,
+        subtotal,
+        agentFee,
+        grandTotal
+    }
+    return tripEstimate
 }
 
 export {
@@ -105,5 +148,9 @@ export {
     findCurrentYear,
     calculateStats,
     getTripDisplayInfo,
-    createTrip
+    createTrip,
+    makeTentativeTrips,
+    getResultsDisplayInfo,
+    calculateEstimate,
+    // confirmTrip
 }

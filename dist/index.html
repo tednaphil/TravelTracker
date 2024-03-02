@@ -21,7 +21,7 @@
       </form>
     </div>
     <aside id="trip-stats-container">
-      <h2>Past Trip Stats</h2>
+      <h2>This Year's Trip Stats</h2>
       <div id="trip-stats-text">
         <h3>Total Lodging</h3>
         <p id="lodging-total">$</p>
@@ -76,15 +76,30 @@
       <div class="result-card">
         <h3>Destination 1</h3>
         <p>informational txt</p>
-        <button class="buttons" id="select-destination-button">Select</button>
+        <button class="buttons" id="select-destination-button" value="1">Select</button>
       </div>
       <div class="result-card">
         <h3>Destination 2</h3>
         <p>informational txt</p>
-        <button class="buttons" id="select-destination-button">Select</button>
+        <button class="buttons" id="select-destination-button" value="2">Select</button>
       </div>
     </div>
   </section>
+  <!-- <section class="hidden" id="trip-confirmation">
+    <h2 id="trip-confirmation-message">You're going on a trip!</h2>
+    <p id="trip-costs"></p> -->
+    <!-- <p id="lodging-estimate">lodging cost:</p>
+    <p id="airfare-estimate">airfare cost:</p>
+    <p id="subtotal">subtotal:</p>
+    <p id="agent-fee">10% agent fee:</p>
+    <p id="trip-estimate">Total estimate:</p> -->
+    <!-- <button class="buttons" id="trip-confirmation-button" onclick="this.parentNode.classList.add('hidden')">Home</button>
+  </section> -->
+  <dialog id="trip-confirmation">
+    <h2 id="trip-confirmation-message">You're going on a trip!</h2>
+    <p id="trip-costs"></p>
+    <button class="buttons" id="trip-confirmation-button">Home</button>
+  </dialog>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>

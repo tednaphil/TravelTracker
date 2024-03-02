@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
@@ -53,11 +53,8 @@ describe('Trips', function() {
         travelers: 2, 
         userID: 2 
       });
-      // sad path(s) - if an invalid id is passed
     });
-    // it.skip('should sort trips from most recent to earliest', function() {
-    //   expect(trips3[0].date).to.equal('2026/06/25')
-    // })
+    // sad path(s) - if an invalid id is passed
   });
 
   describe('Organize Trips', function() {
@@ -105,8 +102,9 @@ describe('Trips', function() {
   });
 
   describe('Find Current Year', function() {
-    it('should return the year of a traveler\'s most recent trip', function() {
-      const currentYear = findCurrentYear(trips3);
+    it('should return the year of a traveler\'s most recent past trip', function() {
+      const traveler3Trips = organizeTrips(trips3);
+      const currentYear = findCurrentYear(traveler3Trips);
 
       expect(currentYear).to.equal('2026')
 
@@ -122,7 +120,8 @@ describe('Trips', function() {
         totalAirfare: 400,
         subtotal: 820,
         agentFee: 82,
-        grandTotal: 902 
+        grandTotal: 902,
+        year: '2023' 
       })
     });
     it('should calculate costs for trips with multiple travelers', function() {
@@ -133,7 +132,8 @@ describe('Trips', function() {
         totalAirfare: 1530,
         subtotal: 1755,
         agentFee: 176,
-        grandTotal: 1931 
+        grandTotal: 1931,
+        year: '2023' 
       })
     })
     it('should return "false" if passed an ID of a non-existent trip', function() {
@@ -150,27 +150,18 @@ describe('Trips', function() {
 
   describe('Calculate Trip Stats', function() {
     it('should return an object with totals spent for a traveler\'s past trips that year', function() {
-      const currentYear = findCurrentYear(trips1);
+      const currentYear = findCurrentYear(traveler1Trips);
       const trav1Stats = calculateStats(traveler1Trips, testTrips, testDestinations, currentYear);
 
-
-      // expect(trav1Stats).to.deep.equal({
-      //   lodging: 1220,
-      //   airfare: 2200,
-      //   subtotal: 3420,
-      //   agentFee: 342,
-      //   grandTotal: 3762,
-      //   tripsTaken: 2
-      // });
       expect(currentYear).to.equal('2026')
       expect(trav1Stats).to.deep.equal({
-        lodging: 0,
-        airfare: 0,
-        subtotal: 0,
-        agentFee: 0,
-        grandTotal: 0,
+        lodging: 800,
+        airfare: 1800,
+        subtotal: 2600,
+        agentFee: 260,
+        grandTotal: 2860,
         tripsTaken: 1,
-        year: ''
+        year: '2026'
       });
     });
     it('should return properties with values of 0 if no trips have been approved/taken by the traveler', function() {
@@ -225,9 +216,71 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
-    it('should happy and sad paths', function() {
+    let currentTraveler, dest;
+    beforeEach(() => {
+      currentTraveler = traveler1;
+      dest = testDestinations[0]
+    })
+    it('should return an object that includes all trip properties', function() {
+      const input = {
+        date: '2024-03-08',
+        duration: '2',
+        travelers: '2'
+      };
+      const newTrip = createTrip(input, dest, currentTraveler);
+
+      expect(newTrip).to.deep.equal({
+        date: '2024/03/08',
+        destinationID: 1,
+        duration: 2,
+        id: null,
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: 2,
+        userID: 1
+      });
+    });
+    it('should create a trip for a different destination', function() {
+      const input = {
+        date: '2024-07-23',
+        duration: '7',
+        travelers: '3'
+      };
+      const newTrip = createTrip(input, dest, currentTraveler);
+
+      expect(newTrip).to.deep.equal({
+        date: '2024/07/23',
+        destinationID: 1,
+        duration: 7,
+        id: null,
+        status: 'pending',
+        suggestedActivities: [],
+        travelers: 3,
+        userID: 1
+      });
+    });
+  });
+
+  describe('Calculate New Estimate', function() {
+    it.skip('should return an object with cost details for a new trip', function() {
       
     })
+  })
 
-  });
+  // describe('Make Tentative Trips', function() {
+  //   it.skip('should return an array of trip objects', function() {
+
+  //   })
+  // });
+
+  // describe('Get Results Display Info', function() {
+  //   it.skip('should return an array of ')
+
+  // });
+
+  // describe('Confirm Trip', function() {
+  //   it.skip('should return a trip object with an updated id property', function() {
+
+  //   })
+  // });
 });
