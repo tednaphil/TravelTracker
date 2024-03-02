@@ -21,7 +21,7 @@ function organizeTrips(userTrips) {
 }
 
 function calculateTripCost(tripID, tripsArray, destinationsArray) {
-    console.log('calculate cost arguments', arguments)
+    // console.log('calculate cost arguments', arguments)
     const tripIDs = tripsArray.map(trip => trip.id);
     if (!tripIDs.includes(tripID)) {
         return false
