@@ -164,13 +164,29 @@ function displayStats(statsObj) {
 };
 
 function handleSearch(e) {
-    // console.log('tripsData at time of search', tripsData)
-    const input = captureInput(); //do i need to store this globaly?
+    e.preventDefault();
+    const dateValidation = checkTripDate()
+    console.log('date validation', dateValidation)
+    if (dateValidation) {
+        // console.log('tripsData at time of search', tripsData)
+    const input = captureInput();
     clearForm()
-    // const tentativeTrips = makeTentativeTrips(input, destinationsData);
     renderResults(destinationsData);
     displayResults(e);
-    
+    } else {
+        console.log('don\'t double book :D')
+    }
+}
+
+function checkTripDate() {
+    const tripDates = tripsData.map(trip => trip.date)
+    const inputDate = dateInput.value.split('-').join('/')
+    if (tripDates.includes(inputDate)) {
+        return false
+    } else {
+        return true
+    }
+
 }
 
 function captureInput() {
