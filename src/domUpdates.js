@@ -4,6 +4,9 @@ import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinat
 import { fetchData, postData, fetchTrips } from "./apiCalls";
 
 // QUERY SELECTORS
+const loginPage = document.querySelector('#login-page');
+const loginButton = document.querySelector('#login-button');
+
 const main = document.querySelector('main');
 const tripDetailsSection = document.querySelector('#trip-details-container');
 
@@ -35,7 +38,8 @@ const tripConfirmationButton = document.querySelector('#trip-confirmation-button
 
 
 // EVENT LISTENERS
-window.addEventListener('load', setData)
+loginButton.addEventListener('click', handleLogin)
+window.addEventListener('load', setData);
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 searchResultsSection.addEventListener('click', function(e) {
@@ -50,6 +54,16 @@ let destinationsData;
 // let userID;
 let currentTraveler;
 let tripInput;
+
+function handleLogin() {
+    const loginSuccessful = checkLogin();
+    if (loginSuccessful) {
+        setData;
+        loginPage.classList.add('hidden');
+        main.classList.remove('hidden');
+        tripDetailsSection.classList.remove('hidden');
+    }
+}
 
 function setData() {
     fetchData()
