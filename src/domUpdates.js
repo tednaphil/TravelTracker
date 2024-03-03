@@ -158,7 +158,8 @@ function displayTrips({past, pending}) {
     if (typeof pending === 'object') {
         pendingPlaceholder.classList.add('hidden');
         pendingTrips.innerHTML = ''
-        pending.forEach(trip => {
+        const reversedPending = pending.reverse()
+        reversedPending.forEach(trip => {
             pendingTrips.innerHTML += `
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
