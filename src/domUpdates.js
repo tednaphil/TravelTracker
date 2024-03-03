@@ -50,7 +50,13 @@ planTripForm.addEventListener('input', checkFields)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 resultsContainer.addEventListener('click', function(e) {
-    planTrip(tripInput, e.target.value)
+    // console.log(e)
+    // console.log(e.target)
+    // console.log(e.target.className)
+    if (e.target.className === 'buttons') {
+        planTrip(tripInput, e.target.value)
+    }
+    // planTrip(tripInput, e.target.value)
 })
 tripConfirmationButton.addEventListener('click', handleConfirmation)
 
@@ -236,7 +242,6 @@ function renderResults(destinationsArray) {
 function planTrip(inputObj, destinationID) {
     // tripConfirmation.classList.remove('hidden');
     // searchResultsSection.classList.add('hidden');
-
     tripConfirmation.showModal()
     const destID = Number(destinationID)
     console.log('destination id is a', typeof destID)
