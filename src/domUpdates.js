@@ -125,18 +125,16 @@ function renderDom(userID) {
     let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
     // console.log('stats', stats);
-    travelerName.innerText = `Hi there, ${currentTraveler.name}`;
     setMinDate();
-    // displayCurrentTraveler();
+    displayCurrentTraveler(currentTraveler);
     displayTrips(tripDisplayDetails);
     displayStats(stats);
 }
 
-// function displayCurrentTraveler() {
-    //format name to string of only first name
-//     travelerName.innerText = `Hi there, ${currentTraveler.name}`
-    
-// }
+function displayCurrentTraveler({name}) {
+    const firstName = name.split(' ')[0];
+    travelerName.innerText = `Hi there, ${firstName}!`
+}
 
 function setMinDate() {
     const today = new Date().toISOString().split('T')[0];
