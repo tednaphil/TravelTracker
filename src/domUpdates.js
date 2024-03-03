@@ -179,14 +179,13 @@ function displayStats(statsObj) {
 function handleSearch(e) {
     e.preventDefault();
     const dateValidation = checkTripDate()
-    console.log('date validation', dateValidation)
     if (dateValidation) {
     const input = captureInput();
     clearForm()
     renderResults(destinationsData);
     displayResults(e);
     } else {
-        console.log('don\'t double book :D')
+        displayErrorMessage('You already have a trip planned for that day! Please choose a different day.')
     }
 }
 
@@ -207,7 +206,6 @@ function captureInput() {
         duration: durationInput.value,
         travelers: numTravelersInput.value
     }
-    // console.log('input object', input)
     tripInput = input
     return input
 }
