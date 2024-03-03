@@ -5,7 +5,6 @@ import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calcula
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
-// import { findDestination, getDestDisplayInfo } from '../src/destinations';
 
 describe('Trips', function() {
   let traveler1, traveler2, traveler3, traveler4, trips1, trips2, trips3, trips4, traveler1Trips, traveler4Trips, trav1DisplayInfo, currentTraveler, dest;
