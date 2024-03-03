@@ -38,6 +38,9 @@ body {
   width: fit-content;
   background: rgba(251, 255, 255, .8);
   text-align: center;
+  & legend {
+    font-size: 2rem;
+  }
   & label {
     padding-top: 10px;
   }
