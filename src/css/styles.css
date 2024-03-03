@@ -23,9 +23,25 @@ body {
   margin: 0;
 }
 
+#login-page {
+  height: 100vh;
+  background: url('https://static.showit.co/file/t5GazwUVQneNSlBu7psHQw/161366/video-gif-mobile.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #login-form {
+  margin: auto;
+  border-radius: var(--rounded-border);
+  padding: 10px;
+  position: relative;
+  top: 200px;
+  width: fit-content;
+  background: rgba(251, 255, 255, .8);
   text-align: center;
-  padding-top: 200px;
+  & label {
+    padding-top: 10px;
+  }
   & input {
     margin-left: auto;
     margin-right: auto;
