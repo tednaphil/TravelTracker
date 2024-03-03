@@ -1,11 +1,11 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip, calculateEstimate } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, calculateEstimate } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination, getDestDisplayInfo } from '../src/destinations';
+// import { findDestination, getDestDisplayInfo } from '../src/destinations';
 
 describe('Trips', function() {
   let traveler1, traveler2, traveler3, traveler4, trips1, trips2, trips3, trips4, traveler1Trips, traveler4Trips, trav1DisplayInfo, currentTraveler, dest;
@@ -218,11 +218,6 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
-    // let currentTraveler, dest;
-    // beforeEach(() => {
-    //   currentTraveler = traveler1;
-    //   dest = testDestinations[0]
-    // })
     it('should return an object that includes all trip properties', function() {
       const input = {
         date: '2024-03-08',
@@ -282,21 +277,4 @@ describe('Trips', function() {
       });
     });
   });
-
-  // describe('Make Tentative Trips', function() {
-  //   it.skip('should return an array of trip objects', function() {
-
-  //   })
-  // });
-
-  // describe('Get Results Display Info', function() {
-  //   it.skip('should return an array of ')
-
-  // });
-
-  // describe('Confirm Trip', function() {
-  //   it.skip('should return a trip object with an updated id property', function() {
-
-  //   })
-  // });
 });

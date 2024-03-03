@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination, getDestCostDisplay, getDestDisplayInfo } from '../src/destinations';
+import { findDestination, getDestDisplayInfo } from '../src/destinations';
 import { testTrips } from './sample-data/sample-trips';
 import { filterTrips, organizeTrips } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
