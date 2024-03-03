@@ -65,7 +65,7 @@ let currentTraveler;
 let tripInput;
 
 function checkFields() {
-    if (usernameInput.value && passwordInput) {
+    if (usernameInput.value && passwordInput.value) {
         loginButton.disabled = false
     } else {
         loginButton.disabled = true
