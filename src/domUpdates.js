@@ -1,6 +1,6 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo, calculateEstimate } from "./trips";
-import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinations } from "./destinations";
+import { filterTrips, organizeTrips, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, calculateEstimate } from "./trips";
+import { findDestination } from "./destinations";
 import { fetchData, postData, fetchTrips } from "./apiCalls";
 
 // QUERY SELECTORS
@@ -8,17 +8,15 @@ const loginPage = document.querySelector('#login-page');
 const loginButton = document.querySelector('#login-button');
 const usernameInput = document.querySelector('#username-input');
 const passwordInput = document.querySelector('#password-input');
-const header = document.querySelector('header')
+const header = document.querySelector('header');
 const main = document.querySelector('main');
-const travelerName = document.querySelector('#traveler-name')
+const travelerName = document.querySelector('#traveler-name');
 const tripDetailsSection = document.querySelector('#trip-details-container');
-
 const planTripForm = document.querySelector('#plan-trip-form');
 const dateInput = document.querySelector('#date-input');
 const durationInput = document.querySelector('#duration-input');
 const numTravelersInput = document.querySelector('#num-travelers-input');
 const searchButton = document.querySelector('#trip-search-button');
-
 const lodgingTotal = document.querySelector('#lodging-total');
 const airfareTotal = document.querySelector('#airfare-total');
 const agentFeesTotal = document.querySelector('#agent-fee-total');
@@ -27,14 +25,12 @@ const pendingTrips = document.querySelector('#pending-trips');
 const pastTrips = document.querySelector('#past-trips');
 const pendingPlaceholder = document.querySelector('#no-pending');
 const pastPlaceholder = document.querySelector('#no-past');
-
 const searchResultsSection = document.querySelector('#search-results');
 const searchCloseButton = document.querySelector('#close-button');
 const resultsContainer = document.querySelector('#results-container');
-
 const tripConfirmation = document.querySelector('#trip-confirmation');
 const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
-const tripCosts = document.querySelector('#trip-costs')
+const tripCosts = document.querySelector('#trip-costs');
 const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
 
 
@@ -45,18 +41,13 @@ loginButton.addEventListener('click', function(e) {
     handleLogin(e)
 });
 loginPage.addEventListener('input', checkFields)
-// window.addEventListener('load', setData);
 planTripForm.addEventListener('input', checkFields)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
 resultsContainer.addEventListener('click', function(e) {
-    // console.log(e)
-    // console.log(e.target)
-    // console.log(e.target.className)
     if (e.target.className === 'buttons') {
         planTrip(tripInput, e.target.value)
     }
-    // planTrip(tripInput, e.target.value)
 })
 tripConfirmationButton.addEventListener('click', handleConfirmation)
 
@@ -64,7 +55,6 @@ tripConfirmationButton.addEventListener('click', handleConfirmation)
 let travelersData;
 let tripsData;
 let destinationsData;
-// let userID;
 let currentTraveler;
 let tripInput;
 
@@ -80,7 +70,7 @@ function checkFields() {
     } else {
         searchButton.disabled = true
     }
-}
+};
 
 function handleLogin(e) {
     e.preventDefault();
@@ -97,14 +87,13 @@ function handleLogin(e) {
         main.classList.remove('hidden');
         tripDetailsSection.classList.remove('hidden');
     } else {
-        //display error text
+        //display error dialog with error text
         // throw new Error('bad credentials')
     }
 }
 
 function setData(userID) {
     fetchData()
-//refactor to take in traveler id to pass into renderDom
     .then(({travelers, destinations, trips}) => {
         travelersData =travelers;
         tripsData = trips;
@@ -113,6 +102,7 @@ function setData(userID) {
     })
     .catch(error => {
         console.log(error)
+        //display error dialog with error test
         return error
     })
 }
@@ -120,7 +110,6 @@ function setData(userID) {
 
 
 function renderDom(userID) {
-    //add paramater to accept traveler id to pass to setTraveler
     // console.log('trips data', tripsData)
     currentTraveler = setTraveler(userID, travelersData);
     // console.log('currentTraveler', currentTraveler)
@@ -149,7 +138,6 @@ function renderDom(userID) {
 function setMinDate() {
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today)
-    console.log('today', today)
 }
 
 function displayTrips({past, pending}) {
@@ -190,7 +178,6 @@ function handleSearch(e) {
     const dateValidation = checkTripDate()
     console.log('date validation', dateValidation)
     if (dateValidation) {
-        // console.log('tripsData at time of search', tripsData)
     const input = captureInput();
     clearForm()
     renderResults(destinationsData);
@@ -212,16 +199,12 @@ function checkTripDate() {
 }
 
 function captureInput() {
-    //return object with all input from form
-    // console.log('date', dateInput.value)
-    // console.log('duration', durationInput.value)
-    // console.log('travelers', numTravelersInput.value)
     const input = {
         date: dateInput.value,
         duration: durationInput.value,
         travelers: numTravelersInput.value
     }
-    console.log('input object', input)
+    // console.log('input object', input)
     tripInput = input
     return input
 }
@@ -240,38 +223,20 @@ function renderResults(destinationsArray) {
 }
 
 function planTrip(inputObj, destinationID) {
-    // tripConfirmation.classList.remove('hidden');
-    // searchResultsSection.classList.add('hidden');
     tripConfirmation.showModal()
     const destID = Number(destinationID)
-    console.log('destination id is a', typeof destID)
-    const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
+    const dest = findDestination(destID, destinationsData)
     const tripObj = createTrip(inputObj, dest, currentTraveler)
-    
-    console.log('trip obj', tripObj)
     postData(tripObj)
         .then(data => {
-            // console.log(data.newTrip)
-            const newTrip = data.newTrip
-            console.log('new trip', newTrip)
-            // const costs = calculateTripCost(newTrip.id)
-            // setData() says json stream already read????
-            displayNewTrip(newTrip)
+            const newTrip = data.newTrip;
+            displayNewTrip(newTrip);
         })
-    // console.log('posted Trip', postedTrip)
-    //create new trip and store in variable
-    // postTrip(newTrip)
-    //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
-    //calculateTripCost(newtrip.id) and store in variable
-    //display confirmation window
-    //display total trip cost, and confirm posting(then re-set data, and return to home)
 }
 
 function displayNewTrip(tripObj) {
     const dest = findDestination(tripObj.destinationID, destinationsData)
-    console.log('display new trip dest', dest)
     const costs = calculateEstimate(tripObj, destinationsData)
-    console.log('costs for displayNewTrip', costs)
     tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`;
     tripCosts.innerHTML = `
     Lodging: $${costs.totalLodging}<br>
@@ -282,7 +247,6 @@ function displayNewTrip(tripObj) {
 }
 
 function clearForm() {
-    // document.getElementById('plan-trip-form').reset();
     planTripForm.reset()
 }
 
@@ -299,9 +263,7 @@ function backToHome() {
     header.classList.remove('hidden');
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
-
     searchResultsSection.classList.add('hidden');
-    // tripConfirmation.classList.add('hidden');
     tripConfirmation.close();
 };
 
