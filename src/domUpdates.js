@@ -117,26 +117,34 @@ function renderDom(userID) {
     //add paramater to accept traveler id to pass to setTraveler
     // console.log('trips data', tripsData)
     currentTraveler = setTraveler(userID, travelersData);
-    console.log('currentTraveler', currentTraveler)
+    // console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
-    console.log('trips', trips);
+    // console.log('trips', trips);
     let organizedTrips = organizeTrips(trips);
-    console.log('organizedTrips', organizedTrips);
+    // console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
-    console.log('Trip Display Info', tripDisplayDetails)
+    // console.log('Trip Display Info', tripDisplayDetails)
     let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
-    console.log('stats', stats);
-    travelerName.innerText = `Hi there, ${currentTraveler.name}`
+    // console.log('stats', stats);
+    travelerName.innerText = `Hi there, ${currentTraveler.name}`;
+    setMinDate();
     // displayCurrentTraveler();
     displayTrips(tripDisplayDetails);
     displayStats(stats);
 }
 
 // function displayCurrentTraveler() {
+    //format name to string of only first name
 //     travelerName.innerText = `Hi there, ${currentTraveler.name}`
     
 // }
+
+function setMinDate() {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today)
+    console.log('today', today)
+}
 
 function displayTrips({past, pending}) {
     if (typeof past === 'object') {
