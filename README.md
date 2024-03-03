@@ -32,6 +32,11 @@
 - run `npm install`
 - run `npm start` to run the local server
 - navigate to this [link](https://tednaphil.github.io/TravelTracker/)
+- login using the following credentials
+    ```
+    username: traveler<id> (id is a numeral between 1-50)
+    password: travel
+    ```
 
 ## Testing Instructions
 - clone the repository to your machine
@@ -43,18 +48,23 @@
 
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
-- ~ hours to complete test suite and functionality
-- Solo project completed in 
-- Goals
-  ```
-  ```
-- Wins
-  ```
-  - 100 accessibility score and usability without pointing device
-  ```
-- Challenges
-  ```
-  - validation for user inputted data (preventing submission of past dates, )
-  - utilizing asynchronously fetched data for dynamic updates to site (data that is unchanged can't be refetched?)
+- ~ 4 hours to build static comp & 20 hours to create test suite and add functionality
+- Solo project completed in the 11th week of studying front-end development with Javascript, CSS, and HTML
 
-  ```
+### Goals
+> - Use object and array protoype methods to perform data manipulation
+> - Create clear & accessible user interface
+> - Make network requests to send and retrieve data
+> - Implement a robust testing suite using TDD
+> - Produce DRY, reusable code that follows SRP (Single Responsibility Principle)
+  
+### Wins
+ > - 100 accessibility score and usability without pointing device
+ > - Error prevention with input validation and visible user feedback using `<dialog>` elements for reactive error handling
+  
+### Challenges
+> - dynamic date validation - solved with using Javascript to determine the current date and set the date input min attribute
+> - Resolving bug producing `'Response': body stream already read` error when fetching new data to display on DOM - solved using an individual fetch request for the updated data only
+> - creating test data that accurately represents the data model on a smaller scale
+
+  
