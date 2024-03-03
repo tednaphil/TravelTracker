@@ -32,6 +32,9 @@ const tripConfirmation = document.querySelector('#trip-confirmation');
 const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
 const tripCosts = document.querySelector('#trip-costs');
 const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
+const errorDisplay = document.querySelector('#error-display');
+const errorText = document.querySelector('#error-text');
+const errorCloseButton = document.querySelector('#error-message-button');
 
 
 
@@ -50,6 +53,9 @@ resultsContainer.addEventListener('click', function(e) {
     }
 })
 tripConfirmationButton.addEventListener('click', handleConfirmation)
+errorCloseButton.addEventListener('click', function() {
+    errorDisplay.close()
+})
 
 // GLOBAL VARIABLES
 let travelersData;
@@ -87,8 +93,7 @@ function handleLogin(e) {
         main.classList.remove('hidden');
         tripDetailsSection.classList.remove('hidden');
     } else {
-        //display error dialog with error text
-        // throw new Error('bad credentials')
+        displayErrorMessage('Please submit valid credentials');
     }
 }
 
@@ -101,9 +106,7 @@ function setData(userID) {
         renderDom(userID)
     })
     .catch(error => {
-        console.log(error)
-        //display error dialog with error test
-        return error
+        displayErrorMessage(error)
     })
 }
 
@@ -232,6 +235,9 @@ function planTrip(inputObj, destinationID) {
             const newTrip = data.newTrip;
             displayNewTrip(newTrip);
         })
+        .catch(error => {
+            displayErrorMessage(error);
+        })
 }
 
 function displayNewTrip(tripObj) {
@@ -273,8 +279,15 @@ function handleConfirmation() {
         tripsData = trips;
         renderDom(currentTraveler.id);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        displayErrorMessage(error)
+    })
     backToHome()
+}
+
+function displayErrorMessage(error) {
+    errorText.innerText = error;
+    errorDisplay.showModal();
 }
 
 
