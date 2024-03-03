@@ -20,7 +20,6 @@ function fetchData() {
         return Promise.all(res.map(obj => obj.json()))
     })
     .then(arr => {
-        // console.log(arr)
         let dataObject = arr.reduce((obj, set) => {
             let key = Object.keys(set)[0]
             obj[key] = set[key]
@@ -28,14 +27,9 @@ function fetchData() {
         }, {})
         return dataObject
     })
-    // .then(res => {
-    //     let keys = Object.keys(res)
-    //     console.log(keys)
-    //     console.log(res)
-    // })
     .catch(error => {
         console.log('API GET error caught')
-        throw new Error(error.message)
+        throw new Error(`${error.message}. Please reload page!`)
     })
 };
 
@@ -59,8 +53,9 @@ function postData(tripObj) {
         }
     })
     .then(res => res.json())
-    .catch(error => console.log(error))
-    // .then(data => console.log(data))
+    .catch(error => {
+        throw new Error(`${error.message}. Please try again!`)
+    })
 };
 
 function fetchTrips() {
@@ -72,11 +67,13 @@ function fetchTrips() {
             let responseText = response.statusText
             let responseCode = response.status
             console.log('API GET Trips error')
-            throw new Error(`${responseCode} : ${responseText}`)
+            throw new Error(`${responseCode} : ${responseText}.`)
         }
     })
     .then(res => res.json())
-    .catch(error => console.log(error))
+    .catch(error => {
+        throw new Error(error.message)
+    })
 }
 
 export {

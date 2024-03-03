@@ -1,14 +1,13 @@
 import chai from 'chai';
 const expect = chai.expect;
 import { testTrips } from './sample-data/sample-trips';
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, confirmTrip } from '../src/trips';
+import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, calculateEstimate } from '../src/trips';
 import { testTravelers } from './sample-data/sample-traveler';
 import { setTraveler } from '../src/traveler';
 import { testDestinations } from './sample-data/sample-destinations';
-import { findDestination, getDestDisplayInfo } from '../src/destinations';
 
 describe('Trips', function() {
-  let traveler1, traveler2, traveler3, traveler4, trips1, trips2, trips3, trips4, traveler1Trips, traveler4Trips, trav1DisplayInfo;
+  let traveler1, traveler2, traveler3, traveler4, trips1, trips2, trips3, trips4, traveler1Trips, traveler4Trips, trav1DisplayInfo, currentTraveler, dest;
   beforeEach(() => {
     traveler1 = setTraveler(1, testTravelers);
     traveler2 = setTraveler(2, testTravelers);
@@ -21,6 +20,8 @@ describe('Trips', function() {
     traveler1Trips = organizeTrips(trips1);
     traveler4Trips = organizeTrips(trips4);
     trav1DisplayInfo = getTripDisplayInfo(traveler1Trips, testDestinations);
+    currentTraveler = traveler1;
+    dest = testDestinations[0]
   });
   
   describe('Filter Trips', function() {
@@ -216,11 +217,6 @@ describe('Trips', function() {
   });
 
   describe('Create Trip', function() {
-    let currentTraveler, dest;
-    beforeEach(() => {
-      currentTraveler = traveler1;
-      dest = testDestinations[0]
-    })
     it('should return an object that includes all trip properties', function() {
       const input = {
         date: '2024-03-08',
@@ -262,25 +258,22 @@ describe('Trips', function() {
   });
 
   describe('Calculate New Estimate', function() {
-    it.skip('should return an object with cost details for a new trip', function() {
-      
-    })
-  })
+    it('should return an object with cost details for a new trip', function() {
+      const input = {
+        date: '2024-07-23',
+        duration: '7',
+        travelers: '3'
+      };
+      const newTrip = createTrip(input, dest, currentTraveler);
+      const costs = calculateEstimate(newTrip, testDestinations);
 
-  // describe('Make Tentative Trips', function() {
-  //   it.skip('should return an array of trip objects', function() {
-
-  //   })
-  // });
-
-  // describe('Get Results Display Info', function() {
-  //   it.skip('should return an array of ')
-
-  // });
-
-  // describe('Confirm Trip', function() {
-  //   it.skip('should return a trip object with an updated id property', function() {
-
-  //   })
-  // });
+      expect(costs).to.deep.equal({
+        totalLodging: 490,
+        totalAirfare: 1200,
+        subtotal: 1690,
+        agentFee: 169,
+        grandTotal: 1859
+      });
+    });
+  });
 });

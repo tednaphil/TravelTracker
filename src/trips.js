@@ -21,7 +21,6 @@ function organizeTrips(userTrips) {
 }
 
 function calculateTripCost(tripID, tripsArray, destinationsArray) {
-    console.log('calculate cost arguments', arguments)
     const tripIDs = tripsArray.map(trip => trip.id);
     if (!tripIDs.includes(tripID)) {
         return false
@@ -108,22 +107,6 @@ function createTrip({date, duration, travelers}, {id}, traveler) {
     return newTrip
 }
 
-function makeTentativeTrips(inputObj, destinationsArray) {
-    //return an array of trip objects
-    //iterate through destinations
-    // invoke createTrip on each object
-}
-
-function getResultsDisplayInfo(tentativeTripsArray, destinationsArray) {
-    // destinationsArray.map(invoke get dest display info)
-
-}
-
-// function confirmTrip(tripsArray) {
-//     //update id of trip with generated id for it to be POSTed
-//     //return object
-// }
-
 function calculateEstimate(newTripObj, destinationsArray) {
     const tripDest = destinationsArray.find(dest => newTripObj.destinationID === dest.id);
     const totalLodging = tripDest.estimatedLodgingCostPerDay * newTripObj.duration;
@@ -149,8 +132,5 @@ export {
     calculateStats,
     getTripDisplayInfo,
     createTrip,
-    makeTentativeTrips,
-    getResultsDisplayInfo,
     calculateEstimate,
-    // confirmTrip
 }

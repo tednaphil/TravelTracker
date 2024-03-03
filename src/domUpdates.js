@@ -1,18 +1,22 @@
 import { setTraveler, checkLogin } from "./traveler";
-import { filterTrips, organizeTrips, calculateTripCost, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, makeTentativeTrips, getResultsDisplayInfo, calculateEstimate } from "./trips";
-import { findDestination, getDestCostDisplay, getDestDisplayInfo, filterDestinations } from "./destinations";
+import { filterTrips, organizeTrips, findCurrentYear, calculateStats, getTripDisplayInfo, createTrip, calculateEstimate } from "./trips";
+import { findDestination } from "./destinations";
 import { fetchData, postData, fetchTrips } from "./apiCalls";
 
 // QUERY SELECTORS
+const loginPage = document.querySelector('#login-page');
+const loginButton = document.querySelector('#login-button');
+const usernameInput = document.querySelector('#username-input');
+const passwordInput = document.querySelector('#password-input');
+const header = document.querySelector('header');
 const main = document.querySelector('main');
+const travelerName = document.querySelector('#traveler-name');
 const tripDetailsSection = document.querySelector('#trip-details-container');
-
 const planTripForm = document.querySelector('#plan-trip-form');
 const dateInput = document.querySelector('#date-input');
 const durationInput = document.querySelector('#duration-input');
 const numTravelersInput = document.querySelector('#num-travelers-input');
 const searchButton = document.querySelector('#trip-search-button');
-
 const lodgingTotal = document.querySelector('#lodging-total');
 const airfareTotal = document.querySelector('#airfare-total');
 const agentFeesTotal = document.querySelector('#agent-fee-total');
@@ -21,69 +25,122 @@ const pendingTrips = document.querySelector('#pending-trips');
 const pastTrips = document.querySelector('#past-trips');
 const pendingPlaceholder = document.querySelector('#no-pending');
 const pastPlaceholder = document.querySelector('#no-past');
-
 const searchResultsSection = document.querySelector('#search-results');
 const searchCloseButton = document.querySelector('#close-button');
 const resultsContainer = document.querySelector('#results-container');
-
 const tripConfirmation = document.querySelector('#trip-confirmation');
 const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
-const tripCosts = document.querySelector('#trip-costs')
+const tripCosts = document.querySelector('#trip-costs');
 const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
+const errorDisplay = document.querySelector('#error-display');
+const errorText = document.querySelector('#error-text');
+const errorCloseButton = document.querySelector('#error-message-button');
 
 
 
 
 // EVENT LISTENERS
-window.addEventListener('load', setData)
+loginButton.addEventListener('click', function(e) {
+    handleLogin(e)
+});
+loginPage.addEventListener('input', checkFields)
+planTripForm.addEventListener('input', checkFields)
 searchButton.addEventListener('click', handleSearch);
 searchCloseButton.addEventListener('click', backToHome);
-searchResultsSection.addEventListener('click', function(e) {
-    planTrip(tripInput, e.target.value)
+resultsContainer.addEventListener('click', function(e) {
+    if (e.target.className === 'buttons') {
+        planTrip(tripInput, e.target.value)
+    }
 })
 tripConfirmationButton.addEventListener('click', handleConfirmation)
+errorCloseButton.addEventListener('click', function() {
+    errorDisplay.close()
+})
 
 // GLOBAL VARIABLES
 let travelersData;
 let tripsData;
 let destinationsData;
-// let userID;
 let currentTraveler;
 let tripInput;
 
-function setData() {
+function checkFields() {
+    if (usernameInput.value && passwordInput) {
+        loginButton.disabled = false
+    } else {
+        loginButton.disabled = true
+    }
+
+    if (dateInput.value && durationInput.value && numTravelersInput.value) {
+        searchButton.disabled = false
+    } else {
+        searchButton.disabled = true
+    }
+};
+
+function handleLogin(e) {
+    e.preventDefault();
+    let credentials = {
+        username: usernameInput.value,
+        password: passwordInput.value
+    }
+    const loginSuccessful = checkLogin(credentials);
+    if (loginSuccessful) {
+        console.log('credentials', credentials);
+        const userID = Number(credentials.username.replace('traveler', ''))
+        setData(userID);
+        loginPage.classList.add('hidden');
+        main.classList.remove('hidden');
+        tripDetailsSection.classList.remove('hidden');
+    } else {
+        displayErrorMessage('Please submit valid credentials');
+    }
+}
+
+function setData(userID) {
     fetchData()
-//refactor to take in traveler id to pass into renderDom
     .then(({travelers, destinations, trips}) => {
         travelersData =travelers;
         tripsData = trips;
         destinationsData = destinations;
-        renderDom()
+        renderDom(userID)
     })
     .catch(error => {
-        console.log(error)
-        return error
+        displayErrorMessage(error)
     })
 }
 
 
 
-function renderDom() {
-    //add paramater to accept traveler id to pass to setTraveler
+function renderDom(userID) {
     // console.log('trips data', tripsData)
-    currentTraveler = setTraveler(3, travelersData);
-    console.log('currentTraveler', currentTraveler)
+    currentTraveler = setTraveler(userID, travelersData);
+    // console.log('currentTraveler', currentTraveler)
     let trips = filterTrips(currentTraveler, tripsData);
-    console.log('trips', trips);
+    // console.log('trips', trips);
     let organizedTrips = organizeTrips(trips);
-    console.log('organizedTrips', organizedTrips);
+    // console.log('organizedTrips', organizedTrips);
     let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
-    console.log('Trip Display Info', tripDisplayDetails)
+    // console.log('Trip Display Info', tripDisplayDetails)
     let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
-    console.log('stats', stats)
+    // console.log('stats', stats);
+    travelerName.innerText = `Hi there, ${currentTraveler.name}`;
+    setMinDate();
+    // displayCurrentTraveler();
     displayTrips(tripDisplayDetails);
     displayStats(stats);
+}
+
+// function displayCurrentTraveler() {
+    //format name to string of only first name
+//     travelerName.innerText = `Hi there, ${currentTraveler.name}`
+    
+// }
+
+function setMinDate() {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today)
 }
 
 function displayTrips({past, pending}) {
@@ -120,26 +177,35 @@ function displayStats(statsObj) {
 };
 
 function handleSearch(e) {
-    // console.log('tripsData at time of search', tripsData)
-    const input = captureInput(); //do i need to store this globaly?
+    e.preventDefault();
+    const dateValidation = checkTripDate()
+    if (dateValidation) {
+    const input = captureInput();
     clearForm()
-    // const tentativeTrips = makeTentativeTrips(input, destinationsData);
     renderResults(destinationsData);
     displayResults(e);
-    
+    } else {
+        displayErrorMessage('You already have a trip planned for that day! Please choose a different day.')
+    }
+}
+
+function checkTripDate() {
+    const tripDates = tripsData.map(trip => trip.date)
+    const inputDate = dateInput.value.split('-').join('/')
+    if (tripDates.includes(inputDate)) {
+        return false
+    } else {
+        return true
+    }
+
 }
 
 function captureInput() {
-    //return object with all input from form
-    // console.log('date', dateInput.value)
-    // console.log('duration', durationInput.value)
-    // console.log('travelers', numTravelersInput.value)
     const input = {
         date: dateInput.value,
         duration: durationInput.value,
         travelers: numTravelersInput.value
     }
-    console.log('input object', input)
     tripInput = input
     return input
 }
@@ -158,39 +224,23 @@ function renderResults(destinationsArray) {
 }
 
 function planTrip(inputObj, destinationID) {
-    // tripConfirmation.classList.remove('hidden');
-    // searchResultsSection.classList.add('hidden');
-
     tripConfirmation.showModal()
     const destID = Number(destinationID)
-    console.log('destination id is a', typeof destID)
-    const dest = findDestination(destID, destinationsData) //maybe pass target value in directly
+    const dest = findDestination(destID, destinationsData)
     const tripObj = createTrip(inputObj, dest, currentTraveler)
-    
-    console.log('trip obj', tripObj)
     postData(tripObj)
         .then(data => {
-            // console.log(data.newTrip)
-            const newTrip = data.newTrip
-            console.log('new trip', newTrip)
-            // const costs = calculateTripCost(newTrip.id)
-            // setData() says json stream already read????
-            displayNewTrip(newTrip)
+            const newTrip = data.newTrip;
+            displayNewTrip(newTrip);
         })
-    // console.log('posted Trip', postedTrip)
-    //create new trip and store in variable
-    // postTrip(newTrip)
-    //post new trip (this function will generate/reassign it's id OR refactor createNewTrip to create it)
-    //calculateTripCost(newtrip.id) and store in variable
-    //display confirmation window
-    //display total trip cost, and confirm posting(then re-set data, and return to home)
+        .catch(error => {
+            displayErrorMessage(error);
+        })
 }
 
 function displayNewTrip(tripObj) {
     const dest = findDestination(tripObj.destinationID, destinationsData)
-    console.log('display new trip dest', dest)
     const costs = calculateEstimate(tripObj, destinationsData)
-    console.log('costs for displayNewTrip', costs)
     tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`;
     tripCosts.innerHTML = `
     Lodging: $${costs.totalLodging}<br>
@@ -201,12 +251,12 @@ function displayNewTrip(tripObj) {
 }
 
 function clearForm() {
-    // document.getElementById('plan-trip-form').reset();
     planTripForm.reset()
 }
 
 function displayResults(e) {
     e.preventDefault();
+    header.classList.add('hidden');
     main.classList.add('hidden');
     tripDetailsSection.classList.add('hidden');
     searchResultsSection.classList.remove('hidden');
@@ -214,11 +264,10 @@ function displayResults(e) {
 
 
 function backToHome() {
+    header.classList.remove('hidden');
     main.classList.remove('hidden');
     tripDetailsSection.classList.remove('hidden');
-
     searchResultsSection.classList.add('hidden');
-    // tripConfirmation.classList.add('hidden');
     tripConfirmation.close();
 };
 
@@ -226,10 +275,17 @@ function handleConfirmation() {
     fetchTrips()
     .then(({trips}) => {
         tripsData = trips;
-        renderDom();
+        renderDom(currentTraveler.id);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        displayErrorMessage(error)
+    })
     backToHome()
+}
+
+function displayErrorMessage(error) {
+    errorText.innerText = error;
+    errorDisplay.showModal();
 }
 
 
