@@ -220,6 +220,7 @@ function renderResults(destinationsArray) {
   sortedDestinations.forEach((dest) => {
     resultsContainer.innerHTML += `
         <div class="result-card">
+            <img src="${dest.image}" alt="${dest.alt}">
             <h3>${dest.destination}</h3>
             <p>Lodging: $${dest.estimatedLodgingCostPerDay} per day</p>
             <p>Airfare: $${dest.estimatedFlightCostPerPerson} per person</p>

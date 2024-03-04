@@ -226,6 +226,12 @@ input {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  & img {
+    height: 85px;
+    width: 100px;
+    margin-right: 5px;
+    border-radius: 10px;
+  }
 }
 
 dialog {
