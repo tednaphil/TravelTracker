@@ -153,6 +153,7 @@ function displayTrips({ past, pending }) {
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
                 <p>${trip.name}</p>
+                <p>${trip.date}</p>
             </div>`;
     });
   }
@@ -165,6 +166,7 @@ function displayTrips({ past, pending }) {
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
                 <p>${trip.name}</p>
+                <p>${trip.date}</p>
             </div>`;
     });
   }

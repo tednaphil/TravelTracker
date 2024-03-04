@@ -101,10 +101,10 @@ function getTripDisplayInfo({ approved, pending }, destinationsArray) {
   );
   const allDisplayInfo = {
     past: pastDestinations.length
-      ? pastDestinations.map((dest) => getDestDisplayInfo(dest))
+      ? pastDestinations.map((dest) => getDestDisplayInfo(dest, approved))
       : "No Trips 🌍",
     pending: pendingDestinations.length
-      ? pendingDestinations.map((dest) => getDestDisplayInfo(dest))
+      ? pendingDestinations.map((dest) => getDestDisplayInfo(dest, pending))
       : "No Pending Trips 🌍",
   };
   return allDisplayInfo;

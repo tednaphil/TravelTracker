@@ -10,11 +10,12 @@ function findDestination(locationID, destinationsArray) {
   }
 }
 
-function getDestDisplayInfo(destination) {
+function getDestDisplayInfo(destination, tripsArray) {
   const displayInfo = {
     name: destination.destination,
     image: destination.image,
     alt: destination.alt,
+    date: tripsArray.find(trip => trip.destinationID === destination.id).date
   };
   return displayInfo;
 }
