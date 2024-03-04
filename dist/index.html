@@ -7,11 +7,9 @@
   <title>Travel Tracker</title>
 </head>
 <body>
-  <header>
-    <h1 id="traveler-name"></h1>
-  </header>
   <section id="login-page">
     <form id="login-form">
+      <legend>Welcome to Travel Tracker</legend>
       <label for="username-input">Username</label>
       <input id="username-input" type="text" required placeholder="e.g. traveler5"/>
       <label for="password-input">Password</label>
@@ -19,6 +17,9 @@
       <input class="buttons" id="login-button" type="submit" value="Login">
     </form>
   </section>
+  <header>
+    <h1 id="traveler-name"></h1>
+  </header>
   <main class="hidden">
     <section id="plan-trip-container">
       <h2 id="plan-trip-header">Plan Your Next Trip</h2>
@@ -75,7 +76,7 @@
     </section>
   </article>
   <dialog id="trip-confirmation">
-    <h2 id="trip-confirmation-message">You're going on a trip!</h2>
+    <h2 id="trip-confirmation-message"></h2>
     <p id="trip-costs"></p>
     <button class="buttons" id="trip-confirmation-button">Home</button>
   </dialog>

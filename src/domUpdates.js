@@ -65,7 +65,7 @@ let currentTraveler;
 let tripInput;
 
 function checkFields() {
-    if (usernameInput.value && passwordInput) {
+    if (usernameInput.value && passwordInput.value) {
         loginButton.disabled = false
     } else {
         loginButton.disabled = true
@@ -125,18 +125,16 @@ function renderDom(userID) {
     let currentYear = findCurrentYear(organizedTrips);
     let stats = calculateStats(organizedTrips, tripsData, destinationsData, currentYear);
     // console.log('stats', stats);
-    travelerName.innerText = `Hi there, ${currentTraveler.name}`;
     setMinDate();
-    // displayCurrentTraveler();
+    displayCurrentTraveler(currentTraveler);
     displayTrips(tripDisplayDetails);
     displayStats(stats);
 }
 
-// function displayCurrentTraveler() {
-    //format name to string of only first name
-//     travelerName.innerText = `Hi there, ${currentTraveler.name}`
-    
-// }
+function displayCurrentTraveler({name}) {
+    const firstName = name.split(' ')[0];
+    travelerName.innerText = `Hi there, ${firstName}!`
+}
 
 function setMinDate() {
     const today = new Date().toISOString().split('T')[0];
@@ -158,7 +156,8 @@ function displayTrips({past, pending}) {
     if (typeof pending === 'object') {
         pendingPlaceholder.classList.add('hidden');
         pendingTrips.innerHTML = ''
-        pending.forEach(trip => {
+        const reversedPending = pending.reverse()
+        reversedPending.forEach(trip => {
             pendingTrips.innerHTML += `
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
