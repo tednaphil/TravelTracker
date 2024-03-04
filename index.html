@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Tracker</title>
+</head>
+<body>
+  <section id="login-page">
+    <form id="login-form">
+      <legend>Welcome to Travel Tracker</legend>
+      <label for="username-input">Username</label>
+      <input id="username-input" type="text" required placeholder="e.g. traveler5"/>
+      <label for="password-input">Password</label>
+      <input id="password-input"  type="password" required/>
+      <input class="buttons" id="login-button" type="submit" value="Login">
+    </form>
+  </section>
+  <header>
+    <h1 id="traveler-name"></h1>
+  </header>
+  <main class="hidden">
+    <section id="plan-trip-container">
+      <h2 id="plan-trip-header">Plan Your Next Trip</h2>
+      <form id="plan-trip-form">
+        <label for="date-input">Date</label>
+        <input id="date-input" type="date"/>
+        <label for="duration-input">Duration</label>
+        <input id="duration-input" type="number" placeholder="number of days"/>
+        <label for="num-travelers-input">Travelers</label>
+        <input id="num-travelers-input" type="number" placeholder="number of travelers"/>
+        <input class="buttons" id="trip-search-button" type="submit" value="Search">
+      </form>
+    </section>
+    <aside id="trip-stats-container">
+      <h2>This Year's Trip Stats</h2>
+      <div id="trip-stats-text">
+        <h3>Total Lodging</h3>
+        <p id="lodging-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Total Airfare</h3>
+        <p id="airfare-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Total Agent Fees</h3>
+        <p id="agent-fee-total">$</p>
+      </div>
+      <div id="trip-stats-text">
+        <h3>Total Spent</h3>
+        <p id="grand-total">$</p>
+      </div>
+    </aside>
+  </main>
+  <article class="hidden" id="trip-details-container">
+    <section id="pending-trips-section">
+      <h2>Pending Trips</h2>
+      <div class="trips" id="pending-trips">
+        <h3 id="no-pending">No pending trips 🌍</h3>
+
+      </div>
+    </section>
+    <section id="past-trips-section">
+      <h2>Past Trips</h2>
+      <div class="trips" id="past-trips">
+        <h3 id="no-past">No trips taken 🌍</h3>
+
+      </div>
+    </section>
+  </article>
+  <article class="hidden" id="search-results">
+    <button id="close-button" class="close-button buttons" onclick="this.parentNode.classList.add('hidden')">Close</button>
+    <h2>Results</h2>
+    <section id="results-container">
+    </section>
+  </article>
+  <dialog id="trip-confirmation">
+    <h2 id="trip-confirmation-message"></h2>
+    <p id="trip-costs"></p>
+    <button class="buttons" id="trip-confirmation-button">Home</button>
+  </dialog>
+  <dialog id="error-display">
+    <h2>Whoops!👀</h2>
+    <p id="error-text"></p>
+    <button class="buttons" id="error-message-button">Close
+    </button>
+  </dialog>
+  <script src="bundle.js"></script>
+</body>
+</html>
