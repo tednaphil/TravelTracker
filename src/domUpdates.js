@@ -216,7 +216,8 @@ function captureInput() {
 
 function renderResults(destinationsArray) {
   resultsContainer.innerHTML = "";
-  destinationsArray.forEach((dest) => {
+  const sortedDestinations = destinationsArray.sort((a, b) => (a.destination).localeCompare(b.destination));
+  sortedDestinations.forEach((dest) => {
     resultsContainer.innerHTML += `
         <div class="result-card">
             <h3>${dest.destination}</h3>
