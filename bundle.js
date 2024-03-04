@@ -311,7 +311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  font-family: 'Inter', sans-serif;\n}\n\n:root {\n  --main-bg-color: #FBFFFF;\n  --sec-bg-color: #404040;\n  --main-acc-color: #FAA916;\n  --sec-acc-color: #96031A;\n  --main-text-color: #1B1B1E;\n  --sec-text-color: #FBFFFF;\n  --rounded-border: 12px;\n  --border-style: #1B1B1E solid 1px;\n  --drop-shadow: drop-shadow(0px 2px 10px #404040);\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  background: var(--main-bg-color);\n  margin: 0;\n}\n\n#login-page {\n  height: 100vh;\n  background: url('https://static.showit.co/file/t5GazwUVQneNSlBu7psHQw/161366/video-gif-mobile.gif');\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n#login-form {\n  margin: auto;\n  border-radius: var(--rounded-border);\n  padding: 10px;\n  position: relative;\n  top: 200px;\n  width: fit-content;\n  background: rgba(251, 255, 255, .8);\n  text-align: center;\n  & legend {\n    font-size: 2rem;\n  }\n  & label {\n    padding-top: 10px;\n  }\n  & input {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n\nheader {\n  background: var(--main-acc-color);\n  filter: var(--drop-shadow);\n  & h1 {\n    text-align: right;\n    padding-right: 10px;\n  }\n}\n\nmain {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  margin-bottom: 30px;\n  padding: 0 20px;\n}\n\n#plan-trip-container {\n  max-width: 416px;\n  background: var(--main-bg-color);\n  padding-right: 30px;\n  & h2 {\n    background: var(--sec-bg-color);\n    color: var(--sec-text-color);\n    height: 130px;\n    margin: 0;\n    padding-top: 50px;\n    text-align: center;\n  }\n  & .buttons {\n    margin-top: 20px;\n  }\n}\n\nlabel, input {\n  display: block;\n}\n\nlabel:not(:first-of-type) {\n  padding-top: 10px;\n}\n\ninput {\n  background: var(--main-bg-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  min-width: 320px;\n  min-height: 40px;\n  padding: 0 20px;\n}\n\n.buttons {\n  margin: 10px;\n  background: var(--sec-acc-color);\n  color: var(--sec-text-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  height: 40px;\n  &:hover {\n    cursor: pointer;\n  }\n}\n\n#trip-stats-container {\n  background: var(--sec-bg-color);\n  color: var(--sec-text-color);\n  width: 80%;\n  min-height: 500px;\n  & h2 {\n    padding: 30px 50px;\n    margin-bottom: 0;\n  }\n  & h3 {\n    margin: 0;\n  }\n  & div{\n    padding-left: 50px;\n  }\n  & div:last-of-type {\n    font-size: 2rem;\n    & p {\n      margin-top: 10px;\n    }\n  }\n}\n\n#trip-details-container {\n  background: var(--sec-bg-color);\n  /* min-height: 1340px; */\n  min-height: 940px;\n  padding: 10px 0;\n  & section {\n    background: var(--main-bg-color);\n    margin: 40px 20px;\n    min-height: 400px;\n    &  h2 {\n      position: relative;\n      left: -10px;\n      top: -25px;\n      background: var(--main-acc-color);\n      filter: var(--drop-shadow);\n      width: 250px;\n      text-align: center;\n      padding: 10px 0;\n      position: relative;\n    }\n  }\n}\n\n.trips {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  & img {\n    width: 280px;\n    height: 180px;\n  }\n  & h3 {\n    margin-left: auto;\n    margin-right: auto;\n    font-size: 3rem;\n  }\n}\n\n.trip-card {\n  text-align: center;\n  /* width: 40%; */\n  /* width: 250px; */\n  padding: 0 10px;\n}\n\n#search-results {\n  background: var(--sec-bg-color);\n  padding-bottom: 30px;\n  & h2 {\n    position: relative;\n    left: 20px;\n    top: 60px;\n    background: var(--main-acc-color);\n    font-size: 2.5rem;\n    filter: var(--drop-shadow);\n    width: 300px;\n    text-align: center;\n    padding: 10px 0;\n    position: relative;\n  }\n}\n\n.close-button {\n  float: right;\n}\n\n#results-container {\n  background: var(--main-bg-color);\n  width: 90%;\n  padding: 30px 0;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.result-card {\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  margin: 10px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n\ndialog {\n  text-align: center;\n  & p {\n    line-height: 1.7rem;\n  }\n}\n\n.hidden {\n  display: none;\n}\n\n\n\n", "",{"version":3,"sources":["webpack://./src/css/styles.css"],"names":[],"mappings":"AAAA;;;EAGE,sBAAsB;EACtB,gCAAgC;AAClC;;AAEA;EACE,wBAAwB;EACxB,uBAAuB;EACvB,yBAAyB;EACzB,wBAAwB;EACxB,0BAA0B;EAC1B,yBAAyB;EACzB,sBAAsB;EACtB,iCAAiC;EACjC,gDAAgD;AAClD;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,gCAAgC;EAChC,SAAS;AACX;;AAEA;EACE,aAAa;EACb,mGAAmG;EACnG,4BAA4B;EAC5B,sBAAsB;AACxB;;AAEA;EACE,YAAY;EACZ,oCAAoC;EACpC,aAAa;EACb,kBAAkB;EAClB,UAAU;EACV,kBAAkB;EAClB,mCAAmC;EACnC,kBAAkB;EAClB;IACE,eAAe;EACjB;EACA;IACE,iBAAiB;EACnB;EACA;IACE,iBAAiB;IACjB,kBAAkB;EACpB;AACF;;AAEA;EACE,iCAAiC;EACjC,0BAA0B;EAC1B;IACE,iBAAiB;IACjB,mBAAmB;EACrB;AACF;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,mBAAmB;EACnB,eAAe;AACjB;;AAEA;EACE,gBAAgB;EAChB,gCAAgC;EAChC,mBAAmB;EACnB;IACE,+BAA+B;IAC/B,4BAA4B;IAC5B,aAAa;IACb,SAAS;IACT,iBAAiB;IACjB,kBAAkB;EACpB;EACA;IACE,gBAAgB;EAClB;AACF;;AAEA;EACE,cAAc;AAChB;;AAEA;EACE,iBAAiB;AACnB;;AAEA;EACE,gCAAgC;EAChC,oCAAoC;EACpC,2BAA2B;EAC3B,gBAAgB;EAChB,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,gCAAgC;EAChC,4BAA4B;EAC5B,oCAAoC;EACpC,2BAA2B;EAC3B,YAAY;EACZ;IACE,eAAe;EACjB;AACF;;AAEA;EACE,+BAA+B;EAC/B,4BAA4B;EAC5B,UAAU;EACV,iBAAiB;EACjB;IACE,kBAAkB;IAClB,gBAAgB;EAClB;EACA;IACE,SAAS;EACX;EACA;IACE,kBAAkB;EACpB;EACA;IACE,eAAe;IACf;MACE,gBAAgB;IAClB;EACF;AACF;;AAEA;EACE,+BAA+B;EAC/B,wBAAwB;EACxB,iBAAiB;EACjB,eAAe;EACf;IACE,gCAAgC;IAChC,iBAAiB;IACjB,iBAAiB;IACjB;MACE,kBAAkB;MAClB,WAAW;MACX,UAAU;MACV,iCAAiC;MACjC,0BAA0B;MAC1B,YAAY;MACZ,kBAAkB;MAClB,eAAe;MACf,kBAAkB;IACpB;EACF;AACF;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,eAAe;EACf;IACE,YAAY;IACZ,aAAa;EACf;EACA;IACE,iBAAiB;IACjB,kBAAkB;IAClB,eAAe;EACjB;AACF;;AAEA;EACE,kBAAkB;EAClB,gBAAgB;EAChB,kBAAkB;EAClB,eAAe;AACjB;;AAEA;EACE,+BAA+B;EAC/B,oBAAoB;EACpB;IACE,kBAAkB;IAClB,UAAU;IACV,SAAS;IACT,iCAAiC;IACjC,iBAAiB;IACjB,0BAA0B;IAC1B,YAAY;IACZ,kBAAkB;IAClB,eAAe;IACf,kBAAkB;EACpB;AACF;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,gCAAgC;EAChC,UAAU;EACV,eAAe;EACf,iBAAiB;EACjB,kBAAkB;AACpB;;AAEA;EACE,oCAAoC;EACpC,2BAA2B;EAC3B,YAAY;EACZ,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,6BAA6B;AAC/B;;AAEA;EACE,kBAAkB;EAClB;IACE,mBAAmB;EACrB;AACF;;AAEA;EACE,aAAa;AACf","sourcesContent":["*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  font-family: 'Inter', sans-serif;\n}\n\n:root {\n  --main-bg-color: #FBFFFF;\n  --sec-bg-color: #404040;\n  --main-acc-color: #FAA916;\n  --sec-acc-color: #96031A;\n  --main-text-color: #1B1B1E;\n  --sec-text-color: #FBFFFF;\n  --rounded-border: 12px;\n  --border-style: #1B1B1E solid 1px;\n  --drop-shadow: drop-shadow(0px 2px 10px #404040);\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  background: var(--main-bg-color);\n  margin: 0;\n}\n\n#login-page {\n  height: 100vh;\n  background: url('https://static.showit.co/file/t5GazwUVQneNSlBu7psHQw/161366/video-gif-mobile.gif');\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n#login-form {\n  margin: auto;\n  border-radius: var(--rounded-border);\n  padding: 10px;\n  position: relative;\n  top: 200px;\n  width: fit-content;\n  background: rgba(251, 255, 255, .8);\n  text-align: center;\n  & legend {\n    font-size: 2rem;\n  }\n  & label {\n    padding-top: 10px;\n  }\n  & input {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n\nheader {\n  background: var(--main-acc-color);\n  filter: var(--drop-shadow);\n  & h1 {\n    text-align: right;\n    padding-right: 10px;\n  }\n}\n\nmain {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  margin-bottom: 30px;\n  padding: 0 20px;\n}\n\n#plan-trip-container {\n  max-width: 416px;\n  background: var(--main-bg-color);\n  padding-right: 30px;\n  & h2 {\n    background: var(--sec-bg-color);\n    color: var(--sec-text-color);\n    height: 130px;\n    margin: 0;\n    padding-top: 50px;\n    text-align: center;\n  }\n  & .buttons {\n    margin-top: 20px;\n  }\n}\n\nlabel, input {\n  display: block;\n}\n\nlabel:not(:first-of-type) {\n  padding-top: 10px;\n}\n\ninput {\n  background: var(--main-bg-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  min-width: 320px;\n  min-height: 40px;\n  padding: 0 20px;\n}\n\n.buttons {\n  margin: 10px;\n  background: var(--sec-acc-color);\n  color: var(--sec-text-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  height: 40px;\n  &:hover {\n    cursor: pointer;\n  }\n}\n\n#trip-stats-container {\n  background: var(--sec-bg-color);\n  color: var(--sec-text-color);\n  width: 80%;\n  min-height: 500px;\n  & h2 {\n    padding: 30px 50px;\n    margin-bottom: 0;\n  }\n  & h3 {\n    margin: 0;\n  }\n  & div{\n    padding-left: 50px;\n  }\n  & div:last-of-type {\n    font-size: 2rem;\n    & p {\n      margin-top: 10px;\n    }\n  }\n}\n\n#trip-details-container {\n  background: var(--sec-bg-color);\n  /* min-height: 1340px; */\n  min-height: 940px;\n  padding: 10px 0;\n  & section {\n    background: var(--main-bg-color);\n    margin: 40px 20px;\n    min-height: 400px;\n    &  h2 {\n      position: relative;\n      left: -10px;\n      top: -25px;\n      background: var(--main-acc-color);\n      filter: var(--drop-shadow);\n      width: 250px;\n      text-align: center;\n      padding: 10px 0;\n      position: relative;\n    }\n  }\n}\n\n.trips {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  & img {\n    width: 280px;\n    height: 180px;\n  }\n  & h3 {\n    margin-left: auto;\n    margin-right: auto;\n    font-size: 3rem;\n  }\n}\n\n.trip-card {\n  text-align: center;\n  /* width: 40%; */\n  /* width: 250px; */\n  padding: 0 10px;\n}\n\n#search-results {\n  background: var(--sec-bg-color);\n  padding-bottom: 30px;\n  & h2 {\n    position: relative;\n    left: 20px;\n    top: 60px;\n    background: var(--main-acc-color);\n    font-size: 2.5rem;\n    filter: var(--drop-shadow);\n    width: 300px;\n    text-align: center;\n    padding: 10px 0;\n    position: relative;\n  }\n}\n\n.close-button {\n  float: right;\n}\n\n#results-container {\n  background: var(--main-bg-color);\n  width: 90%;\n  padding: 30px 0;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.result-card {\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  margin: 10px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n\ndialog {\n  text-align: center;\n  & p {\n    line-height: 1.7rem;\n  }\n}\n\n.hidden {\n  display: none;\n}\n\n\n\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  font-family: 'Inter', sans-serif;\n}\n\n:root {\n  --main-bg-color: #FBFFFF;\n  --sec-bg-color: #404040;\n  --main-acc-color: #FAA916;\n  --sec-acc-color: #96031A;\n  --main-text-color: #1B1B1E;\n  --sec-text-color: #FBFFFF;\n  --rounded-border: 12px;\n  --border-style: #1B1B1E solid 1px;\n  --drop-shadow: drop-shadow(0px 2px 10px #404040);\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  background: var(--main-bg-color);\n  margin: 0;\n}\n\n#login-page {\n  height: 100vh;\n  background: url('https://static.showit.co/file/t5GazwUVQneNSlBu7psHQw/161366/video-gif-mobile.gif');\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n#login-form {\n  margin: auto;\n  border-radius: var(--rounded-border);\n  padding: 10px;\n  position: relative;\n  top: 200px;\n  width: fit-content;\n  background: rgba(251, 255, 255, .8);\n  text-align: center;\n  & legend {\n    font-size: 2rem;\n  }\n  & label {\n    padding-top: 10px;\n  }\n  & input {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n\nheader {\n  background: var(--main-acc-color);\n  filter: var(--drop-shadow);\n  & h1 {\n    text-align: right;\n    padding-right: 10px;\n  }\n}\n\nmain {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  margin-bottom: 30px;\n  padding: 0 20px;\n}\n\n#plan-trip-container {\n  max-width: 416px;\n  background: var(--main-bg-color);\n  padding-right: 30px;\n  & h2 {\n    background: var(--sec-bg-color);\n    color: var(--sec-text-color);\n    height: 130px;\n    margin: 0;\n    padding-top: 50px;\n    text-align: center;\n  }\n  & .buttons {\n    margin-top: 20px;\n  }\n}\n\nlabel, input {\n  display: block;\n}\n\nlabel:not(:first-of-type) {\n  padding-top: 10px;\n}\n\ninput {\n  background: var(--main-bg-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  min-width: 320px;\n  min-height: 40px;\n  padding: 0 20px;\n}\n\n.buttons {\n  margin: 10px;\n  background: var(--sec-acc-color);\n  color: var(--sec-text-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  height: 40px;\n  &:hover {\n    cursor: pointer;\n  }\n}\n\n#trip-stats-container {\n  background: var(--sec-bg-color);\n  color: var(--sec-text-color);\n  width: 80%;\n  min-height: 500px;\n  & h2 {\n    padding: 30px 50px;\n    margin-bottom: 0;\n  }\n  & h3 {\n    margin: 0;\n  }\n  & div{\n    padding-left: 50px;\n  }\n  & div:last-of-type {\n    font-size: 2rem;\n    & p {\n      margin-top: 10px;\n    }\n  }\n}\n\n#trip-details-container {\n  background: var(--sec-bg-color);\n  /* min-height: 1340px; */\n  min-height: 940px;\n  padding: 10px 0;\n  & section {\n    background: var(--main-bg-color);\n    margin: 40px 20px;\n    min-height: 400px;\n    &  h2 {\n      position: relative;\n      left: -10px;\n      top: -25px;\n      background: var(--main-acc-color);\n      filter: var(--drop-shadow);\n      width: 250px;\n      text-align: center;\n      padding: 10px 0;\n      position: relative;\n    }\n  }\n}\n\n.trips {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  & img {\n    width: 280px;\n    height: 180px;\n  }\n  & h3 {\n    margin-left: auto;\n    margin-right: auto;\n    font-size: 3rem;\n  }\n}\n\n.trip-card {\n  text-align: center;\n  padding: 0 10px;\n}\n\n#pending-trips-section {\n  & .trip-card:first-of-type {\n    animation: 3s linear 0s bounce;\n  }\n}\n\n#search-results {\n  background: var(--sec-bg-color);\n  padding-bottom: 30px;\n  & h2 {\n    position: relative;\n    left: 20px;\n    top: 60px;\n    background: var(--main-acc-color);\n    font-size: 2.5rem;\n    filter: var(--drop-shadow);\n    width: 300px;\n    text-align: center;\n    padding: 10px 0;\n    position: relative;\n  }\n}\n\n.close-button {\n  float: right;\n}\n\n#results-container {\n  background: var(--main-bg-color);\n  width: 90%;\n  padding: 30px 0;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.result-card {\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  margin: 10px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n  & img {\n    height: 85px;\n    width: 100px;\n    margin-right: 5px;\n    border-radius: 10px;\n  }\n}\n\ndialog {\n  text-align: center;\n  & p {\n    line-height: 1.7rem;\n  }\n}\n\n.hidden {\n  display: none;\n}\n\n\n\n", "",{"version":3,"sources":["webpack://./src/css/styles.css"],"names":[],"mappings":"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","sourcesContent":["*,\n*::before,\n*::after {\n  box-sizing: border-box;\n  font-family: 'Inter', sans-serif;\n}\n\n:root {\n  --main-bg-color: #FBFFFF;\n  --sec-bg-color: #404040;\n  --main-acc-color: #FAA916;\n  --sec-acc-color: #96031A;\n  --main-text-color: #1B1B1E;\n  --sec-text-color: #FBFFFF;\n  --rounded-border: 12px;\n  --border-style: #1B1B1E solid 1px;\n  --drop-shadow: drop-shadow(0px 2px 10px #404040);\n}\n\nhtml {\n  height: 100%;\n}\n\nbody {\n  background: var(--main-bg-color);\n  margin: 0;\n}\n\n#login-page {\n  height: 100vh;\n  background: url('https://static.showit.co/file/t5GazwUVQneNSlBu7psHQw/161366/video-gif-mobile.gif');\n  background-repeat: no-repeat;\n  background-size: cover;\n}\n\n#login-form {\n  margin: auto;\n  border-radius: var(--rounded-border);\n  padding: 10px;\n  position: relative;\n  top: 200px;\n  width: fit-content;\n  background: rgba(251, 255, 255, .8);\n  text-align: center;\n  & legend {\n    font-size: 2rem;\n  }\n  & label {\n    padding-top: 10px;\n  }\n  & input {\n    margin-left: auto;\n    margin-right: auto;\n  }\n}\n\nheader {\n  background: var(--main-acc-color);\n  filter: var(--drop-shadow);\n  & h1 {\n    text-align: right;\n    padding-right: 10px;\n  }\n}\n\nmain {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  margin-bottom: 30px;\n  padding: 0 20px;\n}\n\n#plan-trip-container {\n  max-width: 416px;\n  background: var(--main-bg-color);\n  padding-right: 30px;\n  & h2 {\n    background: var(--sec-bg-color);\n    color: var(--sec-text-color);\n    height: 130px;\n    margin: 0;\n    padding-top: 50px;\n    text-align: center;\n  }\n  & .buttons {\n    margin-top: 20px;\n  }\n}\n\nlabel, input {\n  display: block;\n}\n\nlabel:not(:first-of-type) {\n  padding-top: 10px;\n}\n\ninput {\n  background: var(--main-bg-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  min-width: 320px;\n  min-height: 40px;\n  padding: 0 20px;\n}\n\n.buttons {\n  margin: 10px;\n  background: var(--sec-acc-color);\n  color: var(--sec-text-color);\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  height: 40px;\n  &:hover {\n    cursor: pointer;\n  }\n}\n\n#trip-stats-container {\n  background: var(--sec-bg-color);\n  color: var(--sec-text-color);\n  width: 80%;\n  min-height: 500px;\n  & h2 {\n    padding: 30px 50px;\n    margin-bottom: 0;\n  }\n  & h3 {\n    margin: 0;\n  }\n  & div{\n    padding-left: 50px;\n  }\n  & div:last-of-type {\n    font-size: 2rem;\n    & p {\n      margin-top: 10px;\n    }\n  }\n}\n\n#trip-details-container {\n  background: var(--sec-bg-color);\n  /* min-height: 1340px; */\n  min-height: 940px;\n  padding: 10px 0;\n  & section {\n    background: var(--main-bg-color);\n    margin: 40px 20px;\n    min-height: 400px;\n    &  h2 {\n      position: relative;\n      left: -10px;\n      top: -25px;\n      background: var(--main-acc-color);\n      filter: var(--drop-shadow);\n      width: 250px;\n      text-align: center;\n      padding: 10px 0;\n      position: relative;\n    }\n  }\n}\n\n.trips {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  & img {\n    width: 280px;\n    height: 180px;\n  }\n  & h3 {\n    margin-left: auto;\n    margin-right: auto;\n    font-size: 3rem;\n  }\n}\n\n.trip-card {\n  text-align: center;\n  padding: 0 10px;\n}\n\n#pending-trips-section {\n  & .trip-card:first-of-type {\n    animation: 3s linear 0s bounce;\n  }\n}\n\n#search-results {\n  background: var(--sec-bg-color);\n  padding-bottom: 30px;\n  & h2 {\n    position: relative;\n    left: 20px;\n    top: 60px;\n    background: var(--main-acc-color);\n    font-size: 2.5rem;\n    filter: var(--drop-shadow);\n    width: 300px;\n    text-align: center;\n    padding: 10px 0;\n    position: relative;\n  }\n}\n\n.close-button {\n  float: right;\n}\n\n#results-container {\n  background: var(--main-bg-color);\n  width: 90%;\n  padding: 30px 0;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.result-card {\n  border-radius: var(--rounded-border);\n  border: var(--border-style);\n  margin: 10px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n  & img {\n    height: 85px;\n    width: 100px;\n    margin-right: 5px;\n    border-radius: 10px;\n  }\n}\n\ndialog {\n  text-align: center;\n  & p {\n    line-height: 1.7rem;\n  }\n}\n\n.hidden {\n  display: none;\n}\n\n\n\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -439,58 +439,55 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // QUERY SELECTORS
-const loginPage = document.querySelector('#login-page');
-const loginButton = document.querySelector('#login-button');
-const usernameInput = document.querySelector('#username-input');
-const passwordInput = document.querySelector('#password-input');
-const header = document.querySelector('header');
-const main = document.querySelector('main');
-const travelerName = document.querySelector('#traveler-name');
-const tripDetailsSection = document.querySelector('#trip-details-container');
-const planTripForm = document.querySelector('#plan-trip-form');
-const dateInput = document.querySelector('#date-input');
-const durationInput = document.querySelector('#duration-input');
-const numTravelersInput = document.querySelector('#num-travelers-input');
-const searchButton = document.querySelector('#trip-search-button');
-const lodgingTotal = document.querySelector('#lodging-total');
-const airfareTotal = document.querySelector('#airfare-total');
-const agentFeesTotal = document.querySelector('#agent-fee-total');
-const grandTotal = document.querySelector('#grand-total');
-const pendingTrips = document.querySelector('#pending-trips');
-const pastTrips = document.querySelector('#past-trips');
-const pendingPlaceholder = document.querySelector('#no-pending');
-const pastPlaceholder = document.querySelector('#no-past');
-const searchResultsSection = document.querySelector('#search-results');
-const searchCloseButton = document.querySelector('#close-button');
-const resultsContainer = document.querySelector('#results-container');
-const tripConfirmation = document.querySelector('#trip-confirmation');
-const tripConfirmationMessage = document.querySelector('#trip-confirmation-message');
-const tripCosts = document.querySelector('#trip-costs');
-const tripConfirmationButton = document.querySelector('#trip-confirmation-button');
-const errorDisplay = document.querySelector('#error-display');
-const errorText = document.querySelector('#error-text');
-const errorCloseButton = document.querySelector('#error-message-button');
-
-
-
+const loginPage = document.querySelector("#login-page");
+const loginButton = document.querySelector("#login-button");
+const usernameInput = document.querySelector("#username-input");
+const passwordInput = document.querySelector("#password-input");
+const header = document.querySelector("header");
+const main = document.querySelector("main");
+const travelerName = document.querySelector("#traveler-name");
+const tripDetailsSection = document.querySelector("#trip-details-container");
+const planTripForm = document.querySelector("#plan-trip-form");
+const dateInput = document.querySelector("#date-input");
+const durationInput = document.querySelector("#duration-input");
+const numTravelersInput = document.querySelector("#num-travelers-input");
+const searchButton = document.querySelector("#trip-search-button");
+const lodgingTotal = document.querySelector("#lodging-total");
+const airfareTotal = document.querySelector("#airfare-total");
+const agentFeesTotal = document.querySelector("#agent-fee-total");
+const grandTotal = document.querySelector("#grand-total");
+const pendingTrips = document.querySelector("#pending-trips");
+const pastTrips = document.querySelector("#past-trips");
+const pendingPlaceholder = document.querySelector("#no-pending");
+const pastPlaceholder = document.querySelector("#no-past");
+const searchResultsSection = document.querySelector("#search-results");
+const searchCloseButton = document.querySelector("#close-button");
+const resultsContainer = document.querySelector("#results-container");
+const tripConfirmation = document.querySelector("#trip-confirmation");
+const tripConfirmationMessage = document.querySelector("#trip-confirmation-message");
+const tripCosts = document.querySelector("#trip-costs");
+const tripConfirmationButton = document.querySelector("#trip-confirmation-button");
+const errorDisplay = document.querySelector("#error-display");
+const errorText = document.querySelector("#error-text");
+const errorCloseButton = document.querySelector("#error-message-button");
 
 // EVENT LISTENERS
-loginButton.addEventListener('click', function(e) {
-    handleLogin(e)
+loginButton.addEventListener("click", function (e) {
+  handleLogin(e);
 });
-loginPage.addEventListener('input', checkFields)
-planTripForm.addEventListener('input', checkFields)
-searchButton.addEventListener('click', handleSearch);
-searchCloseButton.addEventListener('click', backToHome);
-resultsContainer.addEventListener('click', function(e) {
-    if (e.target.className === 'buttons') {
-        planTrip(tripInput, e.target.value)
-    }
-})
-tripConfirmationButton.addEventListener('click', handleConfirmation)
-errorCloseButton.addEventListener('click', function() {
-    errorDisplay.close()
-})
+loginPage.addEventListener("input", checkFields);
+planTripForm.addEventListener("input", checkFields);
+searchButton.addEventListener("click", handleSearch);
+searchCloseButton.addEventListener("click", backToHome);
+resultsContainer.addEventListener("click", function (e) {
+  if (e.target.className === "buttons") {
+    planTrip(tripInput, e.target.value);
+  }
+});
+tripConfirmationButton.addEventListener("click", handleConfirmation);
+errorCloseButton.addEventListener("click", function () {
+  errorDisplay.close();
+});
 
 // GLOBAL VARIABLES
 let travelersData;
@@ -499,231 +496,229 @@ let destinationsData;
 let currentTraveler;
 let tripInput;
 
-function checkFields() {
-    if (usernameInput.value && passwordInput.value) {
-        loginButton.disabled = false
-    } else {
-        loginButton.disabled = true
-    }
+//FUNCTIONS
 
-    if (dateInput.value && durationInput.value && numTravelersInput.value) {
-        searchButton.disabled = false
-    } else {
-        searchButton.disabled = true
-    }
-};
+function checkFields() {
+  if (usernameInput.value && passwordInput.value) {
+    loginButton.disabled = false;
+  } else {
+    loginButton.disabled = true;
+  }
+
+  if (dateInput.value && durationInput.value && numTravelersInput.value) {
+    searchButton.disabled = false;
+  } else {
+    searchButton.disabled = true;
+  }
+}
 
 function handleLogin(e) {
-    e.preventDefault();
-    let credentials = {
-        username: usernameInput.value,
-        password: passwordInput.value
-    }
-    const loginSuccessful = (0,_traveler__WEBPACK_IMPORTED_MODULE_0__.checkLogin)(credentials);
-    if (loginSuccessful) {
-        console.log('credentials', credentials);
-        const userID = Number(credentials.username.replace('traveler', ''))
-        setData(userID);
-        loginPage.classList.add('hidden');
-        main.classList.remove('hidden');
-        tripDetailsSection.classList.remove('hidden');
-    } else {
-        displayErrorMessage('Please submit valid credentials');
-    }
+  e.preventDefault();
+  let credentials = {
+    username: usernameInput.value,
+    password: passwordInput.value,
+  };
+  const loginSuccessful = (0,_traveler__WEBPACK_IMPORTED_MODULE_0__.checkLogin)(credentials);
+  if (loginSuccessful) {
+    const userID = Number(credentials.username.replace("traveler", ""));
+    setData(userID);
+    loginPage.classList.add("hidden");
+    main.classList.remove("hidden");
+    tripDetailsSection.classList.remove("hidden");
+  } else {
+    displayErrorMessage("Please submit valid credentials");
+  }
 }
 
 function setData(userID) {
-    (0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.fetchData)()
-    .then(({travelers, destinations, trips}) => {
-        travelersData =travelers;
-        tripsData = trips;
-        destinationsData = destinations;
-        renderDom(userID)
+  (0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.fetchData)()
+    .then(({ travelers, destinations, trips }) => {
+      travelersData = travelers;
+      tripsData = trips;
+      destinationsData = destinations;
+      renderDom(userID);
     })
-    .catch(error => {
-        displayErrorMessage(error)
-    })
+    .catch((error) => {
+      displayErrorMessage(error);
+    });
 }
-
-
 
 function renderDom(userID) {
-    // console.log('trips data', tripsData)
-    currentTraveler = (0,_traveler__WEBPACK_IMPORTED_MODULE_0__.setTraveler)(userID, travelersData);
-    // console.log('currentTraveler', currentTraveler)
-    let trips = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.filterTrips)(currentTraveler, tripsData);
-    // console.log('trips', trips);
-    let organizedTrips = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.organizeTrips)(trips);
-    // console.log('organizedTrips', organizedTrips);
-    let tripDisplayDetails = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.getTripDisplayInfo)(organizedTrips, destinationsData);
-    // console.log('Trip Display Info', tripDisplayDetails)
-    let currentYear = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.findCurrentYear)(organizedTrips);
-    let stats = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.calculateStats)(organizedTrips, tripsData, destinationsData, currentYear);
-    // console.log('stats', stats);
-    setMinDate();
-    displayCurrentTraveler(currentTraveler);
-    displayTrips(tripDisplayDetails);
-    displayStats(stats);
+  currentTraveler = (0,_traveler__WEBPACK_IMPORTED_MODULE_0__.setTraveler)(userID, travelersData);
+  let trips = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.filterTrips)(currentTraveler, tripsData);
+  let organizedTrips = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.organizeTrips)(trips);
+  let tripDisplayDetails = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.getTripDisplayInfo)(organizedTrips, destinationsData);
+  let currentYear = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.findCurrentYear)(organizedTrips);
+  let stats = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.calculateStats)(
+    organizedTrips,
+    tripsData,
+    destinationsData,
+    currentYear
+  );
+  setMinDate();
+  displayCurrentTraveler(currentTraveler);
+  displayTrips(tripDisplayDetails);
+  displayStats(stats);
 }
 
-function displayCurrentTraveler({name}) {
-    const firstName = name.split(' ')[0];
-    travelerName.innerText = `Hi there, ${firstName}!`
+function displayCurrentTraveler({ name }) {
+  const firstName = name.split(" ")[0];
+  travelerName.innerText = `Hi there, ${firstName}!`;
 }
 
 function setMinDate() {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today)
+  const today = new Date().toISOString().split("T")[0];
+  dateInput.setAttribute("min", today);
 }
 
-function displayTrips({past, pending}) {
-    if (typeof past === 'object') {
-        pastPlaceholder.classList.add('hidden');
-        pastTrips.innerHTML = ''
-        past.forEach(trip => {
-            pastTrips.innerHTML += `
+function displayTrips({ past, pending }) {
+  if (typeof past === "object") {
+    pastPlaceholder.classList.add("hidden");
+    pastTrips.innerHTML = "";
+    past.forEach((trip) => {
+      pastTrips.innerHTML += `
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
                 <p>${trip.name}</p>
-            </div>`
-        })
-    };
-    if (typeof pending === 'object') {
-        pendingPlaceholder.classList.add('hidden');
-        pendingTrips.innerHTML = ''
-        const reversedPending = pending.reverse()
-        reversedPending.forEach(trip => {
-            pendingTrips.innerHTML += `
+                <p>${trip.date}</p>
+            </div>`;
+    });
+  }
+  if (typeof pending === "object") {
+    pendingPlaceholder.classList.add("hidden");
+    pendingTrips.innerHTML = "";
+    const reversedPending = pending.reverse();
+    reversedPending.forEach((trip) => {
+      pendingTrips.innerHTML += `
             <div class="trip-card">
                 <img alt="${trip.alt}" src="${trip.image}">
                 <p>${trip.name}</p>
-            </div>`
-        })
-    }; 
-};
+                <p>${trip.date}</p>
+            </div>`;
+    });
+  }
+}
 
 function displayStats(statsObj) {
-    lodgingTotal.innerText = `$ ${statsObj.lodging}`;
-    airfareTotal.innerText = `$ ${statsObj.airfare}`;
-    agentFeesTotal.innerText = `$ ${statsObj.agentFee}`;
-    grandTotal.innerText = `$ ${statsObj.grandTotal}`;
-
-};
+  lodgingTotal.innerText = `$ ${statsObj.lodging}`;
+  airfareTotal.innerText = `$ ${statsObj.airfare}`;
+  agentFeesTotal.innerText = `$ ${statsObj.agentFee}`;
+  grandTotal.innerText = `$ ${statsObj.grandTotal}`;
+}
 
 function handleSearch(e) {
-    e.preventDefault();
-    const dateValidation = checkTripDate()
-    if (dateValidation) {
+  e.preventDefault();
+  const dateValidation = checkTripDate();
+  if (dateValidation) {
     const input = captureInput();
-    clearForm()
+    clearForm();
     renderResults(destinationsData);
     displayResults(e);
-    } else {
-        displayErrorMessage('You already have a trip planned for that day! Please choose a different day.')
-    }
+  } else {
+    displayErrorMessage(
+      "You already have a trip planned for that day! Please choose a different day."
+    );
+  }
 }
 
 function checkTripDate() {
-    const tripDates = tripsData.map(trip => trip.date)
-    const inputDate = dateInput.value.split('-').join('/')
-    if (tripDates.includes(inputDate)) {
-        return false
-    } else {
-        return true
-    }
-
+  const tripDates = tripsData.map((trip) => trip.date);
+  const inputDate = dateInput.value.split("-").join("/");
+  if (tripDates.includes(inputDate)) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function captureInput() {
-    const input = {
-        date: dateInput.value,
-        duration: durationInput.value,
-        travelers: numTravelersInput.value
-    }
-    tripInput = input
-    return input
+  const input = {
+    date: dateInput.value,
+    duration: durationInput.value,
+    travelers: numTravelersInput.value,
+  };
+  tripInput = input;
+  return input;
 }
 
 function renderResults(destinationsArray) {
-    resultsContainer.innerHTML = ''
-    destinationsArray.forEach(dest => {
-        resultsContainer.innerHTML += `
+  resultsContainer.innerHTML = "";
+  const sortedDestinations = destinationsArray.sort((a, b) => (a.destination).localeCompare(b.destination));
+  sortedDestinations.forEach((dest) => {
+    resultsContainer.innerHTML += `
         <div class="result-card">
+            <img src="${dest.image}" alt="${dest.alt}">
             <h3>${dest.destination}</h3>
             <p>Lodging: $${dest.estimatedLodgingCostPerDay} per day</p>
             <p>Airfare: $${dest.estimatedFlightCostPerPerson} per person</p>
             <button class="buttons" id="select-destination-button" value="${dest.id}">Select</button>
-        </div>`
-    })
+        </div>`;
+  });
 }
 
 function planTrip(inputObj, destinationID) {
-    tripConfirmation.showModal()
-    const destID = Number(destinationID)
-    const dest = (0,_destinations__WEBPACK_IMPORTED_MODULE_2__.findDestination)(destID, destinationsData)
-    const tripObj = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.createTrip)(inputObj, dest, currentTraveler)
-    ;(0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.postData)(tripObj)
-        .then(data => {
-            const newTrip = data.newTrip;
-            displayNewTrip(newTrip);
-        })
-        .catch(error => {
-            displayErrorMessage(error);
-        })
+  tripConfirmation.showModal();
+  const destID = Number(destinationID);
+  const dest = (0,_destinations__WEBPACK_IMPORTED_MODULE_2__.findDestination)(destID, destinationsData);
+  const tripObj = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.createTrip)(inputObj, dest, currentTraveler);
+  (0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.postData)(tripObj)
+    .then((data) => {
+      const newTrip = data.newTrip;
+      displayNewTrip(newTrip);
+    })
+    .catch((error) => {
+      displayErrorMessage(error);
+    });
 }
 
 function displayNewTrip(tripObj) {
-    const dest = (0,_destinations__WEBPACK_IMPORTED_MODULE_2__.findDestination)(tripObj.destinationID, destinationsData)
-    const costs = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.calculateEstimate)(tripObj, destinationsData)
-    tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`;
-    tripCosts.innerHTML = `
+  const dest = (0,_destinations__WEBPACK_IMPORTED_MODULE_2__.findDestination)(tripObj.destinationID, destinationsData);
+  const costs = (0,_trips__WEBPACK_IMPORTED_MODULE_1__.calculateEstimate)(tripObj, destinationsData);
+  tripConfirmationMessage.innerText = `You've planned a trip to ${dest.destination}!`;
+  tripCosts.innerHTML = `
     Lodging: $${costs.totalLodging}<br>
     Airfare: $${costs.totalAirfare}<br>
     Subtotal: $${costs.subtotal}<br>
     10% Agent Fee: $${costs.agentFee}<br>
-    Total Estimate: $${costs.grandTotal}`
+    Total Estimate: $${costs.grandTotal}`;
 }
 
 function clearForm() {
-    planTripForm.reset()
+  planTripForm.reset();
 }
 
 function displayResults(e) {
-    e.preventDefault();
-    header.classList.add('hidden');
-    main.classList.add('hidden');
-    tripDetailsSection.classList.add('hidden');
-    searchResultsSection.classList.remove('hidden');
-};
-
+  e.preventDefault();
+  header.classList.add("hidden");
+  main.classList.add("hidden");
+  tripDetailsSection.classList.add("hidden");
+  searchResultsSection.classList.remove("hidden");
+}
 
 function backToHome() {
-    header.classList.remove('hidden');
-    main.classList.remove('hidden');
-    tripDetailsSection.classList.remove('hidden');
-    searchResultsSection.classList.add('hidden');
-    tripConfirmation.close();
-};
+  header.classList.remove("hidden");
+  main.classList.remove("hidden");
+  tripDetailsSection.classList.remove("hidden");
+  searchResultsSection.classList.add("hidden");
+  tripConfirmation.close();
+}
 
 function handleConfirmation() {
-    (0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.fetchTrips)()
-    .then(({trips}) => {
-        tripsData = trips;
-        renderDom(currentTraveler.id);
+  (0,_apiCalls__WEBPACK_IMPORTED_MODULE_3__.fetchTrips)()
+    .then(({ trips }) => {
+      tripsData = trips;
+      renderDom(currentTraveler.id);
     })
-    .catch(error => {
-        displayErrorMessage(error)
-    })
-    backToHome()
+    .catch((error) => {
+      displayErrorMessage(error);
+    });
+  backToHome();
 }
 
 function displayErrorMessage(error) {
-    errorText.innerText = error;
-    errorDisplay.showModal();
+  errorText.innerText = error;
+  errorDisplay.showModal();
 }
-
-
-
 
 
 /***/ }),
@@ -736,23 +731,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   setTraveler: () => (/* binding */ setTraveler)
 /* harmony export */ });
 function setTraveler(id, travelerArray) {
-    if (id > travelerArray.length || id === 0) {
-        return false
-    } else {
-        const currentTraveler = travelerArray.find(traveler => id === traveler.id);
+  if (id > travelerArray.length || id === 0) {
+    return false;
+  } else {
+    const currentTraveler = travelerArray.find(
+      (traveler) => id === traveler.id
+    );
     return currentTraveler;
-    }
+  }
 }
 
-function checkLogin({username, password}) {
-    const id = Number(username.replace('traveler', ''))
-    if (password === 'travel' && id > 0 && id < 51 && username.includes('traveler')) {
-        return true
-    } else {
-        return false
-    }
-
+function checkLogin({ username, password }) {
+  const id = Number(username.replace("traveler", ""));
+  if (
+    password === "travel" &&
+    id > 0 &&
+    id < 51 &&
+    username.includes("traveler")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
+
 
 
 
@@ -774,129 +776,152 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _destinations__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 
 
-function filterTrips({id}, tripsArray) {
-    const trips = tripsArray.filter(trip => trip.userID === id)
-    return trips
+function filterTrips({ id }, tripsArray) {
+  const trips = tripsArray.filter((trip) => trip.userID === id);
+  return trips;
 }
 
 function organizeTrips(userTrips) {
-    const tripsObject = userTrips.reduce((obj, trip) => {
-        if (trip.status === "approved") {
-            obj.approved.push(trip)
-        } else {
-            obj.pending.push(trip)
-        }
-        return obj
-    }, {
-        approved: [],
-        pending: []
-    })
-    return tripsObject
+  const tripsObject = userTrips.reduce(
+    (obj, trip) => {
+      if (trip.status === "approved") {
+        obj.approved.push(trip);
+      } else {
+        obj.pending.push(trip);
+      }
+      return obj;
+    },
+    {
+      approved: [],
+      pending: [],
+    }
+  );
+  return tripsObject;
 }
 
 function calculateTripCost(tripID, tripsArray, destinationsArray) {
-    const tripIDs = tripsArray.map(trip => trip.id);
-    if (!tripIDs.includes(tripID)) {
-        return false
-    } else {
-        const foundTrip = tripsArray.find(trip => trip.id === tripID);
-        const year = foundTrip.date.split('/')[0];
-        const tripDest = destinationsArray.find(dest => foundTrip.destinationID === dest.id);
-        const totalLodging = tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
-        const totalAirfare = tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
-        const subtotal = totalLodging + totalAirfare;
-        const agentFee = Math.round(subtotal * .1);
-        const grandTotal = Math.round(subtotal + agentFee)
-        const tripCost = {
-            year,
-            totalLodging,
-            totalAirfare,
-            subtotal,
-            agentFee,
-            grandTotal
-        }
-        return tripCost
+  const tripIDs = tripsArray.map((trip) => trip.id);
+  if (!tripIDs.includes(tripID)) {
+    return false;
+  } else {
+    const foundTrip = tripsArray.find((trip) => trip.id === tripID);
+    const year = foundTrip.date.split("/")[0];
+    const tripDest = destinationsArray.find(
+      (dest) => foundTrip.destinationID === dest.id
+    );
+    const totalLodging =
+      tripDest.estimatedLodgingCostPerDay * foundTrip.duration;
+    const totalAirfare =
+      tripDest.estimatedFlightCostPerPerson * foundTrip.travelers;
+    const subtotal = totalLodging + totalAirfare;
+    const agentFee = Math.round(subtotal * 0.1);
+    const grandTotal = Math.round(subtotal + agentFee);
+    const tripCost = {
+      year,
+      totalLodging,
+      totalAirfare,
+      subtotal,
+      agentFee,
+      grandTotal,
+    };
+    return tripCost;
+  }
+}
+
+function findCurrentYear({ approved }) {
+  const dates = approved.map((trip) => trip.date);
+  const years = [];
+  dates.forEach((date) => {
+    years.push(date.split("/")[0]);
+  });
+  const sortedYears = years.sort((a, b) => b - a);
+  return sortedYears[0];
+}
+
+function calculateStats({ approved }, tripsArray, destinationsArray, year) {
+  const tripCosts = approved.map((trip) =>
+    calculateTripCost(trip.id, tripsArray, destinationsArray)
+  );
+  const travStats = tripCosts.reduce(
+    (obj, trip) => {
+      if (trip.year === year) {
+        obj.lodging += trip.totalLodging;
+        obj.airfare += trip.totalAirfare;
+        obj.subtotal += trip.subtotal;
+        obj.agentFee += trip.agentFee;
+        obj.grandTotal += trip.grandTotal;
+        obj.tripsTaken++;
+        obj.year = year;
+      }
+      return obj;
+    },
+    {
+      lodging: 0,
+      airfare: 0,
+      subtotal: 0,
+      agentFee: 0,
+      grandTotal: 0,
+      tripsTaken: 0,
+      year: "",
     }
+  );
+  return travStats;
 }
 
-function findCurrentYear({approved}) {
-    const dates = approved.map(trip => trip.date)
-    const years = [];
-    dates.forEach(date => {
-        years.push((date.split('/')[0]))
-    })
-    const sortedYears = years.sort((a, b) => b - a)
-    return sortedYears[0]
-
+function getTripDisplayInfo({ approved, pending }, destinationsArray) {
+  const pastDestinations = approved.map((trip) =>
+    (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.findDestination)(trip.destinationID, destinationsArray)
+  );
+  const pendingDestinations = pending.map((trip) =>
+    (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.findDestination)(trip.destinationID, destinationsArray)
+  );
+  const allDisplayInfo = {
+    past: pastDestinations.length
+      ? pastDestinations.map((dest) => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.getDestDisplayInfo)(dest, approved))
+      : "No Trips 🌍",
+    pending: pendingDestinations.length
+      ? pendingDestinations.map((dest) => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.getDestDisplayInfo)(dest, pending))
+      : "No Pending Trips 🌍",
+  };
+  return allDisplayInfo;
 }
 
-function calculateStats({approved}, tripsArray, destinationsArray, year) {
-    const tripCosts = approved.map(trip => calculateTripCost(trip.id, tripsArray, destinationsArray));
-    const travStats = tripCosts.reduce((obj, trip) => {
-        if (trip.year === year) {
-            obj.lodging += trip.totalLodging;
-            obj.airfare += trip.totalAirfare;
-            obj.subtotal += trip.subtotal;
-            obj.agentFee += trip.agentFee;
-            obj.grandTotal += trip.grandTotal;
-            obj.tripsTaken ++;
-            obj.year = year;
-        }
-        return obj
-    }, {
-        lodging: 0,
-        airfare: 0,
-        subtotal: 0,
-        agentFee: 0,
-        grandTotal: 0,
-        tripsTaken: 0,
-        year: ''
-    })
-    return travStats
-
-}
-
-function getTripDisplayInfo({approved, pending}, destinationsArray) {
-    const pastDestinations = approved.map(trip => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.findDestination)(trip.destinationID, destinationsArray));
-    const pendingDestinations = pending.map(trip => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.findDestination)(trip.destinationID, destinationsArray));
-    const allDisplayInfo = {
-        past: pastDestinations.length ? pastDestinations.map(dest => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.getDestDisplayInfo)(dest)) : 'No Trips 🌍',
-        pending: pendingDestinations.length ? pendingDestinations.map(dest => (0,_destinations__WEBPACK_IMPORTED_MODULE_0__.getDestDisplayInfo)(dest)) : 'No Pending Trips 🌍'
-    }
-    return allDisplayInfo
-}
-
-function createTrip({date, duration, travelers}, {id}, traveler) {
-    const formattedDate = date.split('-').join('/');
-    const newTrip = {
-        date: formattedDate,
-        destinationID: id,
-        duration: Number(duration),
-        id: null,
-        status: 'pending',
-        suggestedActivities: [],
-        travelers: Number(travelers),
-        userID: traveler.id
-    }
-    return newTrip
+function createTrip({ date, duration, travelers }, { id }, traveler) {
+  const formattedDate = date.split("-").join("/");
+  const newTrip = {
+    date: formattedDate,
+    destinationID: id,
+    duration: Number(duration),
+    id: null,
+    status: "pending",
+    suggestedActivities: [],
+    travelers: Number(travelers),
+    userID: traveler.id,
+  };
+  return newTrip;
 }
 
 function calculateEstimate(newTripObj, destinationsArray) {
-    const tripDest = destinationsArray.find(dest => newTripObj.destinationID === dest.id);
-    const totalLodging = tripDest.estimatedLodgingCostPerDay * newTripObj.duration;
-    const totalAirfare = tripDest.estimatedFlightCostPerPerson * newTripObj.travelers;
-    const subtotal = totalLodging + totalAirfare;
-    const agentFee = Math.round(subtotal * .1);
-    const grandTotal = Math.round(subtotal + agentFee)
-    const tripEstimate = {
-        totalLodging,
-        totalAirfare,
-        subtotal,
-        agentFee,
-        grandTotal
-    }
-    return tripEstimate
+  const tripDest = destinationsArray.find(
+    (dest) => newTripObj.destinationID === dest.id
+  );
+  const totalLodging =
+    tripDest.estimatedLodgingCostPerDay * newTripObj.duration;
+  const totalAirfare =
+    tripDest.estimatedFlightCostPerPerson * newTripObj.travelers;
+  const subtotal = totalLodging + totalAirfare;
+  const agentFee = Math.round(subtotal * 0.1);
+  const grandTotal = Math.round(subtotal + agentFee);
+  const tripEstimate = {
+    totalLodging,
+    totalAirfare,
+    subtotal,
+    agentFee,
+    grandTotal,
+  };
+  return tripEstimate;
 }
+
 
 
 
@@ -910,25 +935,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   getDestDisplayInfo: () => (/* binding */ getDestDisplayInfo)
 /* harmony export */ });
 function findDestination(locationID, destinationsArray) {
-    const destinationIDs = destinationsArray.map(dest => dest.id);
-    if (!destinationIDs.includes(locationID)) {
-        return false
-    } else {
-        const destination = destinationsArray.find(dest => dest.id === locationID)
-        return destination
-    }
+  const destinationIDs = destinationsArray.map((dest) => dest.id);
+  if (!destinationIDs.includes(locationID)) {
+    return false;
+  } else {
+    const destination = destinationsArray.find(
+      (dest) => dest.id === locationID
+    );
+    return destination;
+  }
 }
-//refactor to destructure locationID parameter to {destinationID} and pass trip object instead?
 
-function getDestDisplayInfo(destination) {
-    const displayInfo = {
-        name: destination.destination,
-        image: destination.image,
-        alt: destination.alt,
-        // lodging: destination.estimatedLodgingCostPerDay,
-        // airfare: destination.estimatedFlightCostPerPerson,
-    }
-    return displayInfo
+function getDestDisplayInfo(destination, tripsArray) {
+  const dateArray = tripsArray.find(trip => trip.destinationID === destination.id).date.split('/');
+  const date = `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`;
+  const displayInfo = {
+    name: destination.destination,
+    image: destination.image,
+    alt: destination.alt,
+    date,
+  };
+  return displayInfo;
 }
 
 
@@ -1104,18 +1131,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _css_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
 
-// An example of how you tell webpack to use a CSS (SCSS) file
-
-
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-
-
-
-
-console.log('This is the JavaScript entry file - your code begins here.');
 
 })();
 
