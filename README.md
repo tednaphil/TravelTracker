@@ -4,7 +4,7 @@
 
 ## Preview:
 <div align="center">
-  <img src=".github/TravelTracker.gif" alt="app demo">
+  <img src="https://github.com/tednaphil/TravelTracker/blob/main/.github/2024-03-03%2020.13.03.gif?raw=true" alt="app demo">
 
 </div>
 <p align="center">Technologies Used</p>
