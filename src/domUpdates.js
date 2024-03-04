@@ -74,12 +74,16 @@ let tripInput;
 function checkFields() {
   if (usernameInput.value && passwordInput.value) {
     loginButton.disabled = false;
+    loginButton.classList.remove('greyout');
+
   } else {
     loginButton.disabled = true;
   }
 
   if (dateInput.value && durationInput.value && numTravelersInput.value) {
     searchButton.disabled = false;
+    searchButton.classList.remove('greyout');
+
   } else {
     searchButton.disabled = true;
   }
