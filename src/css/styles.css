@@ -241,6 +241,14 @@ dialog {
   }
 }
 
+.greyout {
+  opacity: .3;
+  background: var(--sec-bg-color);
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
 .hidden {
   display: none;
 }
