@@ -48,7 +48,7 @@ describe("Destinations", function () {
 
   describe("Get Destination Display Info", function () {
     it("should return an object with one destination's details to display", function () {
-      const destInfo = getDestDisplayInfo(dest1);
+      const destInfo = getDestDisplayInfo(dest1, traveler1Trips.approved);
 
       expect(destInfo).to.be.an("object");
       expect(destInfo.name).to.equal("Lima, Peru");

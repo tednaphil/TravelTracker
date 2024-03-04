@@ -74,7 +74,6 @@ describe("Trips", function () {
         userID: 2,
       });
     });
-    // sad path(s) - if an invalid id is passed
   });
 
   describe("Organize Trips", function () {
@@ -223,12 +222,14 @@ describe("Trips", function () {
             image:
               "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
             alt: "city with buildings during the day",
+            date: "2023/02/14"
           },
           {
             name: "Dubai, UAE",
             image:
               "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
             alt: "city with tall buildings and a fountain in the foreground",
+            date: "2026/04/10"
           },
         ],
         pending: [
@@ -237,6 +238,7 @@ describe("Trips", function () {
             image:
               "https://images.unsplash.com/photo-1508818619205-0a3a90aadc5d?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
             alt: "city during the day with eiffel tower",
+            date: "2025/01/10"
           },
         ],
       });
