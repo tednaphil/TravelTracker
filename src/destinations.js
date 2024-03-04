@@ -11,11 +11,13 @@ function findDestination(locationID, destinationsArray) {
 }
 
 function getDestDisplayInfo(destination, tripsArray) {
+  const dateArray = tripsArray.find(trip => trip.destinationID === destination.id).date.split('/');
+  const date = `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`;
   const displayInfo = {
     name: destination.destination,
     image: destination.image,
     alt: destination.alt,
-    date: tripsArray.find(trip => trip.destinationID === destination.id).date
+    date,
   };
   return displayInfo;
 }
