@@ -180,9 +180,13 @@ input {
 
 .trip-card {
   text-align: center;
-  /* width: 40%; */
-  /* width: 250px; */
   padding: 0 10px;
+}
+
+#pending-trips-section {
+  & .trip-card:first-of-type {
+    animation: 3s linear 0s bounce;
+  }
 }
 
 #search-results {
@@ -222,6 +226,12 @@ input {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  & img {
+    height: 85px;
+    width: 100px;
+    margin-right: 5px;
+    border-radius: 10px;
+  }
 }
 
 dialog {
