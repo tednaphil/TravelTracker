@@ -123,8 +123,8 @@ function setData(userID) {
 function renderDom(userID) {
   currentTraveler = setTraveler(userID, travelersData);
   let trips = filterTrips(currentTraveler, tripsData);
-  let organizedTrips = organizeTrips(trips);
-  let tripDisplayDetails = getTripDisplayInfo(organizedTrips, destinationsData);
+  let organizedTrips = organizeTrips(trips, destinationsData);
+  let tripDisplayDetails = getTripDisplayInfo(organizedTrips);
   let currentYear = findCurrentYear(organizedTrips);
   let stats = calculateStats(
     organizedTrips,
