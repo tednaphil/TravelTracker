@@ -40,7 +40,7 @@ describe("Trips", function () {
     trips4 = filterTrips(traveler4, testTrips);
     traveler1Trips = organizeTrips(trips1, testDestinations);
     traveler4Trips = organizeTrips(trips4, testDestinations);
-    trav1DisplayInfo = getTripDisplayInfo(traveler1Trips, testDestinations);
+    trav1DisplayInfo = getTripDisplayInfo(traveler1Trips);
     currentTraveler = traveler1;
     dest = testDestinations[0];
   });

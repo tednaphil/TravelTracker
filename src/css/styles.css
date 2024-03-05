@@ -142,7 +142,6 @@ input {
 
 #trip-details-container {
   background: var(--sec-bg-color);
-  /* min-height: 1340px; */
   min-height: 940px;
   padding: 10px 0;
   & section {
@@ -238,6 +237,10 @@ dialog {
   text-align: center;
   & p {
     line-height: 1.7rem;
+  }
+  & span {
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 }
 
