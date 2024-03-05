@@ -258,7 +258,7 @@ function displayNewTrip(tripObj) {
     Airfare: $${costs.totalAirfare}<br>
     Subtotal: $${costs.subtotal}<br>
     10% Agent Fee: $${costs.agentFee}<br>
-    Total Estimate: $${costs.grandTotal}`;
+    <span>Total Estimate: $${costs.grandTotal}</span>`;
 }
 
 function clearForm() {

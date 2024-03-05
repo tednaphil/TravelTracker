@@ -239,6 +239,10 @@ dialog {
   & p {
     line-height: 1.7rem;
   }
+  & span {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
 }
 
 .greyout {
