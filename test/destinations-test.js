@@ -23,7 +23,7 @@ describe("Destinations", function () {
     trips1 = filterTrips(traveler1, testTrips);
     trips2 = filterTrips(traveler2, testTrips);
     trips3 = filterTrips(traveler3, testTrips);
-    traveler1Trips = organizeTrips(trips1);
+    traveler1Trips = organizeTrips(trips1, testDestinations);
     dest1 = findDestination(1, testDestinations);
   });
 
@@ -48,7 +48,7 @@ describe("Destinations", function () {
 
   describe("Get Destination Display Info", function () {
     it("should return an object with one destination's details to display", function () {
-      const destInfo = getDestDisplayInfo(dest1, traveler1Trips.approved);
+      const destInfo = getDestDisplayInfo(traveler1Trips.approved[0]);
 
       expect(destInfo).to.be.an("object");
       expect(destInfo.name).to.equal("Lima, Peru");
