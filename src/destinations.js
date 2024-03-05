@@ -10,13 +10,13 @@ function findDestination(locationID, destinationsArray) {
   }
 }
 
-function getDestDisplayInfo(destination, tripsArray) {
-  const dateArray = tripsArray.find(trip => trip.destinationID === destination.id).date.split('/');
+function getDestDisplayInfo(tripObj) {
+  const dateArray = tripObj.date.split('/');
   const date = `${dateArray[1]}/${dateArray[2]}/${dateArray[0]}`;
   const displayInfo = {
-    name: destination.destination,
-    image: destination.image,
-    alt: destination.alt,
+    name: tripObj.destination.destination,
+    image: tripObj.destination.image,
+    alt: tripObj.destination.alt,
     date,
   };
   return displayInfo;

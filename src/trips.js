@@ -5,7 +5,10 @@ function filterTrips({ id }, tripsArray) {
   return trips;
 }
 
-function organizeTrips(userTrips) {
+function organizeTrips(userTrips, destinationsArray) {
+  userTrips.forEach(trip => {
+    trip.destination = findDestination(trip.destinationID, destinationsArray)
+  })
   const tripsObject = userTrips.reduce(
     (obj, trip) => {
       if (trip.status === "approved") {
@@ -92,19 +95,13 @@ function calculateStats({ approved }, tripsArray, destinationsArray, year) {
   return travStats;
 }
 
-function getTripDisplayInfo({ approved, pending }, destinationsArray) {
-  const pastDestinations = approved.map((trip) =>
-    findDestination(trip.destinationID, destinationsArray)
-  );
-  const pendingDestinations = pending.map((trip) =>
-    findDestination(trip.destinationID, destinationsArray)
-  );
+function getTripDisplayInfo({ approved, pending }) {
   const allDisplayInfo = {
-    past: pastDestinations.length
-      ? pastDestinations.map((dest) => getDestDisplayInfo(dest, approved))
+    past: approved.length
+      ? approved.map((trip) => getDestDisplayInfo(trip))
       : "No Trips 🌍",
-    pending: pendingDestinations.length
-      ? pendingDestinations.map((dest) => getDestDisplayInfo(dest, pending))
+    pending: pending.length
+      ? pending.map((trip) => getDestDisplayInfo(trip))
       : "No Pending Trips 🌍",
   };
   return allDisplayInfo;

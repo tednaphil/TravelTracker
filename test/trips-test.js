@@ -38,8 +38,8 @@ describe("Trips", function () {
     trips2 = filterTrips(traveler2, testTrips);
     trips3 = filterTrips(traveler3, testTrips);
     trips4 = filterTrips(traveler4, testTrips);
-    traveler1Trips = organizeTrips(trips1);
-    traveler4Trips = organizeTrips(trips4);
+    traveler1Trips = organizeTrips(trips1, testDestinations);
+    traveler4Trips = organizeTrips(trips4, testDestinations);
     trav1DisplayInfo = getTripDisplayInfo(traveler1Trips, testDestinations);
     currentTraveler = traveler1;
     dest = testDestinations[0];
@@ -52,6 +52,15 @@ describe("Trips", function () {
       expect(trips1[0]).to.deep.equal({
         date: "2023/02/14",
         destinationID: 1,
+        destination: {
+          id: 1,
+          destination: "Lima, Peru",
+          estimatedLodgingCostPerDay: 70,
+          estimatedFlightCostPerPerson: 400,
+          image:
+            "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+          alt: "city with buildings during the day",
+        },
         duration: 6,
         id: 1,
         status: "approved",
@@ -83,6 +92,15 @@ describe("Trips", function () {
           {
             date: "2023/02/14",
             destinationID: 1,
+            destination: {
+              id: 1,
+              destination: "Lima, Peru",
+              estimatedLodgingCostPerDay: 70,
+              estimatedFlightCostPerPerson: 400,
+              image:
+                "https://images.unsplash.com/photo-1489171084589-9bf89e1baa8b?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+              alt: "city with buildings during the day",
+            },
             duration: 6,
             id: 1,
             status: "approved",
@@ -93,6 +111,15 @@ describe("Trips", function () {
           {
             date: "2026/04/10",
             destinationID: 7,
+            destination: {
+              id: 7,
+              destination: "Dubai, UAE",
+              estimatedLodgingCostPerDay: 200,
+              estimatedFlightCostPerPerson: 900,
+              image:
+                "https://images.unsplash.com/photo-1503443207922-dff7d543fd0e?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+              alt: "city with tall buildings and a fountain in the foreground",
+            },
             duration: 4,
             id: 7,
             status: "approved",
@@ -105,6 +132,15 @@ describe("Trips", function () {
           {
             date: "2025/01/10",
             destinationID: 4,
+            destination: {
+              id: 4,
+              destination: "Paris, France",
+              estimatedLodgingCostPerDay: 103,
+              estimatedFlightCostPerPerson: 395,
+              image:
+                "https://images.unsplash.com/photo-1508818619205-0a3a90aadc5d?ixid=MnwyMzU4MzB8MHwxfGFsbHwxfHx8fHx8fHx8fDE2Mzg1ODU0NzE&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80",
+              alt: "city during the day with eiffel tower",
+            },
             duration: 4,
             id: 4,
             status: "pending",
@@ -116,7 +152,7 @@ describe("Trips", function () {
       });
     });
     it("should present an empty array if no trips match the respective status", function () {
-      const traveler3Trips = organizeTrips(trips3);
+      const traveler3Trips = organizeTrips(trips3, testDestinations);
 
       expect(traveler3Trips.pending).to.deep.equal([]);
     });
@@ -124,7 +160,7 @@ describe("Trips", function () {
 
   describe("Find Current Year", function () {
     it("should return the year of a traveler's most recent past trip", function () {
-      const traveler3Trips = organizeTrips(trips3);
+      const traveler3Trips = organizeTrips(trips3, testDestinations);
       const currentYear = findCurrentYear(traveler3Trips);
 
       expect(currentYear).to.equal("2026");
