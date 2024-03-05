@@ -229,7 +229,7 @@ function renderResults(destinationsArray) {
             <h3>${dest.destination}</h3>
             <p>Lodging: $${dest.estimatedLodgingCostPerDay} per day</p>
             <p>Airfare: $${dest.estimatedFlightCostPerPerson} per person</p>
-            <button class="buttons" id="select-destination-button" value="${dest.id}">Select</button>
+            <button class="buttons" id="select-destination-button-${dest.id}" value="${dest.id}">Select</button>
         </div>`;
   });
 }
