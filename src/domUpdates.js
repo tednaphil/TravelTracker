@@ -199,7 +199,8 @@ function handleSearch(e) {
 }
 
 function checkTripDate() {
-  const tripDates = tripsData.map((trip) => trip.date);
+  const userTrips = filterTrips(currentTraveler, tripsData);
+  const tripDates = userTrips.map((trip) => trip.date);
   const inputDate = dateInput.value.split("-").join("/");
   if (tripDates.includes(inputDate)) {
     return false;
