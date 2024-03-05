@@ -9,7 +9,6 @@ function organizeTrips(userTrips, destinationsArray) {
   userTrips.forEach(trip => {
     trip.destination = findDestination(trip.destinationID, destinationsArray)
   })
-  console.log('User Trips', userTrips)
   const tripsObject = userTrips.reduce(
     (obj, trip) => {
       if (trip.status === "approved") {
@@ -24,7 +23,6 @@ function organizeTrips(userTrips, destinationsArray) {
       pending: [],
     }
   );
-  console.log('Trips Object', tripsObject)
   return tripsObject;
 }
 
@@ -106,7 +104,6 @@ function getTripDisplayInfo({ approved, pending }) {
       ? pending.map((trip) => getDestDisplayInfo(trip))
       : "No Pending Trips 🌍",
   };
-  console.log('allDisplayInfo', allDisplayInfo)
   return allDisplayInfo;
 }
 
