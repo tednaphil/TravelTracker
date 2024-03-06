@@ -263,6 +263,8 @@ function displayNewTrip(tripObj) {
 
 function clearForm() {
   planTripForm.reset();
+  searchButton.disabled = true;
+  searchButton.classList.add('greyout');
 }
 
 function displayResults(e) {
