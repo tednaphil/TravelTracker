@@ -62,6 +62,7 @@
 ### Wins
  > - 100 accessibility score and usability without pointing device
  > - Error prevention with input validation and visible user feedback using `<dialog>` elements for reactive error handling
+ > - Use of Figma to create a comp for each view of the application. See comp [here](https://github.com/tednaphil/TravelTracker/blob/d04b3903ecdef47c9d9071d2ffef364e52271532/Travel%20Tracker%20Comp.pdf)
   
 ### Challenges
 > - dynamic date validation - solved with using Javascript to determine the current date and set the date input min attribute
